@@ -1,0 +1,10 @@
+.footer {
+  background-color: #F8F9FD;
+  height: 2rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.p_footer {
+  margin-left: 35%;
+}

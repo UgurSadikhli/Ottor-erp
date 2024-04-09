@@ -1,0 +1,54 @@
+.header {
+  background-color: #f8f9fd;
+  height: 7%;
+  padding: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_h1 {
+  margin-left: 1%;
+  font-size: 20px;
+}
+.userName_header {
+  order: 1;
+}
+.userPosition_header {
+  margin-top: -16%;
+  order: 2;
+  font-size: 12px;
+  color: grey;
+}
+.header_p {
+  margin-left: 1%;
+  margin-top: -1px;
+  font-size: 11px;
+}
+
+.header_image {
+  border-radius: 50%;
+}
+
+.header_left {
+  flex: 7;
+}
+.header_right {
+  flex: 1;
+  display: flex;
+}
+.header_perInfo {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2%;
+}
+
+.bi-bell-fill {
+  margin-top: 5%;
+  margin-right: 2.5%;
+}
+
+.bi-caret-down-fill {
+  margin-top: 2%;
+  margin-left: 1%;
+}
