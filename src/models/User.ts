@@ -1,7 +1,7 @@
-export interface RegisterUserDto{
+export interface User{
+    id: string
     name: string;
     surname: string
-    dateofbirth: Date;
     email: string;
     password: string;
 } 
