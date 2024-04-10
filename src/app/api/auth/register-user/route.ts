@@ -1,36 +1,46 @@
-import db from "../../../../../db.json";
+import {
+  createTable,
+  insertIntoTable,
+} from "@/services/UserDBService";
 import { User } from "@/models/User";
-import { v4 as uuidv4 } from "uuid";
-import { NextRequest, NextResponse } from "next/server";
-import { generateOTP } from "@/services/OtpService";
-import { sendOTP } from "@/services/OtpService";
+import { NextResponse } from "next/server";
+import { generateOTP, sendOTP } from "@/services/OtpService";
+import { randomUUID } from "crypto";
+
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database("otor.db", sqlite3.OPEN_READWRITE, (err: Error) => {
+  if (err) return console.error(err.message);
+}); 
 
 export async function POST(req: Request) {
   const reqObject = await req.json();
 
   try {
-    if (!reqObject) {
-      return NextResponse.json(
-        { error: "Missing or invalid registration data" },
-        { status: 400 }
-      );
-    }
-
-    const users = db.users;
-
     if (
+      !reqObject ||
       !reqObject.name ||
       !reqObject.surname ||
       !reqObject.email ||
       !reqObject.password
     ) {
       return NextResponse.json(
-        { error: "Missing registration data" },
+        { error: "Missing or invalid registration data" },
         { status: 400 }
       );
     }
 
-    if (users.find((x) => x.email == reqObject.email)) {
+    db.OPEN_READWRITE;
+
+    const users = await new Promise((resolve, reject) => {
+      db.all('SELECT * FROM users', (err, rows) => {
+        if (err) {
+          reject(err);
+          return console.error('Error fetching users:', err.message);
+        }
+        resolve(rows);
+      });
+    });
+    if (users.some((user: User) => user.email === reqObject.email)) {
       return NextResponse.json(
         { error: "User with this email already exists" },
         { status: 400 }
@@ -38,15 +48,16 @@ export async function POST(req: Request) {
     }
 
     const newUser: User = {
-      id: uuidv4(),
+      id: randomUUID(),
       name: reqObject.name,
       surname: reqObject.surname,
       email: reqObject.email,
       password: reqObject.password,
-      emailconfirmed: false
+      emailconfirmed: false,
     };
 
-    db.users.push(newUser);
+    db.OPEN_READWRITE;
+    await insertIntoTable(newUser.id, newUser.name, newUser.surname, newUser.email, newUser.password);
 
     const otp = generateOTP(6);
     sendOTP(newUser.email, otp);
@@ -57,11 +68,31 @@ export async function POST(req: Request) {
   }
 }
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
-    const users = db.users;
+    const users = await new Promise((resolve, reject) => {
+      db.all('SELECT * FROM users', (err, rows) => {
+        if (err) {
+          reject(err);
+          return console.error('Error fetching users:', err.message);
+        }
+        resolve(rows);
+      });
+    });
+
+    if ((users as User[]).length === 0) {
+      console.log('No users found in the database.');
+      return NextResponse.json({ message: 'No users found' }, { status: 200 });
+    }
+
+    console.log('Users fetched successfully:', users as User[]);
     return NextResponse.json({ users }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
+    console.error('Error fetching users:', error.message);
+    return NextResponse.json({ error: 'An error occurred' }, { status: 500 });
+  } finally {
+    db.close((err: Error) => {
+      if (err) console.error('Error closing database connection:', err.message);
+    });
   }
 }
