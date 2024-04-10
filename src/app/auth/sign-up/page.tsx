@@ -3,8 +3,11 @@ import React, {useState} from 'react';
 import Link from 'next/link'
 import AuthLayout from '../auth-layout';
 import styles from "./sign-up.module.css"
+import { useRouter } from 'next/navigation'
 
 const SignUpPage: React.FC = () => {
+
+    const router = useRouter();
 
     const [formData, setFormData] = useState({
         name: '',
@@ -40,6 +43,7 @@ const SignUpPage: React.FC = () => {
             if (response.ok) {
                 console.log('Registration successful');
                 console.log(response);
+                router.push('/auth/sign-in');
             } else {
                 console.error('Registration failed');
             }
@@ -68,26 +72,30 @@ const SignUpPage: React.FC = () => {
 
                     <div className="input-group d-flex flex-column">
                         <label className={`${styles.inputText}`} htmlFor="firstName">First Name</label>
-                        <input onChange={handleChange} name={"name"} type="text" className={`${styles.authInput} form-control`} id="firstName"
+                        <input onChange={handleChange} name={"name"} type="text"
+                               className={`${styles.authInput} form-control`} id="firstName"
                                placeholder="Enter first name"/>
                     </div>
 
                     <div className="input-group d-flex flex-column">
                         <label className={`${styles.inputText}`} htmlFor="lastName">Last Name</label>
-                        <input onChange={handleChange} name={"surname"} type="text" className={`${styles.authInput} form-control`} id="lastName"
+                        <input onChange={handleChange} name={"surname"} type="text"
+                               className={`${styles.authInput} form-control`} id="lastName"
                                placeholder="Enter last name"/>
                     </div>
 
 
                     <div className="input-group d-flex flex-column">
                         <label className={`${styles.inputText}`} htmlFor="email">Email Address</label>
-                        <input onChange={handleChange} name={"email"} type="email" className={`${styles.authInput} form-control`} id="email"
+                        <input onChange={handleChange} name={"email"} type="email"
+                               className={`${styles.authInput} form-control`} id="email"
                                placeholder="Enter email adress"/>
                     </div>
 
                     <div className="input-group d-flex flex-column">
                         <label className={`${styles.inputText}`} htmlFor="password">Password</label>
-                        <input onChange={handleChange} name={"password"} type="password" className={`${styles.authInput} form-control`} id="password"
+                        <input onChange={handleChange} name={"password"} type="password"
+                               className={`${styles.authInput} form-control`} id="password"
                                placeholder="●●●●●●●●●●"/>
                     </div>
 
@@ -95,9 +103,17 @@ const SignUpPage: React.FC = () => {
 
 
                 <div className="mt-3">
-                    <button type="submit" onClick={handleSubmit} className={`${styles.signUpButton} btn btn-primary w-75 mt-2`}>Sign Up
+                    <button type="submit" onClick={handleSubmit}
+                            className={`${styles.signUpButton} btn btn-primary w-75 mt-2`}>Sign Up
                     </button>
+
+
                 </div>
+
+                <div className={`${styles.alreadyHaveAnAccountContainer} d-flex mt-3 flex-row align-items-center justify-content-end`}>
+                    <Link href={"/auth/sign-in"} className={`${styles.alreadyHaveAnAccountText}`}>Already have an account ?</Link>
+                </div>
+
 
             </div>
         </AuthLayout>

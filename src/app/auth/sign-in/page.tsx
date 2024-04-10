@@ -1,10 +1,50 @@
-// @use-client
-import React from 'react';
+"use client";
+import React, {useState} from 'react';
 import Link from 'next/link'
 import AuthLayout from '../auth-layout';
 import styles from "./sign-in.module.css"
 
 const SignInPage: React.FC = () => {
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
+        console.log(formData);
+        e.preventDefault();
+
+        try {
+            const response = await fetch('http://localhost:3000/api/auth/login-user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                console.log('Login successful');
+                console.log(response);
+            } else {
+                console.error('Login failed');
+            }
+        } catch (error) {
+            console.error('Error loginning user:', error);
+        }
+    };
+
 
     return (
         <AuthLayout imageUrl="/assets/auth/img1.jpeg">
@@ -29,13 +69,13 @@ const SignInPage: React.FC = () => {
 
                     <div className="input-group d-flex flex-column ">
                         <label className={`${styles.inputText}`} htmlFor="email">Email Address</label>
-                        <input type="email" className={`${styles.authInput} form-control`} id="email"
+                        <input onChange={handleChange} name={"email"} type="email" className={`${styles.authInput} form-control`} id="email"
                                placeholder="Enter email adress"/>
                     </div>
 
                     <div className="input-group d-flex flex-column mt-4">
                         <label className={`${styles.inputText}`} htmlFor="password">Password</label>
-                        <input type="password" className={`${styles.authInput} form-control`} id="password"
+                        <input onChange={handleChange} name={"password"} type="password" className={`${styles.authInput} form-control`} id="password"
                                placeholder="●●●●●●●●●●"/>
                     </div>
 
@@ -50,7 +90,7 @@ const SignInPage: React.FC = () => {
                 </div>
 
                 <div className="mt-3">
-                    <button type="submit" className={`${styles.signInButton} btn btn-primary w-75 mt-4`}>Sign In</button>
+                    <button onClick={handleSubmit} type="submit" className={`${styles.signInButton} btn btn-primary w-75 mt-4`}>Sign In</button>
                 </div>
 
             </div>
