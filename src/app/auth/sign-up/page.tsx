@@ -7,8 +7,8 @@ import styles from "./sign-up.module.css"
 const SignUpPage: React.FC = () => {
 
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        name: '',
+        surname: '',
         email: '',
         password: ''
     });
@@ -25,6 +25,7 @@ const SignUpPage: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
+        console.log(formData);
         e.preventDefault();
 
         try {
@@ -67,13 +68,13 @@ const SignUpPage: React.FC = () => {
 
                     <div className="input-group d-flex flex-column">
                         <label className={`${styles.inputText}`} htmlFor="firstName">First Name</label>
-                        <input onChange={handleChange} name={"firstName"} type="text" className={`${styles.authInput} form-control`} id="firstName"
+                        <input onChange={handleChange} name={"name"} type="text" className={`${styles.authInput} form-control`} id="firstName"
                                placeholder="Enter first name"/>
                     </div>
 
                     <div className="input-group d-flex flex-column">
                         <label className={`${styles.inputText}`} htmlFor="lastName">Last Name</label>
-                        <input onChange={handleChange} name={"lastName"} type="text" className={`${styles.authInput} form-control`} id="lastName"
+                        <input onChange={handleChange} name={"surname"} type="text" className={`${styles.authInput} form-control`} id="lastName"
                                placeholder="Enter last name"/>
                     </div>
 
