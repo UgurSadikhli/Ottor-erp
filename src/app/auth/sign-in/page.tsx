@@ -1,19 +1,27 @@
 // @use-client
 import React from 'react';
+import Link from 'next/link'
 import AuthLayout from '../auth-layout';
 import styles from "./sign-in.module.css"
+import { useRouter } from 'next/router';
 
 const SignInPage: React.FC = () => {
+
+    const router = useRouter();
+
+    const handleSignUpClick = () => {
+        router.push('/signup');
+    };
+
     return (
         <AuthLayout imageUrl="/assets/auth/img1.jpeg">
             <div className="d-flex flex-column w-75">
-                <div className={"d-flex flex-row align-items-center justify-content-between"}>
+                <div className={"d-flex mb-5 flex-row align-items-center justify-content-between"}>
                     <div>
                         <img className={styles.authHeaderLogo} src="/assets/otor-erp-logo.png" alt="Logo"/>
                     </div>
                     <div>
-                        <button type="button" className={`${styles.authHeaderButton} btn btn-outline-primary`}>Sign Up
-                        </button>
+                        <button onClick={handleSignUpClick} type="button" className={`${styles.authHeaderButton} btn btn-outline-primary`}>Sign Up</button>
                     </div>
                 </div>
 
@@ -43,7 +51,7 @@ const SignInPage: React.FC = () => {
                         <input type="checkbox" id="rememberMe" className="form-check-input me-2"/>
                         <label htmlFor="rememberMe" className="form-check-label">Remember Me</label>
                     </div>
-                    <a className={`${styles.forgotPasswordText}`} href="">I forgot my password</a>
+                    <Link href={"#"} className={`${styles.forgotPasswordText}`}>I forgot my password</Link>
                 </div>
 
                 <div className="mt-3">
