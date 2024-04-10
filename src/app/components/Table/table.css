@@ -1,0 +1,12 @@
+.table_div_main {
+  width: 40%;
+  background-color: rgb(185, 59, 59); /*to check*/
+  padding: 10px;
+  margin-left: 50px; /*to check*/
+  border-radius: 15px;
+}
+
+.table_div {
+  max-height: 250px;
+  overflow-y: auto;
+}

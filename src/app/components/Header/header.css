@@ -1,0 +1,46 @@
+.header {
+  background-color: #f8f9fd;
+  height: 9.4vh;
+  padding: 1%;
+  display: flex;
+
+}
+
+.header_left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.header_h1 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.header_p {
+  font-size: 13px;
+}
+
+.header_right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.header_image {
+  border-radius: 50%;
+}
+.header_perInfo {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+}
+
+.userPosition_header {
+
+  font-size: 12px;
+  color: grey;
+}
+.bi-caret-down-fill {
+  justify-content: center;
+}
