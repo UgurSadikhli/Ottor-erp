@@ -78,9 +78,9 @@ const PasswordResetPage: React.FC = () => {
 
 
                     <div className="input-group d-flex flex-column mt-4">
-                        <label className={`${styles.inputText}`} htmlFor="password">Confirm new password</label>
+                        <label className={`${styles.inputText}`} htmlFor="confirmNewPassword">Confirm new password</label>
                         <input onChange={handleChange} name={"confirmNewPassword"} type="password"
-                               className={`${styles.authInput} form-control`} id="password"
+                               className={`${styles.authInput} form-control`} id="confirmNewPassword"
                                placeholder="●●●●●●●●●●"/>
                     </div>
 
