@@ -6,10 +6,11 @@ export default function Header() {
   return (
     <>
       <div className="header">
-        
         <div className="header_left">
-          <h1 className="header_h1">Welcome, Mr. Otor John</h1>
-          <p className="header_p">Today is Saturday, 11th November 2022.</p>
+          <span className="header_h1">Welcome, Mr. Otor John</span>
+          <span className="header_p">
+            Today is Saturday, 11th November 2022.
+          </span>
         </div>
 
         <div className="header_right">
@@ -31,8 +32,8 @@ export default function Header() {
             height={40}
           />
           <div className="header_perInfo">
-            <p className="userName_header">Otor John</p>
-            <p className="userPosition_header">HR office</p>
+            <span className="userName_header">Otor John</span>
+            <span className="userPosition_header">HR office</span>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"

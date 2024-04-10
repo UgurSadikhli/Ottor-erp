@@ -2,7 +2,7 @@ import Link from "next/link";
 
 
 const NotificationsButton = () => (
-    <Link href="/pages/notifications" passHref={true} legacyBehavior={true}>
+    <Link href="/notifications" passHref={true} legacyBehavior={true}>
     <a className="nav-link">
       <svg
         width="16.000000"

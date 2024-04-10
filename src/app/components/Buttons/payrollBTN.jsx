@@ -2,7 +2,7 @@ import Link from "next/link";
 
 
 const PayrollButton = () => (
-    <Link href="/pages/payroll" passHref={true} legacyBehavior={true}>
+    <Link href="/payroll" passHref={true} legacyBehavior={true}>
     <a className="nav-link">
       <svg
         width="18"

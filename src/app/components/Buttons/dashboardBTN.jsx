@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const DashBaardButton = () => (
-    <Link href="/pages/dashboard" passHref={true} legacyBehavior={true}>
+    <Link href="/dashboard" passHref={true} legacyBehavior={true}>
     <a className="nav-link">
       <svg
         xmlns="http://www.w3.org/2000/svg"

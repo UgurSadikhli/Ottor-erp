@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const StocksAndIventionsButton = () => (
     <Link
-    href="/pages/stocksAndInventory"
+    href="/stocksAndInventory"
     passHref={true}
     legacyBehavior={true}
   >

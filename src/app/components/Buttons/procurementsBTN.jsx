@@ -2,7 +2,7 @@ import Link from "next/link";
 
 
 const ProcurementsButton = () => (
-    <Link href="/pages/procurements" passHref={true} legacyBehavior={true}>
+    <Link href="/procurements" passHref={true} legacyBehavior={true}>
     <a className="nav-link">
       <svg
         width="23.000000"

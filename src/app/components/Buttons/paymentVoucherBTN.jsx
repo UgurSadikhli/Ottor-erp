@@ -2,7 +2,7 @@ import Link from "next/link";
 
 
 const PaymentVoucherButton = () => (
-    <Link href="/pages/paymentVoucher" passHref={true} legacyBehavior={true}>
+    <Link href="/paymentVoucher" passHref={true} legacyBehavior={true}>
               <a className="nav-link">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

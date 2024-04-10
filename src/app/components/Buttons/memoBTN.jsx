@@ -2,7 +2,7 @@ import Link from "next/link";
 
 
 const MemoButton = () => (
-    <Link href="/pages/memo" passHref={true} legacyBehavior={true}>
+    <Link href="/memo" passHref={true} legacyBehavior={true}>
     <a className="nav-link">
       <svg
         width="24"

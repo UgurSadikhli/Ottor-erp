@@ -2,7 +2,7 @@ import Link from "next/link";
 
 
 const MaintenanceButton = () => (
-    <Link href="/pages/maintenance" passHref={true} legacyBehavior={true}>
+    <Link href="/maintenance" passHref={true} legacyBehavior={true}>
     <a className="nav-link">
       <svg
         width="22"

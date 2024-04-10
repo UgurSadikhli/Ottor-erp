@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const CapacityBuildingButton = () => (
     <Link
-    href="/pages/capacityBuilding"
+    href="/capacityBuilding"
     passHref={true}
     legacyBehavior={true}
   >
