@@ -3,15 +3,8 @@ import React from 'react';
 import Link from 'next/link'
 import AuthLayout from '../auth-layout';
 import styles from "./sign-in.module.css"
-import { useRouter } from 'next/router';
 
 const SignInPage: React.FC = () => {
-
-    const router = useRouter();
-
-    const handleSignUpClick = () => {
-        router.push('/signup');
-    };
 
     return (
         <AuthLayout imageUrl="/assets/auth/img1.jpeg">
@@ -21,7 +14,9 @@ const SignInPage: React.FC = () => {
                         <img className={styles.authHeaderLogo} src="/assets/otor-erp-logo.png" alt="Logo"/>
                     </div>
                     <div>
-                        <button onClick={handleSignUpClick} type="button" className={`${styles.authHeaderButton} btn btn-outline-primary`}>Sign Up</button>
+                        <Link className={`${styles.authHeaderButton} btn btn-outline-primary`} href="/auth/sign-up">
+                            Sign Up
+                        </Link>
                     </div>
                 </div>
 
