@@ -1,52 +1,61 @@
-import db from '../../../../../db.json';
-import { User } from '@/models/User';
-import { v4 as uuidv4 } from 'uuid';
-import { NextRequest, NextResponse } from 'next/server';
+import db from "../../../../../db.json";
+import { User } from "@/models/User";
+import { v4 as uuidv4 } from "uuid";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-    const reqObject = await req.json();
+  const reqObject = await req.json();
 
-    try {
-        if (!reqObject) {
-            return Response.json({ status: 400, json: { error: 'Missing or invalid registration data' } });
-        }
-
-        const users = db.users;
-
-        if (!reqObject.name || !reqObject.surname || !reqObject.email || !reqObject.password) {
-            return Response.json({ status: 400, json: { error: 'Missing registration data' } });
-        }
-
-        if (users.find((x) => x.email == reqObject.email)) {
-            return Response.json({ status: 400, json: { error: 'User with this email already exists' } });
-        }
-
-        const newUser: User = {
-            id: uuidv4(),
-            name: reqObject.name,
-            surname: reqObject.surname,
-            email: reqObject.email,
-            password: reqObject.password
-        };
-
-        db.users.push(newUser);
-
-        return new Response(JSON.stringify(newUser), {
-            headers: {
-                "Content-Type": "application/json",
-            },
-            status: 201,
-        });
-    } catch (error) {
-        return Response.json({ status: 500, json: { error: 'An error occurred' } });
+  try {
+    if (!reqObject) {
+      return NextResponse.json(
+        { error: "Missing or invalid registration data" },
+        { status: 400 }
+      );
     }
+
+    const users = db.users;
+
+    if (
+      !reqObject.name ||
+      !reqObject.surname ||
+      !reqObject.email ||
+      !reqObject.password
+    ) {
+      return NextResponse.json(
+        { error: "Missing registration data" },
+        { status: 400 }
+      );
+    }
+
+    if (users.find((x) => x.email == reqObject.email)) {
+      return NextResponse.json(
+        { error: "User with this email already exists" },
+        { status: 400 }
+      );
+    }
+
+    const newUser: User = {
+      id: uuidv4(),
+      name: reqObject.name,
+      surname: reqObject.surname,
+      email: reqObject.email,
+      password: reqObject.password,
+    };
+
+    db.users.push(newUser);
+
+    return NextResponse.json(newUser, { status: 201 });
+  } catch (error) {
+    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
+  }
 }
 
 export async function GET(req: NextRequest) {
-    try {
-        const users = db.users;
-        return NextResponse.json({ status: 200, json: { users } });
-    } catch (error) {
-        return NextResponse.json({ status: 500, json: { error: 'An error occurred' } });
-    }
+  try {
+    const users = db.users;
+    return NextResponse.json({ users }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
+  }
 }
