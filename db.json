@@ -5,14 +5,16 @@
         "name": "John",
         "surname": "Doe",
         "email": "john@example.com",
-        "password": "password123"
+        "password": "password123",
+        "emailconfirmed": "true"
       },
       {
         "id": "2a14aed4-b10b-4ee3-99e9-83904b628ebe",
         "name": "Alice",
         "surname": "Smith",
         "email": "alice@example.com",
-        "password": "pass123"
+        "password": "pass123",
+        "emailconfirmed": "false"
       }
     ]
   }

@@ -2,6 +2,8 @@ import db from "../../../../../db.json";
 import { User } from "@/models/User";
 import { v4 as uuidv4 } from "uuid";
 import { NextRequest, NextResponse } from "next/server";
+import { generateOTP } from "@/services/OtpService";
+import { sendOTP } from "@/services/OtpService";
 
 export async function POST(req: Request) {
   const reqObject = await req.json();
@@ -41,9 +43,13 @@ export async function POST(req: Request) {
       surname: reqObject.surname,
       email: reqObject.email,
       password: reqObject.password,
+      emailconfirmed: false
     };
 
     db.users.push(newUser);
+
+    const otp = generateOTP(6);
+    sendOTP(newUser.email, otp);
 
     return NextResponse.json(newUser, { status: 201 });
   } catch (error) {
