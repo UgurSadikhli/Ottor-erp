@@ -1,22 +1,25 @@
 .main {
     display: flex;
-    height:100%;
-    width:100%;
-}
-
-.right {
-    display:flex;
-    flex: 1;
-    background-color: rgb(138, 166, 154);
-    width: 100%;
-    flex-direction: column;
+    flex-direction: row;
+    /*gap: 10px;*/
+    /*background-color: #14ADD6;*/
+    height:100vh;
+    width:100vw;
 }
 
 .left {
 }
 
+.right {
+    display:flex;
+    flex: 1;
+    background-color: #EEEFF3;
+    width: 100%;
+    flex-direction: column;
+}
+
 .content {
-    background-color: red;
+
     min-height: 100%;
     display: flex;
 }

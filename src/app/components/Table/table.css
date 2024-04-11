@@ -1,11 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
 .table_div_main {
-  width: 45%;
-  background-color: rgb(185, 59, 59); /*to check*/
-  padding: 10px;
+  width: 39.4vw;
+  /*background-color: red; !*to check*!*/
+  background-color: #FFFFFF;
+  padding: 15px 25px 15px 25px;
+  /*padding: 10px;*/
   border-radius: 15px;
+}
+
+.table_name_span{
+  font-weight: bolder;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
 }
 
 .table_div {
   max-height: 250px;
+  min-height: 250px;
   overflow-y: auto;
+  margin-top: 2%;
+}
+
+.tr_table{
+  font-family: 'Nunito', sans-serif;
 }
