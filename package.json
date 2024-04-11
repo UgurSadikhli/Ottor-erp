@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/uuid": "^9.0.8",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "json-server": "^1.0.0-alpha.23",
     "jsonwebtoken": "^9.0.2",
     "react": "^18",
