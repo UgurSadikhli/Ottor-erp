@@ -1,14 +1,13 @@
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /*background-color: red;*/
-  padding: 10px;
-  background-color: #F8F9FD;
-  /*height: 2rem;*/
-  /*width: 100%;*/
-  margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #F8F9FD;
+
+    margin-top: auto;
 }
+
 .p_footer {
 
 }

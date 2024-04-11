@@ -5,25 +5,20 @@ import Menu from "../components/Menu/menu";
 import styles from "./main-layout.module.css"
 
 export default function MainLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+                                       children,
+                                   }: Readonly<{
+    children: React.ReactNode;
 }>) {
 
-  return (
-      <div className={`${styles.main}`}>
-        <div className={`${styles.left}`}>
-          <Menu />
-        </div>
+    return (
+        <div className={`${styles.main}`}>
+            <Menu />
 
-        <div className={`${styles.right}`}>
-          <Header />
-            <div className={styles.content}>
-          {children}
+            <div className={`${styles.right}`}>
+                <Header />
+                {children}
+                <Footer />
             </div>
-          <Footer />
         </div>
-      </div>
-  );
+    );
 }
-
