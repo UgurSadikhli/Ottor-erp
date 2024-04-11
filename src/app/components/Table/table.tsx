@@ -1,102 +1,52 @@
-import Image from "next/image";
+import React from "react";
 import "./table.css";
 
-export default function Table() {
-  return (
-    <>
-      <div className="table_div_main">
-        <div className="table_name">
-          <span className="table_name_span">Table 1</span>
-        </div>
+interface TableProps {
+    tableName: string;
+    headers: string[];
+    tableData: string[][];
+}
 
-        <div className="table_div">
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>#</th>
-                <th>#</th>
-                <th>#</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ugr</td>
-                <td>ugr</td>
-                <td>ugr</td>
-              </tr>
-              
-            </tbody>
-          </table>
+export default function Table({tableName, headers, tableData}: TableProps) {
+    return (
+        <div className="table_div_main">
+            <div className="table_name">
+                <span className="table_name_span">{tableName}</span>
+            </div>
+
+            <div className="table_div">
+                <table className="table table-hover">
+                    <thead>
+                    <tr>
+                        {headers.map((header, index) => (
+                            <th key={index}>{header}</th>
+                        ))}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {tableData.map((rowData, rowIndex) => (
+                        <tr key={rowIndex}>
+                            {rowData.map((data, cellIndex) => (
+                                <td key={cellIndex} style={getCellStyle(headers[cellIndex], data)}>
+                                    {data}
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
-    </>
-  );
+    );
+}
+
+function getCellStyle(header: string, data: string): React.CSSProperties {
+    if (header === "Status" && data === "Approved") {
+        return {color: "#10A242"};
+    } else if (header === "Status" && data === "Pending") {
+        return {color: "#F29425"};
+    } else if (header === "Status" && data === "Rejected") {
+        return {color: "red"};
+    }
+    return {};
 }

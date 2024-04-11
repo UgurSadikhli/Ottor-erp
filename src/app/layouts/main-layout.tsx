@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../components/Header/header";
 import Footer from "../components/Footer/footer";
 import Menu from "../components/Menu/menu";
-import styles from "./main-layout.module.css"
+import styles from "./MainLayout.module.css";
 
 export default function MainLayout({
                                        children,
@@ -11,10 +11,9 @@ export default function MainLayout({
 }>) {
 
     return (
-        <div className={`${styles.main}`}>
+        <div className={styles.main}>
             <Menu />
-
-            <div className={`${styles.right}`}>
+            <div className={styles.right}>
                 <Header />
                 {children}
                 <Footer />

@@ -1,18 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
 .container {
     border-radius: 10px;
     width: 19vw;
     height: 14vh;
     padding: 12px;
-    background-color: #807b7b;
+    background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12%;
+    justify-content: center;
 }
 
 .top {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 15% 0 15%;
 }
 
 .left {
@@ -22,13 +26,16 @@
 
 .staffNumber {
     font-size: 28px;
-    font-weight: 800;
+    font-weight: 900;
+    font-family: 'Nunito', sans-serif;
+
 }
 
 .staffTitle {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 24px;
-    font-weight: 400;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
 }
 
 .right {
@@ -38,24 +45,27 @@
 .icon {
     width: 3rem;
     height: 3rem;
-    background-color: #FFF4E8;
     border-radius: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
     margin: 0;
-    
+
 }
 
 .bottom {
-
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 15% 0 15%;
+    /*justify-content: space-between;*/
+    gap: 2%;
 }
 
 .staffDescription {
     font-size: 12px;
-    line-height: 20px;
     font-weight: 400;
-    padding: 50px;
+    font-family: 'Nunito', sans-serif;
 
 }
