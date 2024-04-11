@@ -10,7 +10,10 @@ import { randomUUID } from "crypto";
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database("otor.db", sqlite3.OPEN_READWRITE, (err: Error) => {
   if (err) return console.error(err.message);
-}); 
+});
+
+db.OPEN_READWRITE;
+createTable();
 
 export async function POST(req: Request) {
   const reqObject = await req.json();
@@ -29,8 +32,8 @@ export async function POST(req: Request) {
       );
     }
 
+    
     db.OPEN_READWRITE;
-
     const users = await new Promise((resolve, reject) => {
       db.all('SELECT * FROM users', (err, rows) => {
         if (err) {

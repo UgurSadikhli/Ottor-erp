@@ -10,7 +10,7 @@ const db = new sqlite3.Database("otor.db", sqlite3.OPEN_READWRITE, (err: Error) 
 // Commands for operations with database
 
 // Create table
-let createTableSqlCommand = `CREATE TABLE users (guid TEXT PRIMARY KEY,name TEXT NOT NULL,surname TEXT NOT NULL,email TEXT NOT NULL UNIQUE,password TEXT NOT NULL)`;
+let createTableSqlCommand = `CREATE TABLE IF NOT EXISTS users (guid TEXT PRIMARY KEY,name TEXT NOT NULL,surname TEXT NOT NULL,email TEXT NOT NULL UNIQUE,password TEXT NOT NULL,emailconfirmed BOOLEAN NOT NULL DEFAULT FALSE)`;
 
 // Drop table
 let dropTableSqlCommand = `DROP TABLE IF EXISTS users`;
