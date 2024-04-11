@@ -3,7 +3,6 @@ import Header from "../components/Header/header";
 import Footer from "../components/Footer/footer";
 import Menu from "../components/Menu/menu";
 import styles from "./main-layout.module.css"
-// import Modal from "./components/Modals/Modal"
 
 export default function MainLayout({
   children,
@@ -14,14 +13,14 @@ export default function MainLayout({
   return (
       <div className={`${styles.main}`}>
         <div className={`${styles.left}`}>
-          {" "}
-          <Menu />{" "}
+          <Menu />
         </div>
 
         <div className={`${styles.right}`}>
           <Header />
+            <div className={styles.content}>
           {children}
-          {/*<Modal mainText={"Congratulations"} minorText={"You have successfully changed your password."} buttonText={"Back To Login"}/>*/}
+            </div>
           <Footer />
         </div>
       </div>
