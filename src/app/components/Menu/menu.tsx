@@ -15,6 +15,7 @@ import StocksAndIventionsButton from "../Buttons/StocksAndInventoryBTN"
 import NotificationsButton from "../Buttons/notificationsBTN"
 import CapacityBuildingButton from "../Buttons/capacityBuildingBTN"
 import ProcurementsButton from "../Buttons/procurementsBTN"
+import CircularsButton from "@/app/components/Buttons/circularsBTN";
 
 
 
@@ -25,48 +26,51 @@ export default function Menu() {
         <Image
           src={otorerplogo}
           alt="Description of your image"
-          width={100}
-          height={100}
+          width={85}
+          height={85}
           className="image"
         />
-        <nav>
-          <div className="Link">
-          <DashBaardButton/>
-          </div>
-          <div className="Link">
-           <StaffButton/>
-          </div>
-          <div className="Link">
-         <PaymentVoucherButton/>
-          </div>
-          <div className="Link">
-           <PayrollButton/>
-          </div>
-          <div className="Link">
-           <MemoButton/>
-          </div>
-          <div className="Link">
-           <MaintenanceButton/>
-          </div>
-          <div className="Link">
-           <LogisticsButton/>
-          </div>
-          <div className="Link">
-            <OfficeBudgetButton/>
-          </div>
-          <div className="Link">
-          <StocksAndIventionsButton/>
-          </div>
-          <div className="Link">
-           <NotificationsButton/>
-          </div>
-          <div className="Link">
-          <CapacityBuildingButton/>
-          </div>
-          <div className="Link">
-          <ProcurementsButton/>
-          </div>
-        </nav>
+          <nav>
+              <div className="Link">
+                  <DashBaardButton/>
+              </div>
+              <div className="Link">
+                  <StaffButton/>
+              </div>
+              <div className="Link">
+                  <PaymentVoucherButton/>
+              </div>
+              <div className="Link">
+                  <PayrollButton/>
+              </div>
+              <div className="Link">
+                  <MemoButton/>
+              </div>
+              <div className="Link">
+                  <CircularsButton/>
+              </div>
+              <div className="Link">
+                  <MaintenanceButton/>
+              </div>
+              <div className="Link">
+                  <LogisticsButton/>
+              </div>
+              <div className="Link">
+                  <OfficeBudgetButton/>
+              </div>
+              <div className="Link">
+                  <StocksAndIventionsButton/>
+              </div>
+              <div className="Link">
+                  <NotificationsButton/>
+              </div>
+              <div className="Link">
+                  <CapacityBuildingButton/>
+              </div>
+              <div className="Link">
+                  <ProcurementsButton/>
+              </div>
+          </nav>
       </div>
     </>
   );

@@ -5,19 +5,18 @@ import Menu from "../components/Menu/menu";
 import styles from "./MainLayout.module.css";
 
 export default function MainLayout({
-                                       children,
-                                   }: Readonly<{
-    children: React.ReactNode;
+  children,
+}: Readonly<{
+  children: React.ReactNode;
 }>) {
-
-    return (
-        <div className={styles.main}>
-            <Menu />
-            <div className={styles.right}>
-                <Header />
-                {children}
-                <Footer />
-            </div>
-        </div>
-    );
+  return (
+    <div className={styles.main}>
+      <Menu />
+      <div className={styles.right}>
+        <Header />
+        {children}
+        <Footer />
+      </div>
+    </div>
+  );
 }
