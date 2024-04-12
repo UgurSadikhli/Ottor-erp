@@ -19,6 +19,11 @@ export default function Dashboard() {
         ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Approved"],
         ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Pending"],
         ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
+        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
+        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
+        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
+        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
+        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
 
     ];
     const headers = ["S/N", "Memo Title", "Sent From","Sent To","Status"];
