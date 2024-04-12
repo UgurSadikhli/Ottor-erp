@@ -1,0 +1,8 @@
+.container {
+    background-color: red;
+    display: flex;
+}
+
+.link {
+    text-style: none;
+}
