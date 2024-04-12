@@ -16,7 +16,7 @@ const IconButton: React.FC<IconButtonProps> = ({
 }: IconButtonProps) => {
   const handleClick = () => {
     if (href) {
-      window.location.href = href; 
+      window.location.href = href;
     }
   };
 
