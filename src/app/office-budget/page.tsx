@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "./OfficeBudget.module.css";
 import MainLayout from "@/app/layouts/main-layout";
@@ -14,159 +15,30 @@ import Table from "@/app/components/Table/table";
 import CustomTable from "@/app/components/Table/CustomTable/CustomTable";
 
 const OfficeBudget = () => {
-  const data = {
-    headers: [
-      {
-        id: 0,
-        headerName: "S/N",
-      },
-      {
-        id: 1,
-        headerName: "Memo Title",
-      },
-      {
-        id: 2,
-        headerName: "Sent From",
-      },
-      {
-        id: 3,
-        headerName: "Sent To",
-      },
-      {
-        id: 4,
-        headerName: "Status",
-      },
-    ],
-    innerData: [
-      {
-        id: 0,
-        memoTitle: "Operation Memo",
-        sentFrom: "Otor John",
-        sentTo: "Ibrahim Toury",
-        status: "Approved",
-      },
-      {
-        id: 1,
-        memoTitle: "Operation Memo",
-        sentFrom: "Pater John",
-        sentTo: "Kakaw Toury",
-        status: "Pending",
-      },
-      {
-        id: 2,
-        memoTitle: "Operation Memo",
-        sentFrom: "Zater John",
-        sentTo: "Baerkau Toury",
-        status: "Rejected",
-      },
-      {
-        id: 0,
-        memoTitle: "Operation Memo",
-        sentFrom: "Otor John",
-        sentTo: "Ibrahim Toury",
-        status: "Approved",
-      },
-      {
-        id: 1,
-        memoTitle: "Operation Memo",
-        sentFrom: "Pater John",
-        sentTo: "Kakaw Toury",
-        status: "Pending",
-      },
-      {
-        id: 2,
-        memoTitle: "Operation Memo",
-        sentFrom: "Zater John",
-        sentTo: "Baerkau Toury",
-        status: "Rejected",
-      },
-      {
-        id: 0,
-        memoTitle: "Operation Memo",
-        sentFrom: "Otor John",
-        sentTo: "Ibrahim Toury",
-        status: "Approved",
-      },
-      {
-        id: 1,
-        memoTitle: "Operation Memo",
-        sentFrom: "Pater John",
-        sentTo: "Kakaw Toury",
-        status: "Pending",
-      },
-      {
-        id: 2,
-        memoTitle: "Operation Memo",
-        sentFrom: "Zater John",
-        sentTo: "Baerkau Toury",
-        status: "Rejected",
-      },
-      {
-        id: 0,
-        memoTitle: "Operation Memo",
-        sentFrom: "Otor John",
-        sentTo: "Ibrahim Toury",
-        status: "Approved",
-      },
-      {
-        id: 1,
-        memoTitle: "Operation Memo",
-        sentFrom: "Pater John",
-        sentTo: "Kakaw Toury",
-        status: "Pending",
-      },
-      {
-        id: 2,
-        memoTitle: "Operation Memo",
-        sentFrom: "Zater John",
-        sentTo: "Baerkau Toury",
-        status: "Rejected",
-      },
-      {
-        id: 0,
-        memoTitle: "Operation Memo",
-        sentFrom: "Otor John",
-        sentTo: "Ibrahim Toury",
-        status: "Approved",
-      },
-      {
-        id: 1,
-        memoTitle: "Operation Memo",
-        sentFrom: "Pater John",
-        sentTo: "Kakaw Toury",
-        status: "Pending",
-      },
-      {
-        id: 2,
-        memoTitle: "Operation Memo",
-        sentFrom: "Zater John",
-        sentTo: "Baerkau Toury",
-        status: "Rejected",
-      },
-      {
-        id: 0,
-        memoTitle: "Operation Memo",
-        sentFrom: "Otor John",
-        sentTo: "Ibrahim Toury",
-        status: "Approved",
-      },
-      {
-        id: 1,
-        memoTitle: "Operation Memo",
-        sentFrom: "Pater John",
-        sentTo: "Kakaw Toury",
-        status: "Pending",
-      },
-      {
-        id: 2,
-        memoTitle: "Operation Memo",
-        sentFrom: "Zater John",
-        sentTo: "Baerkau Toury",
-        status: "Rejected",
-      },
-    ],
-  };
+  const headers = [
+    { id: 1, headerName: "S/N" },
+    { id: 2, headerName: "Budget No." },
+    { id: 3, headerName: "Budget Description" },
+    { id: 4, headerName: "Budgeted Amount (₦)" },
+    { id: 5, headerName: "Actual Amount (₦)" },
+    { id: 6, headerName: "Variance (₦)" },
+    { id: 7, headerName: "Date" },
+];
 
+const innerData = [
+    { id: 1, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"- 20,000.00",Date:"18/11/2022"},
+    { id: 2, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"+ 20,000.00",Date:"18/11/2022"},
+    { id: 3, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"- 20,000.00",Date:"18/11/2022"},
+    { id: 4, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"- 20,000.00",Date:"18/11/2022"},
+    { id: 5, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"+ 20,000.00",Date:"18/11/2022"},
+    { id: 6, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"+ 20,000.00",Date:"18/11/2022"},
+    { id: 7, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"- 20,000.00",Date:"18/11/2022"},
+    { id: 8, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"- 20,000.00",Date:"18/11/2022"},
+    { id: 9, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"+ 20,000.00",Date:"18/11/2022"},
+    { id: 10, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"+ 20,000.00",Date:"18/11/2022"},
+    { id: 11, Budget: "00211235", Description: "Purchase of 10 units, 2Hp Hisense Air Conditions", Amount: "1,400,000.00", Actual: "1,380,000.00",Variance:"+ 20,000.00",Date:"18/11/2022"},
+
+];
   return (
     <MainLayout>
       <div className={styles.container}>
@@ -212,7 +84,11 @@ const OfficeBudget = () => {
           </div>
         </div>
         <div className={styles.budgetHistoryContainer}>
-          <CustomTable blockTitle="Budget History" tableData={data}  />
+          <CustomTable
+            blockTitle="Budget History"
+            headers={headers}
+            innerData={innerData}
+          />
           {/*<Table tableName={"Memo"} headers={headers} tableData={tableData}/>*/}
         </div>
       </div>

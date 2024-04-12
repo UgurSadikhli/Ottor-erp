@@ -5,13 +5,13 @@ import MiniDoughnutChart from "@/app/components/MiniDoughtnutChart/MiniDoughnutC
 
 interface ChartCardProps {
     title: string;
-    // number: number;
-    // description: string;
-    // icon?: ReactElement;
-    // arrowIcon?: ReactElement;
-    // backgroundColor:string;
+    Totalnumber:number;
+    pending:number;
+    approved:number;
+    rejected:number;
+  
 }
-const ChartCard = ({ title }: ChartCardProps) => {
+const ChartCard = ({ title,Totalnumber,pending,approved,rejected }: ChartCardProps) => {
     return (
         <div className={styles.container}>
             <div className={styles.top}>
@@ -19,22 +19,22 @@ const ChartCard = ({ title }: ChartCardProps) => {
             </div>
             <div className={styles.body}>
                 <div className={styles.left}>
-                    <span className={styles.totalTitle}>500 Total applications</span>
+                    <span className={styles.totalTitle}>{Totalnumber} Total applications</span>
                     <div className={styles.totalContainer}>
-                        <div className={styles.totalFigure}></div>
-                         <span className={styles.totalItems}><b>80</b> Pending</span>
+                        <div className={styles.totalFigure1}></div>
+                         <span className={styles.totalItems}><b>{pending}</b> Pending</span>
                     </div>
                     <div className={styles.totalContainer}>
-                        <div className={styles.totalFigure}></div>
-                       <span className={styles.totalItems}> <b>370</b> Approved</span>
+                        <div className={styles.totalFigure2}></div>
+                       <span className={styles.totalItems}> <b>{approved}</b> Approved</span>
                     </div>
                     <div className={styles.totalContainer}>
-                        <div className={styles.totalFigure}></div>
-                       <span className={styles.totalItems}> <b>50</b> Rejected</span>
+                        <div className={styles.totalFigure3}></div>
+                       <span className={styles.totalItems}> <b>{rejected}</b> Rejected</span>
                     </div>
                 </div>
                 <div className={styles.right}>
-                    <MiniDoughnutChart/>
+                    <MiniDoughnutChart yellow={pending} red={rejected} green={approved}/>
                 </div>
             </div>
             <div className={styles.bottom}>

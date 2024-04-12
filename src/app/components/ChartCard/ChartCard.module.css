@@ -55,12 +55,26 @@
   font-size: 15px;
 }
 
-.totalFigure {
+.totalFigure1 {
   border-radius: 40px;
   width: 6px;
   height: 20px;
-  background-color: red;
+  background-color:#F29425;
 }
+.totalFigure2 {
+  border-radius: 40px;
+  width: 6px;
+  height: 20px;
+  background-color: #10A242;
+}
+
+.totalFigure3 {
+  border-radius: 40px;
+  width: 6px;
+  height: 20px;
+  background-color: #E64F53;
+}
+
 
 .right {
   display: flex;

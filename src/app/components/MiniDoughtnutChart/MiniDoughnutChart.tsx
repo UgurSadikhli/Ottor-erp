@@ -1,9 +1,16 @@
 "use client"
-
 import React, { useState, useEffect } from 'react';
 import styles from "./MiniDoughnutChart.module.css";
 import { Chart } from 'primereact/chart';
-export default function MiniDoughnutChart() {
+
+
+interface MiniDoughnutChartProps {
+    yellow: number;
+    green: number;
+    red: number;
+   
+}
+export default function MiniDoughnutChart({yellow,green,red}:MiniDoughnutChartProps) {
     const [chartData, setChartData] = useState({});
     const [chartOptions, setChartOptions] = useState({});
 
@@ -12,16 +19,16 @@ export default function MiniDoughnutChart() {
         const data = {
             datasets: [
                 {
-                    data: [80, 370, 50],
+                    data: [yellow, green,red],
                     backgroundColor: [
-                        '#F29425', // Blue
-                        '#10A242', // Yellow
-                        '#E64F53'  // Green
+                        '#F29425', 
+                        '#10A242', 
+                        '#E64F53'  
                     ],
                     hoverBackgroundColor: [
-                        '#F29425', // Blue
-                        '#10A242', // Yellow
-                        '#E64F53'  // Green
+                        '#F29425', 
+                        '#10A242', 
+                        '#E64F53'  
                     ]
                 }
             ]

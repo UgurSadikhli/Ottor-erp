@@ -79,8 +79,7 @@ export default function Dashboard() {
                     <Table tableName={"Memo"} headers={headers} tableData={tableData}/>
                     <Table tableName={"Staff List"} headers={headers} tableData={tableData}/>
                     <Table tableName={"Payment Voucher"} headers={headers} tableData={tableData}/>
-                    <ChartCard title={"Staff Applications Card"} />
-                    {/*<Table tableName={"Staff Aplication Card"} headers={headers} tableData={tableData}/>*/}
+                    <ChartCard Totalnumber={500} rejected={50} approved={370} pending={80} title={"Staff Applications Card"} />
                 </div>
             </div>
         </MainLayout>

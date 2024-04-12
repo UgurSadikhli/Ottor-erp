@@ -14,116 +14,28 @@ const SelectIndicatoroptions = [
   { value: "2", label: "2" },
   { value: "3", label: "3" },
 ];
-const data = {
-  headers: [
-    {
-      id: 0,
-      headerName: "S/N",
-    },
-    {
-      id: 1,
-      headerName: "Memo Title",
-    },
-    {
-      id: 2,
-      headerName: "Sent From",
-    },
-    {
-      id: 3,
-      headerName: "Sent To",
-    },
-    {
-      id: 4,
-      headerName: "Status",
-    },
-  ],
-  innerData: [
-    {
-      id: 1,
-      memoTitle: "1",
-      sentFrom: "Otor John",
-      sentTo: "Ibrahim Toury",
-      status: "Approved",
-    },
-    {
-      id: 2,
-      memoTitle: "2",
-      sentFrom: "Pater John",
-      sentTo: "Kakaw Toury",
-      status: "Pending",
-    },
-    {
-      id: 3,
-      memoTitle: "3",
-      sentFrom: "Zater John",
-      sentTo: "Baerkau Toury",
-      status: "Rejected",
-    },
-    {
-      id: 4,
-      memoTitle: "4",
-      sentFrom: "Otor John",
-      sentTo: "Ibrahim Toury",
-      status: "Approved",
-    },
-    {
-      id: 5,
-      memoTitle: "5",
-      sentFrom: "Otor John",
-      sentTo: "Ibrahim Toury",
-      status: "Approved",
-    },
-    {
-      id: 6,
-      memoTitle: "6",
-      sentFrom: "Otor John",
-      sentTo: "Ibrahim Toury",
-      status: "Approved",
-    },
-    {
-      id: 7,
-      memoTitle: "6",
-      sentFrom: "Otor John",
-      sentTo: "Ibrahim Toury",
-      status: "Approved",
-    },
-    {
-      id: 8,
-      memoTitle: "6",
-      sentFrom: "Otor John",
-      sentTo: "Ibrahim Toury",
-      status: "Approved",
-    },
-    {
-      id: 9,
-      memoTitle: "6",
-      sentFrom: "Otor John",
-      sentTo: "Ibrahim Toury",
-      status: "Approved",
-    },
-    {
-      id: 10,
-      memoTitle: "6",
-      sentFrom: "Otor John",
-      sentTo: "Ibrahim Toury",
-      status: "Approved",
-    },
-    {
-      id: 11,
-      memoTitle: "6",
-      sentFrom: "Otor John",
-      sentTo: "Ibrahim Toury",
-      status: "Approved",
-    },
-    {
-      id: 12,
-      memoTitle: "6",
-      sentFrom: "Otor John",
-      sentTo: "Ibrahim Toury",
-      status: "Approved",
-    },
-  ],
-};
+const headers = [
+  { id: 1, headerName: "S/N" },
+  { id: 2, headerName: "Circular Title" },
+  { id: 3, headerName: "Sent From" },
+  { id: 4, headerName: "Sent To" },
+  { id: 5, headerName: "Date" },
+  { id: 6, headerName: "Circular Type" },
+  { id: 7, headerName: "Action" },
+];
+
+const innerData = [
+  { id: 1, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Sent↗",Action:"View more"},
+  { id: 2, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},
+  { id: 3, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Sent↗",Action:"View more"},
+  { id: 4, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Sent↗",Action:"View more"},
+  { id: 5, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Sent↗",Action:"View more"},
+  { id: 6, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},
+  { id: 7, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},
+  { id: 8, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},
+  { id: 9, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},
+
+];
 export default function Circulars() {
   const [inputValue, setInputValue] = useState("");
 
@@ -180,7 +92,8 @@ export default function Circulars() {
             blockTitle="All Circulars"
             shownPerPage
             shownPagination
-            tableData={data}
+            headers={headers}
+            innerData={innerData}
           />
         </div>
       </div>

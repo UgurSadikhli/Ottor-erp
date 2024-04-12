@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    flex: 1;
+    /*background-color: #78d614;*/
+    padding: 20px 20px 20px 20px;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.statisticsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    /*background-color: #d61414;*/
+}
+
+.createBudgetContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #fff;
+    padding: 20px 20px 20px 20px;
+    border-radius: 20px;
+}
+
+.title {
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+.buttons {
+    width: 250px;
+    height: 46px;
+    background: linear-gradient(135deg, #14ADD6 0%, #384295 100%);
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-Weight: 400;
+    line-height: 24px;
+    transition: all 0.5s ease-in-out;
+}
+
+.buttons:hover {
+    /*color: #d61414;*/
+    transform: scale(105%);
+}
+
+.budgetHistoryContainer {
+    display: flex;
+    flex: 1;
+    /*background-color: red;*/
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
