@@ -20,7 +20,7 @@ export default function FocusedRingTextarea() {
         },
         '&:focus-within': {
           borderColor: '#86b7fe',
-        },width:"1020px"
+        },width:"960px"
       }}
     />
 

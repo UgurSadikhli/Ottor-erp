@@ -213,7 +213,7 @@ const OfficeBudget = () => {
           </div>
         </div>
         <div className={styles.budgetHistoryContainer}>
-          <CustomTable blockTitle="Budget History" tableData={data} />
+          <CustomTable blockTitle="Budget History" shownPerPage  shownButton  shownPagination tableData={data}  />
           {/*<Table tableName={"Memo"} headers={headers} tableData={tableData}/>*/}
         </div>
       </div>

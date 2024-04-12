@@ -35,7 +35,7 @@ export default function createCiruculas() {
               <InputField
                 label="Circular title"
                 placeholder="Enter title"
-                width={500}
+                width={470}
                 height={50}
               />
 
@@ -50,14 +50,14 @@ export default function createCiruculas() {
                 <InputField
                   label="Sent from"
                   placeholder="Enter name"
-                  width={500}
+                  width={470}
                   height={50}
                 />
                 <SelectIndicator
                   options={SelectIndicatoroptions}
                   placeholder="Select option"
                   height={50}
-                  width={500}
+                  width={470}
                   label="Sent to"
                   showLabel={true}
                 />
