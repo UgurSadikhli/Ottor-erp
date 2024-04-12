@@ -4,7 +4,7 @@ import { ReactElement, ReactNode } from "react";
 import ArrowUpIcon from "@/app/components/Icons/ArrowUpIcon/ArrowUpIcon";
 
 interface CardProps {
-    number: number;
+    number: string;
     title: string;
     description: string;
     icon?: ReactElement;

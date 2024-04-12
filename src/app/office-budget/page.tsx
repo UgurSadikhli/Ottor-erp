@@ -5,6 +5,7 @@ import Card from "@/app/components/Card/card";
 import StaffIcon from "@/app/components/Icons/StaffIcon/StaffIcon";
 import ArrowUpIcon from "@/app/components/Icons/ArrowUpIcon/ArrowUpIcon";
 import DocumentIcon from "@/app/components/Icons/DocumentIcon/DocumentIcon";
+import MoneySackIcon from "@/app/components/Icons/MoneySackIcon/MoneySackIcon";
 import ArrowDownIcon from "@/app/components/Icons/ArrowDownIcon/ArrowDownIcon";
 import RocketIcon from "@/app/components/Icons/RocketIcon/RocketIcon";
 import PeopleIcon from "@/app/components/Icons/PeopleIcon/PeopleIcon";
@@ -171,34 +172,32 @@ const OfficeBudget = () => {
       <div className={styles.container}>
         <div className={styles.statisticsContainer}>
           <Card
-            number={250}
-            title="Total number of staff"
-            description="12 more than last quarter"
-            icon={<StaffIcon color={"#F29425"} />}
+            number={"₦23,000,000"}
+            title="Total annual budget"
+            description="5% more than last year"
+            icon={<MoneySackIcon color={"#248CD8"} />}
             arrowIcon={<ArrowUpIcon color="#10A242" />}
-            backgroundColor="#FFF4E8"
-          />
-          <Card
-            number={100}
-            title="Total application"
-            description="0.2% lower than last quarter"
-            icon={<DocumentIcon color={"#248CD8"} />}
-            arrowIcon={<ArrowDownIcon color={"#ED3237"} />}
             backgroundColor="#E8F5FF"
           />
           <Card
-            number={10}
-            title="Total projects"
-            description="2% more than last quarter"
-            icon={<RocketIcon color={"#A601FF"} />}
-            arrowIcon={<ArrowUpIcon color="#10A242" />}
+            number={"₦10,000,000"}
+            title="Amount used, YTD"
+            description=""
+            icon={<MoneySackIcon color={"#F29425"} />}
+            backgroundColor="#FFF4E8"
+          />
+          <Card
+            number={"₦13,000,000"}
+            title="Budget % used"
+            description=""
+            icon={<MoneySackIcon color={"#A601FF"} />}
             backgroundColor="#F9EFFF"
           />
           <Card
-            number={10}
+            number={"48%"}
             title="Total departments"
             description=""
-            icon={<PeopleIcon color={"#10A242"} />}
+            icon={<MoneySackIcon color={"#10A242"} />}
             backgroundColor="#ECFFF2"
           />
         </div>
@@ -213,7 +212,7 @@ const OfficeBudget = () => {
           </div>
         </div>
         <div className={styles.budgetHistoryContainer}>
-          <CustomTable blockTitle="Budget History" shownPerPage  shownButton  shownPagination tableData={data}  />
+          <CustomTable blockTitle="Budget History" tableData={data}  />
           {/*<Table tableName={"Memo"} headers={headers} tableData={tableData}/>*/}
         </div>
       </div>
