@@ -10,6 +10,7 @@ import FocusedRingTextarea from "../../components/TextArea/textArea";
 import ArrowRightIcon from "@/app/components/Icons/ArrowRightIcon/ArrowRightIcon";
 import Link from "next/link";
 import DatePickerValue from "@/app/components/Calendar/calendar";
+import CustomButton from "@/app/components/Buttons/CustomButton/CustomButton";
 
 const SelectIndicatoroptions = [
   { value: "1", label: "1" },
@@ -22,9 +23,7 @@ export default function createCiruculas() {
     <MainLayout>
       <div className={styles.main}>
         <div className={styles.top}>
-          <Link href="/circulars" passHref={true} legacyBehavior={true}>
-            <IconButton label={"Back"} icon={<ArrowRightIcon color="red" />} />
-          </Link>
+          <CustomButton links="circulars" label={"Back"} icon={<ArrowRightIcon color="red" /> }/>
         </div>
         <div className={styles.body}>
           <div className={styles.bodyTop}>
