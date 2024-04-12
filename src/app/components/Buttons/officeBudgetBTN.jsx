@@ -2,7 +2,7 @@ import Link from "next/link";
 
 
 const OfficeBudgetButton = () => (
-    <Link href="/officeBudget" passHref={true} legacyBehavior={true}>
+    <Link href="/office-budget" passHref={true} legacyBehavior={true}>
               <a className="nav-link">
                 <svg
                   width="23"
