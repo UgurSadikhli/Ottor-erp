@@ -31,7 +31,7 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
         "--Input-radius": "10px",
         "& input::placeholder": {
           color: "#636b74",
-        },
+        },width:"400px"
       }}
     />
   );

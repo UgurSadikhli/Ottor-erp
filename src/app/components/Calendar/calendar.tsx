@@ -15,7 +15,7 @@ export default function DatePickerValue() {
           <DatePicker
           className={styles.Input}
             defaultValue={dayjs("2022-17-04")}
-            sx={{ width:"500px"}}
+            sx={{ width:"470px"}}
           />
         </DemoContainer>
       </LocalizationProvider>

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
 .main {
-  background-color: red;
+
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -10,29 +10,30 @@
 }
 
 .top {
-  background-color: blue;
+  background-color:#fff;
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   height: 15%;
-  /* padding: 0 20px 0 20px;  */ /*use it when finish the page*/
+  padding: 0 20px 0 20px;
 }
 
 .body {
-  background-color: rgb(0, 255, 98);
+  background-color:#fff;
   justify-content: center;
   border-radius: 20px;
+  height: 80%;
 }
 
 .Veryleft {
-  background-color: rgb(142, 150, 145);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .left {
-  background-color: rgb(0, 255, 98);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,10 +42,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(194, 169, 30);
+
 }
 .Veryright {
-  background-color: rgb(136, 138, 241);
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +64,7 @@
 }
 
 .circularsCount {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 800;
   font-family: "Nunito", sans-serif;
 }
@@ -71,4 +72,16 @@
   font-family: "Nunito", sans-serif;
   color: "#121212";
   font-size: 15px;
+}
+
+.rightVeryRight{
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+.VeryleftLeft{
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+
 }
