@@ -41,7 +41,7 @@ export default function Dashboard() {
             <div className={styles.container}>
                 <div className={styles.top}>
                     <Card
-                        number={250}
+                        number={"250"}
                         title="Total number of staff"
                         description="12 more than last quarter"
                         icon={<StaffIcon color={"#F29425"}/>}
@@ -49,7 +49,7 @@ export default function Dashboard() {
                         backgroundColor="#FFF4E8"
                     />
                     <Card
-                        number={100}
+                        number={"100"}
                         title="Total application"
                         description="0.2% lower than last quarter"
                         icon={<DocumentIcon color={"#248CD8"}/>}
@@ -58,7 +58,7 @@ export default function Dashboard() {
 
                     />
                     <Card
-                        number={10}
+                        number={"10"}
                         title="Total projects"
                         description="2% more than last quarter"
                         icon={<RocketIcon color={"#A601FF"}/>}
@@ -67,7 +67,7 @@ export default function Dashboard() {
 
                     />
                     <Card
-                        number={10}
+                        number={"10"}
                         title="Total departments"
                         description=""
                         icon={<PeopleIcon color={"#10A242"}/>}
