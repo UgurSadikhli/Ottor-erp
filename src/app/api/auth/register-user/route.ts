@@ -1,14 +1,13 @@
 import { User } from "@/models/User";
 import { NextResponse } from "next/server";
-import { generateOTP, sendOTP } from "@/services/OtpService";
 import { randomUUID } from "crypto";
-import fs from 'fs'
+import fs from "fs";
 
-const dbPath = "db.json"
+const dbPath = "db.json";
 
 export async function POST(req: Request) {
   const reqObject = await req.json();
-  const db = JSON.parse(fs.readFileSync(dbPath, "utf-8")); 
+  const db = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
 
   try {
     if (
@@ -42,9 +41,6 @@ export async function POST(req: Request) {
 
     db.users.push(newUser);
     fs.writeFileSync(dbPath, JSON.stringify(db));
-
-    const otp = generateOTP(6);
-    sendOTP(newUser.email, otp);
 
     return NextResponse.json(newUser, { status: 201 });
   } catch (error) {
