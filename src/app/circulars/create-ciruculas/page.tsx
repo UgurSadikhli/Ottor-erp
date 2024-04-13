@@ -40,7 +40,7 @@ export default function createCiruculas() {
 
               <div >
                 <span className={styles.label}>Date</span>
-                <DatePickerValue />
+                <DatePickerValue  width={470}/>
               </div>
               <button className={styles.buttons}>Send Circular</button>
             </div>

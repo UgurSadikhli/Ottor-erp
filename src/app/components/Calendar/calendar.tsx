@@ -7,7 +7,14 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import FormControl from "@mui/joy/FormControl";
 import styles from './calendar.module.css'
 
-export default function DatePickerValue() {
+
+interface DatepickerFieldProps {
+
+  width:number;
+
+}
+
+export default function DatePickerValue({width}:DatepickerFieldProps) {
   return (
    
       <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -15,7 +22,7 @@ export default function DatePickerValue() {
           <DatePicker
           className={styles.Input}
             defaultValue={dayjs("2022-17-04")}
-            sx={{ width:"470px"}}
+            sx={{ width:{width}}}
           />
         </DemoContainer>
       </LocalizationProvider>

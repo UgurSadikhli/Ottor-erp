@@ -7,6 +7,7 @@ import ArrowDownIcon from "@/app/components/Icons/ArrowDownIcon/ArrowDownIcon";
 import Link from "next/link";
 import CustomTable from "@/app/components/Table/CustomTable/CustomTable";
 import Table from "../components/Table/table";
+
 import BagIcon from "../components/Icons/BagIcon/BagIcon";
 
 export default function logistics() {
@@ -77,7 +78,7 @@ export default function logistics() {
             <span className={styles.title}>Logistics request</span>
           </div>
           <div>
-            <Link href="/logistics">
+            <Link href="/logistics/logistics-request">
               <button className={styles.buttons}>Make Logistics Request</button>
             </Link>
           </div>
