@@ -5,9 +5,7 @@ import Menu from "../components/Menu/menu";
 import styles from "./MainLayout.module.css";
 import Modal from "../components/Modals/Modal";
 
-const ugur = ()=> {
-
-}
+const ugur = () => {};
 
 export default function MainLayout({
   children,
