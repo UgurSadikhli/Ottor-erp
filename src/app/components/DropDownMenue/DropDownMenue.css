@@ -22,6 +22,7 @@
   transform: translateY(-10px);
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
   pointer-events: none;
+  z-index: 1;
 }
 
 .dropDownMenuMainButton {
