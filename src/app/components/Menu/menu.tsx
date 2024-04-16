@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import "./menu.css";
 import otorerplogo from "../../../../public/assets/otor-erp-logo.png";
@@ -34,21 +35,16 @@ const menuItems = [
 ];
 
 const Menu: React.FC = () => {
-  const [activeButton, setActiveButton] = useState<string | null>(
-    localStorage.getItem("activeButton") || null
-  );
+  const [activeButton, setActiveButton] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedActiveButton = localStorage.getItem("activeButton");
+    setActiveButton(storedActiveButton || null);
+  }, []); 
 
   const handleButtonClick = (buttonName: string) => {
-    localStorage.removeItem("activeButton");
-    setActiveButton(buttonName);
     localStorage.setItem("activeButton", buttonName);
   };
-
-  //   useEffect(() => {
-  //     return () => {
-  //       localStorage.removeItem("activeButton");
-  //     };
-  //   }, []);
 
   return (
     <div className="main_Menu">
