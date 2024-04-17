@@ -145,6 +145,20 @@
   transition: all 0.5s ease-in-out;
 }
 
+.buttons:hover {
+  /*color: #d61414;*/
+  transform: scale(104%);
+}
+.buttons1:hover {
+  /*color: #d61414;*/
+  transform: scale(103%);
+}
+.buttons2:hover {
+  /*color: #d61414;*/
+  transform: scale(103%);
+}
+
+
 /*-----Form1 end-----*/
 
 /*-----Form2 start-----*/
