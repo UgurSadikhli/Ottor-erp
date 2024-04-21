@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    /*background-color: blue; !*to check*!*/
+    gap: 15px;
+    /*background-color:transparent;*/
+    padding: 0 20px 0 20px;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    /*background-color: #384295;*/
+    /*gap: 10px;*/
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}

@@ -1,0 +1,14 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color:transparent;
+
+    margin-top: auto;
+}
+
+.p_footer {
+    font-family: "Nunito", sans-serif;
+
+}

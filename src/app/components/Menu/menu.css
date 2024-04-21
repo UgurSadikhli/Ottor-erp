@@ -1,0 +1,50 @@
+.main_Menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  align-items: center;
+  height: 100%;
+  width: 18vw;
+}
+
+nav {
+  margin-top: 10%;
+  margin-left: 15px;
+  width: 18vw;
+}
+
+.image {
+  margin-top: 15%;
+}
+
+.Link {
+
+  padding: 16px;
+}
+
+.Link.active {
+  background-color: #f2f7ff;
+  color: #14add6;
+
+}
+
+.MainactiveIndicator.active {
+  display: flex;
+  flex-direction: row;
+align-items: start;
+  background-color: #f2f7ff;
+
+}
+
+.Link:hover {
+  background-color: #f2f7ff;
+}
+
+.activeIndicator {
+  margin-left: -8px;
+  width: 0.4rem;
+  height: 3.7rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #5584CE;
+}

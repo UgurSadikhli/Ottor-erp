@@ -1,0 +1,41 @@
+.dropDownMenuMain {
+  position: relative;
+
+}
+
+.dropDownMenuBody {
+  display: flex;
+  flex-direction: column;
+  align-items:start;
+  justify-content:start;
+  gap: 15px;
+  height: 10.5rem;
+  width: 10.5rem;
+  position: absolute;
+  right: 0.5rem;
+  top: calc(100% + 1.5rem);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  box-shadow: 2px 3px 6px 2px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dropDownMenuMainButton {
+  border: none;
+}
+
+.dropDownMenuButton {
+  border: none;
+  background-color: white;
+}
+
+.dropDownMenuMain > .dropDownMenuMainButton:focus + .dropDownMenuBody {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}

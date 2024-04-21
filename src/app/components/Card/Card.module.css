@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+.container {
+    border-radius: 10px;
+    width: 19vw;
+    height: 14vh;
+    padding: 12px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 12%;
+    justify-content: center;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 15% 0 15%;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.staffNumber {
+    font-size: 28px;
+    font-weight: 900;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.staffTitle {
+    font-size: 15px;
+    line-height: 24px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+}
+
+.right {
+
+}
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 15% 0 15%;
+    /*justify-content: space-between;*/
+    gap: 2%;
+}
+
+.staffDescription {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Nunito', sans-serif;
+
+}
