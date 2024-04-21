@@ -9,6 +9,8 @@ import CustomTable from "@/app/components/Table/CustomTable/CustomTable";
 import Table from "../components/Table/table";
 
 import BagIcon from "../components/Icons/BagIcon/BagIcon";
+import Header from "../components/Header/header";
+import LogisticsIcon from "../components/Icons/LogisticsIcon/LogisticsIcon";
 
 export default function logistics() {
   const headers = [
@@ -38,7 +40,8 @@ export default function logistics() {
 
   ];
   return (
-    <MainLayout>
+    <MainLayout label="Make and send logistics request." title=" Logistics" icon={<LogisticsIcon color="url(#paint_linear_148_8598_0)"/>}>
+      {/* <Header label="Make and send logistics request." title=" Logistics" icon={<LogisticsIcon color="url(#paint_linear_148_8598_0)" />}/> */}
       <div className={styles.container}>
         <div className={styles.statisticsContainer}>
           <Card

@@ -6,13 +6,26 @@ import ProfileIcon from "../Icons/ProfileIcon/ProfileIcon";
 import SettingsIcon from "../Icons/Settingsicon/SettingsIcon";
 import LogoutIcon from "../Icons/LogoutIcon/LogoutIcon";
 import DropDownMenue from "../DropDownMenue/DropDownMenue";
+import BagIcon from "../Icons/BagIcon/BagIcon";
+import MoneySackIcon from "../Icons/MoneySackIcon/MoneySackIcon";
+import { ReactElement } from "react";
 
-export default function Header() {
+
+interface HeaderProps {
+  label?: string;
+  icon?: ReactElement;
+  title?: string;
+}
+
+export default function Header({label,icon,title}:HeaderProps) {
   return (
     <div className="header">
       <div className="header_left">
-        <span className="header_h1">Welcome, Mr. Otor John</span>
-        <span className="header_p">Today is Saturday, 11th November 2022.</span>
+        <div className="header_left_ico">
+          {icon}
+        <span className="header_h1">{title}</span>
+        </div>
+        <span className="header_p">{label}</span>
       </div>
 
       <div className="header_right">

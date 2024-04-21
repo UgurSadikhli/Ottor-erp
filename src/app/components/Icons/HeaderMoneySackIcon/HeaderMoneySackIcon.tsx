@@ -4,12 +4,12 @@ interface Props {
   color: string;
 }
 
-const MoneySackIcon = ({ color }: Props) => {
+const HeaderMoneySackIcon = ({ color }: Props) => {
   return (
     <svg
-      width="37.000000"
-      height="37.000000"
-      viewBox="0 0 24 24"
+      width="23.000000"
+      height="23.000000"
+      viewBox="0 3 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
      
@@ -75,4 +75,4 @@ const MoneySackIcon = ({ color }: Props) => {
   );
 };
 
-export default MoneySackIcon;
+export default HeaderMoneySackIcon;
