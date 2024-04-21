@@ -1,0 +1,63 @@
+.MainContainer{
+    background-color:#fff;
+    border-radius: 15px;
+    padding: 50px 30px;
+    margin:20px;
+}
+
+.top{
+    margin:20px;
+}
+
+.CustomButton {
+    width: 400px;
+    height: 50px;
+    background: linear-gradient(135deg, #14ADD6 0%, #384295 100%);
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-Weight: 400;
+    line-height: 24px;
+    transition: all 0.5s ease-in-out;
+}
+
+.CustomButton:hover {
+    transform: scale(105%);
+}
+
+.form1SpanDatePickerValue{
+    display: flex;
+    flex-direction:column ;
+    margin-top: -2px;
+}
+
+.formTopDate{
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+
+.tableContainer {
+    display: flex;
+    flex: 1;
+    /*background-color: red;*/
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.main{
+    overflow-y:auto;
+}
+
+
+.main::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+
+.main::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #14add6 0%, #384295 100%);
+    border-radius: 20px;
+}
