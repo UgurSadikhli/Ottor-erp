@@ -27,6 +27,36 @@
     gap: 25px;
 }
 
+.formTop {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.pageTitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.formTitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 1000;
+}
+
+.formBody {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bodyContainer {
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+
 .form1{
     /* background-color:crimson; */
     background-color: #fff;
