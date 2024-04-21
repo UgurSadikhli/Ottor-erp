@@ -88,6 +88,7 @@ const innerData = [
             blockTitle="Budget History"
             headers={headers}
             innerData={innerData}
+            
           />
           {/*<Table tableName={"Memo"} headers={headers} tableData={tableData}/>*/}
         </div>

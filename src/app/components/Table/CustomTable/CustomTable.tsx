@@ -17,9 +17,9 @@ interface Props {
   innerData: Array<{
     [key: string]: any;
   }>;
-  btnLabel:string;
-  btnLink:string;
-  btnIcon:ReactElement;
+  btnLabel?:string;
+  btnLink?:string;
+  btnIcon?:ReactElement;
 }
 
 const CustomTable = ({
