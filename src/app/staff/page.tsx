@@ -1,7 +1,6 @@
-import Image from "next/image";
 import MainLayout from '../layouts/main-layout'
 
-export default function staff() {
+export default function Staff() {
   return (
     <MainLayout>
       <h1>staff</h1>
