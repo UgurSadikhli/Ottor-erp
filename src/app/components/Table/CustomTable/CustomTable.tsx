@@ -3,6 +3,7 @@ import React, { useState, useEffect,ReactElement } from "react";
 import styles from "./CustomTable.module.css";
 import Link from "next/link";
 import CustomButton from "../../Buttons/CustomButton/CustomButton";
+import SimpleCustomButton from "../../Buttons/SimpleCustomButton/SimpleCustomButton";
 
 
 interface Props {
@@ -111,7 +112,7 @@ const CustomTable = ({
             {/* <Link href="/create-budget">
               <button className={styles.button}>Create Budget</button>
             </Link> */}
-            <CustomButton label={btnLabel} links={btnLink} icon={btnIcon}/>
+            <SimpleCustomButton label={btnLabel} links={btnLink} icon={btnIcon}/>
           </div>
         )}
       </header>

@@ -1,0 +1,57 @@
+.main{
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.Title{
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Nunito', sans-serif;
+}
+
+.head{
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.headLeft{
+    margin-top: 0.5rem;
+    margin-right: 3.6rem;
+    display: flex;
+    flex-direction: row;
+    gap:15px;
+}
+.square{
+    display: flex;
+    flex-direction: row;
+    gap:7px;
+}
+
+.square1{
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color:#248CD8;
+    border-radius: 5px;
+}
+
+.square2{
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color:#F29425;
+    border-radius: 5px;
+}
+
+.square3{
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color:#A601FF;
+    border-radius: 5px;
+}
+
+.Title1{
+    font-weight: 300;
+    font-family: 'Nunito', sans-serif;
+}

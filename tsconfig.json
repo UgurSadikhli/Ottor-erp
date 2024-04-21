@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/Buttons/dashboardBTN.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/Buttons/dashboardBTN.jsx", "src/app/components/ColumnChart/ColumnChart.jsx"],
   "exclude": ["node_modules"]
 }
