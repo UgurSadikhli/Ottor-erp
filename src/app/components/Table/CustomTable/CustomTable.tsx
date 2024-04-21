@@ -45,7 +45,9 @@ const CustomTable = ({
 
   const handleNumRowsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value);
+    if(value>0){
     setNumRowsToShow(value);
+    }
   };
 
   const handleNextPage = () => {
