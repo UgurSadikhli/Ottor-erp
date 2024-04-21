@@ -20,4 +20,3 @@ const StaffIcon = ({color}: Props) => {
 };
 
 export default StaffIcon;
-

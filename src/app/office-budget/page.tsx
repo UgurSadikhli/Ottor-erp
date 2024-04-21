@@ -11,8 +11,11 @@ import ArrowDownIcon from "@/app/components/Icons/ArrowDownIcon/ArrowDownIcon";
 import RocketIcon from "@/app/components/Icons/RocketIcon/RocketIcon";
 import PeopleIcon from "@/app/components/Icons/PeopleIcon/PeopleIcon";
 import Link from "next/link";
+import HeaderMoneySackIcon from "@/app/components/Icons/HeaderMoneySackIcon/HeaderMoneySackIcon";
 import Table from "@/app/components/Table/table";
 import CustomTable from "@/app/components/Table/CustomTable/CustomTable";
+import Header from "../components/Header/header";
+
 
 const OfficeBudget = () => {
   const headers = [
@@ -40,14 +43,15 @@ const innerData = [
 
 ];
   return (
-    <MainLayout>
+    <MainLayout label="View, create and send budget request." title="Office Budget" icon={<HeaderMoneySackIcon color="url(#paint_linear_148_10848_0)" />}> 
+      {/* <Header label="View, create and send budget request." title="Office Budget" icon={<MoneySackIcon color="url(#paint_linear_148_10848_0)" />}/> */}
       <div className={styles.container}>
         <div className={styles.statisticsContainer}>
           <Card
             number={"₦23,000,000"}
             title="Total annual budget"
             description="5% more than last year"
-            icon={<MoneySackIcon color={"#248CD8"} />}
+            icon={<MoneySackIcon color={"#248CD8"}  />}
             arrowIcon={<ArrowUpIcon color="#10A242" />}
             backgroundColor="#E8F5FF"
           />

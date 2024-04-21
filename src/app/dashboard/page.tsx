@@ -10,7 +10,7 @@ import PeopleIcon from "@/app/components/Icons/PeopleIcon/PeopleIcon";
 import ArrowUpIcon from "@/app/components/Icons/ArrowUpIcon/ArrowUpIcon";
 import ArrowDownIcon from "@/app/components/Icons/ArrowDownIcon/ArrowDownIcon";
 import ChartCard from "@/app/components/ChartCard/ChartCard";
-
+import Header from "../components/Header/header";
 
 export default function Dashboard() {
 
@@ -37,7 +37,8 @@ export default function Dashboard() {
 
 
     return (
-        <MainLayout>
+        <MainLayout label="Today is Saturday, 11th November 2022." title="Welcome, Mr. Otor John">
+            {/* <Header label="Today is Saturday, 11th November 2022." title="Welcome, Mr. Otor John"/> */}
             <div className={styles.container}>
                 <div className={styles.top}>
                     <Card

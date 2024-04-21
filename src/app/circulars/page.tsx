@@ -8,6 +8,8 @@ import SelectIndicator from "../components/SelectIndicator/SelectIndicator";
 import MagnifierIcon from "../components/Icons/MagnifierIcon/MagnifierIcon";
 import Link from "next/link";
 import CustomTable from "../components/Table/CustomTable/CustomTable";
+import Header from "../components/Header/header";
+import CircularsIcon from "../components/Icons/CircularsIcon/CircularsIcon";
 
 const SelectIndicatoroptions = [
   { value: "1", label: "1" },
@@ -45,7 +47,8 @@ export default function Circulars() {
   };
 
   return (
-    <MainLayout>
+    <MainLayout label="Search for  and view all circulars" title=" Circulars" icon={<CircularsIcon color="url(#paint_linear_148_9976_0)" />}>
+       {/* <Header label="Search for  and view all circulars" title=" Circulars" icon={<CircularsIcon color="url(#paint_linear_148_9976_0)" />}/> */}
       <div className={styles.main}>
         <div className={styles.top}>
           <div className={styles.VeryleftLeft}>

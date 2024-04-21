@@ -1,3 +1,4 @@
+
 "use client";
 import MainLayout from "../layouts/main-layout";
 import React, { useState } from "react";
@@ -7,6 +8,7 @@ import SelectIndicator from "../components/SelectIndicator/SelectIndicator";
 import MagnifierIcon from "../components/Icons/MagnifierIcon/MagnifierIcon";
 import Link from "next/link";
 import CustomTable from "../components/Table/CustomTable/CustomTable";
+
 
 const SelectIndicatoroptions = [
     { value: "allStaff", label: "All Staff" },
