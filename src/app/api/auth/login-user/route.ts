@@ -1,13 +1,14 @@
-import { User } from "@/models/User";
-import { v4 as uuidv4 } from "uuid";
-import db from "../../../../../db.json";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { NextResponse } from "next/server";
+import fs from "fs";
+import { User } from "@/models/User";
 
+const dbPath = "db.json";
 const JWT_SECRET = "13KSKOA41OAQWJ11ID";
 
 export async function POST(req: Request) {
   const reqObject = await req.json();
+  const db = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
 
   try {
     if (!reqObject) {
@@ -26,8 +27,16 @@ export async function POST(req: Request) {
       );
     }
 
+    if (!reqObject.emailconfirmed) {
+      return NextResponse.json(
+        { error: "Email not confirmed" },
+        { status: 401 }
+      );
+    }
+
     const user = users.find(
-      (x) => x.email == reqObject.email && x.password == reqObject.password
+      (x: User) =>
+        x.email == reqObject.email && x.password == reqObject.password
     );
 
     if (!user) {
