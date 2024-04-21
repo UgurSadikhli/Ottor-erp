@@ -23,24 +23,126 @@ export default function logistics() {
     { id: 7, headerName: "Date" },
     { id: 8, headerName: "Status" },
     { id: 8, headerName: "Action" },
-    
   ];
-  
-  const innerData = [
-    { id: 1, Title: "Request for travel time", Purpose: "Training ourse", Amount: "360,000.00", Requested: "Otor John Stephen",Sent:"Hassana Husseini",Date:"21/11/2022",Status:"Pending",Action:"View more"},
-    { id: 2, Title: "Request for travel time", Purpose: "Training ourse", Amount: "360,000.00", Requested: "Otor John Stephen",Sent:"Hassana Husseini",Date:"21/11/2022",Status:"Pending",Action:"View more"},
-    { id: 3, Title: "Request for travel time", Purpose: "Training ourse", Amount: "360,000.00", Requested: "Otor John Stephen",Sent:"Hassana Husseini",Date:"21/11/2022",Status:"Approved",Action:"View more"},
-    { id: 4, Title: "Request for travel time", Purpose: "Training ourse", Amount: "360,000.00", Requested: "Otor John Stephen",Sent:"Hassana Husseini",Date:"21/11/2022",Status:"Pending",Action:"View more"},
-    { id: 5, Title: "Request for travel time", Purpose: "Training ourse", Amount: "360,000.00", Requested: "Otor John Stephen",Sent:"Hassana Husseini",Date:"21/11/2022",Status:"Rejected",Action:"View more"},
-    { id: 6, Title: "Request for travel time", Purpose: "Training ourse", Amount: "360,000.00", Requested: "Otor John Stephen",Sent:"Hassana Husseini",Date:"21/11/2022",Status:"Pending",Action:"View more"},
-    { id: 7, Title: "Request for travel time", Purpose: "Training ourse", Amount: "360,000.00", Requested: "Otor John Stephen",Sent:"Hassana Husseini",Date:"21/11/2022",Status:"Approved",Action:"View more"},
-    { id: 8, Title: "Request for travel time", Purpose: "Training ourse", Amount: "360,000.00", Requested: "Otor John Stephen",Sent:"Hassana Husseini",Date:"21/11/2022",Status:"Rejected",Action:"View more"},
-    { id: 9, Title: "Request for travel time", Purpose: "Training ourse", Amount: "360,000.00", Requested: "Otor John Stephen",Sent:"Hassana Husseini",Date:"21/11/2022",Status:"Pending",Action:"View more"},
-    { id: 10, Title: "Request for travel time", Purpose: "Training ourse", Amount: "360,000.00", Requested: "Otor John Stephen",Sent:"Hassana Husseini",Date:"21/11/2022",Status:"Approved",Action:"View more"},
 
+  const innerData = [
+    {
+      id: 1,
+      Title: "Request for travel time",
+      Purpose: "Training ourse",
+      Amount: "360,000.00",
+      Requested: "Otor John Stephen",
+      Sent: "Hassana Husseini",
+      Date: "21/11/2022",
+      Status: "Pending",
+      Action: "View more",
+    },
+    {
+      id: 2,
+      Title: "Request for travel time",
+      Purpose: "Training ourse",
+      Amount: "360,000.00",
+      Requested: "Otor John Stephen",
+      Sent: "Hassana Husseini",
+      Date: "21/11/2022",
+      Status: "Pending",
+      Action: "View more",
+    },
+    {
+      id: 3,
+      Title: "Request for travel time",
+      Purpose: "Training ourse",
+      Amount: "360,000.00",
+      Requested: "Otor John Stephen",
+      Sent: "Hassana Husseini",
+      Date: "21/11/2022",
+      Status: "Approved",
+      Action: "View more",
+    },
+    {
+      id: 4,
+      Title: "Request for travel time",
+      Purpose: "Training ourse",
+      Amount: "360,000.00",
+      Requested: "Otor John Stephen",
+      Sent: "Hassana Husseini",
+      Date: "21/11/2022",
+      Status: "Pending",
+      Action: "View more",
+    },
+    {
+      id: 5,
+      Title: "Request for travel time",
+      Purpose: "Training ourse",
+      Amount: "360,000.00",
+      Requested: "Otor John Stephen",
+      Sent: "Hassana Husseini",
+      Date: "21/11/2022",
+      Status: "Rejected",
+      Action: "View more",
+    },
+    {
+      id: 6,
+      Title: "Request for travel time",
+      Purpose: "Training ourse",
+      Amount: "360,000.00",
+      Requested: "Otor John Stephen",
+      Sent: "Hassana Husseini",
+      Date: "21/11/2022",
+      Status: "Pending",
+      Action: "View more",
+    },
+    {
+      id: 7,
+      Title: "Request for travel time",
+      Purpose: "Training ourse",
+      Amount: "360,000.00",
+      Requested: "Otor John Stephen",
+      Sent: "Hassana Husseini",
+      Date: "21/11/2022",
+      Status: "Approved",
+      Action: "View more",
+    },
+    {
+      id: 8,
+      Title: "Request for travel time",
+      Purpose: "Training ourse",
+      Amount: "360,000.00",
+      Requested: "Otor John Stephen",
+      Sent: "Hassana Husseini",
+      Date: "21/11/2022",
+      Status: "Rejected",
+      Action: "View more",
+    },
+    {
+      id: 9,
+      Title: "Request for travel time",
+      Purpose: "Training ourse",
+      Amount: "360,000.00",
+      Requested: "Otor John Stephen",
+      Sent: "Hassana Husseini",
+      Date: "21/11/2022",
+      Status: "Pending",
+      Action: "View more",
+    },
+    {
+      id: 10,
+      Title: "Request for travel time",
+      Purpose: "Training ourse",
+      Amount: "360,000.00",
+      Requested: "Otor John Stephen",
+      Sent: "Hassana Husseini",
+      Date: "21/11/2022",
+      Status: "Approved",
+      Action: "View more",
+    },
   ];
   return (
-    <MainLayout label="Make and send logistics request." title=" Logistics" icon={<LogisticsIcon color="url(#paint_linear_148_8598_0)"/>}>
+    <MainLayout
+      label="Make and send logistics request."
+      title=" Logistics"
+      icon={<LogisticsIcon color="url(#paint_linear_148_8598_0)" />}
+    >
       {/* <Header label="Make and send logistics request." title=" Logistics" icon={<LogisticsIcon color="url(#paint_linear_148_8598_0)" />}/> */}
       <div className={styles.container}>
         <div className={styles.statisticsContainer}>
@@ -87,8 +189,12 @@ export default function logistics() {
           </div>
         </div>
         <div className={styles.budgetHistoryContainer}>
-          <CustomTable blockTitle="All Logistics Request" headers={headers} innerData={innerData}  /> 
-        {/*  <Table tableName={"All Logistics Request"} headers={headers} tableData={tableData}/>*/}
+          <CustomTable
+            blockTitle="All Logistics Request"
+            headers={headers}
+            innerData={innerData}
+          />
+          {/*  <Table tableName={"All Logistics Request"} headers={headers} tableData={tableData}/>*/}
         </div>
       </div>
     </MainLayout>
