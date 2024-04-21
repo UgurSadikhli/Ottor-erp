@@ -1,7 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,ReactElement } from "react";
 import styles from "./CustomTable.module.css";
 import Link from "next/link";
+import CustomButton from "../../Buttons/CustomButton/CustomButton";
+
 
 interface Props {
   blockTitle?: string;
@@ -15,6 +17,9 @@ interface Props {
   innerData: Array<{
     [key: string]: any;
   }>;
+  btnLabel:string;
+  btnLink:string;
+  btnIcon:ReactElement;
 }
 
 const CustomTable = ({
@@ -24,6 +29,9 @@ const CustomTable = ({
   shownPagination = false,
   headers,
   innerData,
+  btnLabel,
+  btnLink,
+  btnIcon
 }: Props) => {
   const [numRowsToShow, setNumRowsToShow] = useState<number>(5);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -100,9 +108,10 @@ const CustomTable = ({
         )}
         {shownButton && (
           <div className={styles.buttons}>
-            <Link href="/create-budget">
+            {/* <Link href="/create-budget">
               <button className={styles.button}>Create Budget</button>
-            </Link>
+            </Link> */}
+            <CustomButton label={btnLabel} links={btnLink} icon={btnIcon}/>
           </div>
         )}
       </header>
