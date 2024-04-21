@@ -122,3 +122,18 @@
   font-family: "Nunito", sans-serif;
   font-weight: 600;
 }
+
+.view{
+  text-decoration: none;
+  color: #14add6;
+}
+
+.edit{
+  text-decoration: none;
+  color: #14add6;
+}
+
+.delete{
+  text-decoration: none;
+  color: #ED3237;
+}

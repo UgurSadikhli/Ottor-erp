@@ -7,8 +7,8 @@ interface Props {
 const Payrolicon = ({ color }: Props) => {
   return (
     <svg
-      width="15.000000"
-      height="19.000000"
+      width="21.000000"
+      height="25.000000"
       viewBox="0 0 15 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

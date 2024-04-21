@@ -21,7 +21,7 @@ const SimpleCustomButton = ({links, label, icon}:Props) => {
                 <Button
                     variant="text"
                     startIcon={icon}
-                    sx={{ fontSize: "12px",background:"linear-gradient(135deg, #14add6 0%, #384295 100%)",color:"white",width:230,borderRadius:2}}
+                    sx={{ fontSize: "15px",background:"linear-gradient(135deg, #14add6 0%, #384295 100%)",color:"white",width:200,borderRadius:2,textTransform: "none"}}
                 >
                     {label}
                 </Button>

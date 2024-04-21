@@ -1,10 +1,9 @@
 "use client";
-import React, { useState, useEffect,ReactElement } from "react";
+import React, { useState, useEffect, ReactElement } from "react";
 import styles from "./CustomTable.module.css";
 import Link from "next/link";
 import CustomButton from "../../Buttons/CustomButton/CustomButton";
 import SimpleCustomButton from "../../Buttons/SimpleCustomButton/SimpleCustomButton";
-
 
 interface Props {
   blockTitle?: string;
@@ -18,9 +17,10 @@ interface Props {
   innerData: Array<{
     [key: string]: any;
   }>;
-  btnLabel?:string;
-  btnLink?:string;
-  btnIcon?:ReactElement;
+  btnLabel?: string;
+  btnLink?: string;
+  btnIcon?: ReactElement;
+  viewTable?: string;
 }
 
 const CustomTable = ({
@@ -32,7 +32,8 @@ const CustomTable = ({
   innerData,
   btnLabel,
   btnLink,
-  btnIcon
+  btnIcon,
+  viewTable = "",
 }: Props) => {
   const [numRowsToShow, setNumRowsToShow] = useState<number>(5);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -45,8 +46,8 @@ const CustomTable = ({
 
   const handleNumRowsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value);
-    if(value>0){
-    setNumRowsToShow(value);
+    if (value > 0) {
+      setNumRowsToShow(value);
     }
   };
 
@@ -83,13 +84,10 @@ const CustomTable = ({
     } else if (header === "Status" && data === "Rejected") {
       return { color: "red" };
     } else if (header === "Variance (₦)" && data.startsWith("+")) {
-      return { color: "green" }; 
+      return { color: "green" };
     } else if (header === "Variance (₦)" && data.startsWith("-")) {
-      return { color: "red" }; 
+      return { color: "red" };
     }
-    else if (header === "Action" && data === "View more") {
-        return { color: "#14add6" }; 
-      }
     return {};
   };
 
@@ -106,7 +104,7 @@ const CustomTable = ({
               value={numRowsToShow}
               onChange={handleNumRowsChange}
             />
-            <span className={styles.showPerPageSpan}> per row</span>
+            <span className={styles.showPerPageSpan}> per page</span>
           </div>
         )}
         {shownButton && (
@@ -114,7 +112,11 @@ const CustomTable = ({
             {/* <Link href="/create-budget">
               <button className={styles.button}>Create Budget</button>
             </Link> */}
-            <SimpleCustomButton label={btnLabel} links={btnLink} icon={btnIcon}/>
+            <SimpleCustomButton
+              label={btnLabel}
+              links={btnLink}
+              icon={btnIcon}
+            />
           </div>
         )}
       </header>
@@ -135,7 +137,23 @@ const CustomTable = ({
                     key={index}
                     style={getCellStyle(headers[index].headerName, item[key])}
                   >
-                    {item[key]}
+                    {headers[index].headerName === "Action" &&
+                    item[key] === "View more" ? (
+                      <a  className={styles.view} href={viewTable}>{item[key]}</a>
+                    ) : headers[index].headerName === "Action" &&
+                      item[key] === "Edit Delete" ? (
+                      <span>
+                        <a className={styles.edit} href="#edit">
+                          Edit
+                        </a>
+                        {" "}
+                        <a className={styles.delete} href="#delete">
+                          Delete
+                        </a>
+                      </span>
+                    ) : (
+                      item[key]
+                    )}
                   </td>
                 ))}
               </tr>

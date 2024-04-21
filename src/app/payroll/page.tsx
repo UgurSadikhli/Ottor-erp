@@ -18,6 +18,7 @@ export default function Payroll() {
     shownButton: boolean;
     btnLabel: string;
     btnLink: string;
+    viewTable: string;
   }>({
     blockTitle: "Salary Defination",
     shownButton: true,
@@ -42,7 +43,7 @@ export default function Payroll() {
         Gross: "₦1,145,331.00",
         Deductions: "₦224,000.00",
         Net: "₦224,000.00",
-        Action: "Edit",
+        Action: "Edit Delete",
       },
       {
         id: 2,
@@ -53,7 +54,7 @@ export default function Payroll() {
         Gross: "₦1,145,331.00",
         Deductions: "₦224,000.00",
         Net: "₦224,000.00",
-        Action: "Edit",
+        Action: "Edit Delete",
       },
       {
         id: 3,
@@ -64,7 +65,7 @@ export default function Payroll() {
         Gross: "₦1,145,331.00",
         Deductions: "₦224,000.00",
         Net: "₦224,000.00",
-        Action: "Edit",
+        Action: "Edit Delete",
       },
       {
         id: 4,
@@ -75,7 +76,7 @@ export default function Payroll() {
         Gross: "₦1,145,331.00",
         Deductions: "₦224,000.00",
         Net: "₦224,000.00",
-        Action: "Edit",
+        Action: "Edit Delete",
       },
       {
         id: 5,
@@ -86,7 +87,7 @@ export default function Payroll() {
         Gross: "₦1,145,331.00",
         Deductions: "₦224,000.00",
         Net: "₦224,000.00",
-        Action: "Edit",
+        Action: "Edit Delete",
       },
       {
         id: 6,
@@ -97,7 +98,7 @@ export default function Payroll() {
         Gross: "₦1,145,331.00",
         Deductions: "₦224,000.00",
         Net: "₦224,000.00",
-        Action: "Edit",
+        Action: "Edit Delete",
       },
       {
         id: 7,
@@ -108,7 +109,7 @@ export default function Payroll() {
         Gross: "₦1,145,331.00",
         Deductions: "₦224,000.00",
         Net: "₦224,000.00",
-        Action: "Edit",
+        Action: "Edit Delete",
       },
       {
         id: 8,
@@ -119,7 +120,7 @@ export default function Payroll() {
         Gross: "₦1,145,331.00",
         Deductions: "₦224,000.00",
         Net: "₦224,000.00",
-        Action: "Edit",
+        Action: "Edit Delete",
       },
       {
         id: 9,
@@ -130,7 +131,7 @@ export default function Payroll() {
         Gross: "₦1,145,331.00",
         Deductions: "₦224,000.00",
         Net: "₦224,000.00",
-        Action: "Edit",
+        Action: "Edit Delete",
       },
       {
         id: 10,
@@ -141,11 +142,12 @@ export default function Payroll() {
         Gross: "₦1,145,331.00",
         Deductions: "₦224,000.00",
         Net: "₦224,000.00",
-        Action: "Edit",
+        Action: "Edit Delete",
       },
     ],
     btnLabel: "Create Salary Definition",
     btnLink: "payroll/create-salary-definition",
+    viewTable: "",
   });
   const [activeButton, setActiveButton] = useState("Salary Breakdown");
 
@@ -156,6 +158,7 @@ export default function Payroll() {
     let newShownButton = currentData.shownButton;
     let newBtnLabel = currentData.btnLabel;
     let newBtnLink = currentData.btnLink;
+    let newviewTable = currentData.viewTable;
 
     if (label === "Salary Breakdown") {
       setActiveButton("Salary Breakdown");
@@ -182,7 +185,7 @@ export default function Payroll() {
           Gross: "₦1,145,331.00",
           Deductions: "₦224,000.00",
           Net: "₦224,000.00",
-          Action: "Edit",
+          Action: "Edit Delete",
         },
         {
           id: 2,
@@ -193,7 +196,7 @@ export default function Payroll() {
           Gross: "₦1,145,331.00",
           Deductions: "₦224,000.00",
           Net: "₦224,000.00",
-          Action: "Edit",
+          Action: "Edit Delete",
         },
         {
           id: 3,
@@ -204,7 +207,7 @@ export default function Payroll() {
           Gross: "₦1,145,331.00",
           Deductions: "₦224,000.00",
           Net: "₦224,000.00",
-          Action: "Edit",
+          Action: "Edit Delete",
         },
         {
           id: 4,
@@ -215,7 +218,7 @@ export default function Payroll() {
           Gross: "₦1,145,331.00",
           Deductions: "₦224,000.00",
           Net: "₦224,000.00",
-          Action: "Edit",
+          Action: "Edit Delete",
         },
         {
           id: 5,
@@ -226,7 +229,7 @@ export default function Payroll() {
           Gross: "₦1,145,331.00",
           Deductions: "₦224,000.00",
           Net: "₦224,000.00",
-          Action: "Edit",
+          Action: "Edit Delete",
         },
         {
           id: 6,
@@ -237,7 +240,7 @@ export default function Payroll() {
           Gross: "₦1,145,331.00",
           Deductions: "₦224,000.00",
           Net: "₦224,000.00",
-          Action: "Edit",
+          Action: "Edit Delete",
         },
         {
           id: 7,
@@ -248,7 +251,7 @@ export default function Payroll() {
           Gross: "₦1,145,331.00",
           Deductions: "₦224,000.00",
           Net: "₦224,000.00",
-          Action: "Edit",
+          Action: "Edit Delete",
         },
         {
           id: 8,
@@ -259,7 +262,7 @@ export default function Payroll() {
           Gross: "₦1,145,331.00",
           Deductions: "₦224,000.00",
           Net: "₦224,000.00",
-          Action: "Edit",
+          Action: "Edit Delete",
         },
         {
           id: 9,
@@ -270,7 +273,7 @@ export default function Payroll() {
           Gross: "₦1,145,331.00",
           Deductions: "₦224,000.00",
           Net: "₦224,000.00",
-          Action: "Edit",
+          Action: "Edit Delete",
         },
         {
           id: 10,
@@ -281,7 +284,7 @@ export default function Payroll() {
           Gross: "₦1,145,331.00",
           Deductions: "₦224,000.00",
           Net: "₦224,000.00",
-          Action: "Edit",
+          Action: "Edit Delete",
         },
       ];
       newBtnLabel = "Create Salary Definition";
@@ -291,19 +294,19 @@ export default function Payroll() {
       newBlockTitle = "Tax Definitions";
       newShownButton = true;
       newHeaders = [
-        { id: 1, headerName: "ID" },
+        { id: 1, headerName: "S/N" },
         { id: 2, headerName: "Tax Type" },
         { id: 3, headerName: "% value" },
         { id: 4, headerName: "Action" },
       ];
       newInnerData = [
-        { id: 1, Type: "NHIS", value: "2%", Action: "Edit  Delete" },
-        { id: 2, Type: "VAT", value: "2.5%", Action: "Edit  Delete" },
-        { id: 3, Type: "WHT", value: "5%", Action: "Edit  Delete" },
-        { id: 4, Type: "NHIS", value: "2%", Action: "Edit  Delete" },
-        { id: 5, Type: "NHIS", value: "2%", Action: "Edit  Delete" },
-        { id: 6, Type: "NHIS", value: "2%", Action: "Edit  Delete" },
-        { id: 7, Type: "NHIS", value: "2%", Action: "Edit  Delete" },
+        { id: 1, Type: "NHIS", value: "2%", Action: "Edit Delete" },
+        { id: 2, Type: "VAT", value: "2.5%", Action: "Edit Delete" },
+        { id: 3, Type: "WHT", value: "5%", Action: "Edit Delete" },
+        { id: 4, Type: "NHIS", value: "2%", Action: "Edit Delete" },
+        { id: 5, Type: "NHIS", value: "2%", Action: "Edit Delete" },
+        { id: 6, Type: "NHIS", value: "2%", Action: "Edit Delete" },
+        { id: 7, Type: "NHIS", value: "2%", Action: "Edit Delete" },
       ];
       newBtnLabel = "Create Tax Definition";
       newBtnLink = "payroll/create-tax-definition";
@@ -312,7 +315,7 @@ export default function Payroll() {
       newBlockTitle = "Employee Payslip History";
       newShownButton = true;
       newHeaders = [
-        { id: 1, headerName: "ID" },
+        { id: 1, headerName: "S/N" },
         { id: 2, headerName: "Staff Name" },
         { id: 3, headerName: "Title" },
         { id: 4, headerName: "Level" },
@@ -422,13 +425,13 @@ export default function Payroll() {
         },
       ];
       newBtnLabel = "Create payslip";
-      newBtnLink = "payroll/create-payslip";
+      newviewTable = "payroll/payslip-details";
     } else if (label === "Payroll") {
       setActiveButton("Payroll");
       newBlockTitle = "Employee Payroll History";
       newShownButton = true;
       newHeaders = [
-        { id: 1, headerName: "ID" },
+        { id: 1, headerName: "S/N" },
         { id: 2, headerName: "Payment name" },
         { id: 3, headerName: "Designation" },
         { id: 4, headerName: "Date generated" },
@@ -455,7 +458,7 @@ export default function Payroll() {
           DateGenerated: "30/01/2023",
           month: "January",
           year: "2023",
-          Status: "Pending",
+          Status: "Approved",
           Action: "View more",
         },
         {
@@ -475,7 +478,7 @@ export default function Payroll() {
           DateGenerated: "30/01/2023",
           month: "January",
           year: "2023",
-          Status: "Pending",
+          Status: "Rejected",
           Action: "View more",
         },
         {
@@ -485,7 +488,7 @@ export default function Payroll() {
           DateGenerated: "30/01/2023",
           month: "January",
           year: "2023",
-          Status: "Pending",
+          Status: "Rejected",
           Action: "View more",
         },
         {
@@ -495,7 +498,7 @@ export default function Payroll() {
           DateGenerated: "30/01/2023",
           month: "January",
           year: "2023",
-          Status: "Pending",
+          Status: "Approved",
           Action: "View more",
         },
         {
@@ -505,7 +508,7 @@ export default function Payroll() {
           DateGenerated: "30/01/2023",
           month: "January",
           year: "2023",
-          Status: "Pending",
+          Status: "Approved",
           Action: "View more",
         },
         {
@@ -521,6 +524,7 @@ export default function Payroll() {
       ];
       newBtnLabel = "Generate Payroll";
       newBtnLink = "payroll/generate-payroll";
+      newviewTable = "#";
     }
 
     setCurrentData({
@@ -530,6 +534,7 @@ export default function Payroll() {
       shownButton: newShownButton,
       btnLabel: newBtnLabel,
       btnLink: newBtnLink,
+      viewTable: newviewTable,
     });
   };
 
@@ -625,6 +630,7 @@ export default function Payroll() {
             innerData={currentData.innerData}
             btnLabel={currentData.btnLabel}
             btnLink={currentData.btnLink}
+            viewTable={currentData.viewTable}
           />
         </div>
       </div>
