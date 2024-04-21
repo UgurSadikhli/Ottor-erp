@@ -147,6 +147,7 @@ export default function Payroll() {
     btnLabel: "Create Salary Definition",
     btnLink: "payroll/create-salary-definition",
   });
+  const [activeButton, setActiveButton] = useState("Salary Breakdown");
 
   const handleButtonClick = (label: string) => {
     let newHeaders = [...currentData.headers];
@@ -157,6 +158,7 @@ export default function Payroll() {
     let newBtnLink = currentData.btnLink;
 
     if (label === "Salary Breakdown") {
+      setActiveButton("Salary Breakdown");
       newBlockTitle = "Salary Defination";
       newShownButton = true;
       newHeaders = [
@@ -285,6 +287,7 @@ export default function Payroll() {
       newBtnLabel = "Create Salary Definition";
       newBtnLink = "payroll/create-salary-definition";
     } else if (label === "Tax Definitions") {
+      setActiveButton("Tax Definitions");
       newBlockTitle = "Tax Definitions";
       newShownButton = true;
       newHeaders = [
@@ -305,6 +308,7 @@ export default function Payroll() {
       newBtnLabel = "Create Tax Definition";
       newBtnLink = "payroll/create-tax-definition";
     } else if (label === "Payslips") {
+      setActiveButton("Payslips");
       newBlockTitle = "Employee Payslip History";
       newShownButton = true;
       newHeaders = [
@@ -420,6 +424,7 @@ export default function Payroll() {
       newBtnLabel = "Create payslip";
       newBtnLink = "payroll/create-payslip";
     } else if (label === "Payroll") {
+      setActiveButton("Payroll");
       newBlockTitle = "Employee Payroll History";
       newShownButton = true;
       newHeaders = [
@@ -576,16 +581,38 @@ export default function Payroll() {
         </div>
         <div className={styles.center}>
           <div className={styles.centerButtons}>
-            <Button onClick={() => handleButtonClick("Salary Breakdown")}>
+            <Button
+              onClick={() => handleButtonClick("Salary Breakdown")}
+              sx={{
+                color:
+                  activeButton === "Salary Breakdown" ? "#14add6" : "#515151",
+              }}
+            >
               Salary Breakdown
             </Button>
-            <Button onClick={() => handleButtonClick("Tax Definitions")}>
+            <Button
+              onClick={() => handleButtonClick("Tax Definitions")}
+              sx={{
+                color:
+                  activeButton === "Tax Definitions" ? "#14add6" : "#515151",
+              }}
+            >
               Tax Definitions
             </Button>
-            <Button onClick={() => handleButtonClick("Payslips")}>
+            <Button
+              onClick={() => handleButtonClick("Payslips")}
+              sx={{
+                color: activeButton === "Payslips" ? "#14add6" : "#515151",
+              }}
+            >
               Payslips
             </Button>
-            <Button onClick={() => handleButtonClick("Payroll")}>
+            <Button
+              onClick={() => handleButtonClick("Payroll")}
+              sx={{
+                color: activeButton === "Payroll" ? "#14add6" : "#515151",
+              }}
+            >
               Payroll
             </Button>
           </div>
