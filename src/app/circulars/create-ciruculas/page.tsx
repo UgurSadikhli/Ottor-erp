@@ -11,6 +11,8 @@ import ArrowRightIcon from "@/app/components/Icons/ArrowRightIcon/ArrowRightIcon
 import Link from "next/link";
 import DatePickerValue from "@/app/components/Calendar/calendar";
 import CustomButton from "@/app/components/Buttons/CustomButton/CustomButton";
+import Header from "../../components/Header/header";
+import CircularsIcon from "../../components/Icons/CircularsIcon/CircularsIcon";
 
 const SelectIndicatoroptions = [
   { value: "1", label: "1" },
@@ -20,7 +22,8 @@ const SelectIndicatoroptions = [
 
 export default function createCiruculas() {
   return (
-    <MainLayout>
+    <MainLayout label="Search for  and view all circulars" title=" Circulars" icon={<CircularsIcon color="url(#paint_linear_148_9976_0)" />}>
+      {/* <Header label="Search for  and view all circulars" title=" Circulars" icon={<CircularsIcon color="url(#paint_linear_148_9976_0)" />}/> */}
       <div className={styles.main}>
         <div className={styles.top}>
           <CustomButton links="circulars" label={"Back"} icon={<ArrowRightIcon color="red" /> }/>

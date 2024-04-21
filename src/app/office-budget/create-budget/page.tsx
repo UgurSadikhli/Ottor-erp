@@ -8,6 +8,9 @@ import InputField from "@/app/components/Input/input";
 import DatePickerValue from "@/app/components/Calendar/calendar";
 import SelectIndicator from "@/app/components/SelectIndicator/SelectIndicator";
 import CustomTable from "@/app/components/Table/CustomTable/CustomTable";
+import Header from "../../components/Header/header";
+import MoneySackIcon from "@/app/components/Icons/MoneySackIcon/MoneySackIcon";
+import HeaderMoneySackIcon from "@/app/components/Icons/HeaderMoneySackIcon/HeaderMoneySackIcon";
 
 const SelectIndicatoroptions = [
   { value: "1", label: "1" },
@@ -34,7 +37,8 @@ const innerData = [
 
 const CreateBudget = () => {
   return (
-    <MainLayout>
+    <MainLayout label="View, create and send budget request." title="Office Budget" icon={<HeaderMoneySackIcon color="url(#paint_linear_148_10848_0)" />}>
+      {/* <Header label="View, create and send budget request." title="Office Budget" icon={<MoneySackIcon color="url(#paint_linear_148_10848_0)" />}/> */}
         <div className={styles.main}>
           <div className={styles.top}> 
           <CustomButton icon={<ArrowRightIcon color="black"/>} links="office-budget" label="Back" />

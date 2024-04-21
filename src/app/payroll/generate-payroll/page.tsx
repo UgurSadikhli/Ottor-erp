@@ -8,6 +8,8 @@ import CustomButton from "@/app/components/Buttons/CustomButton/CustomButton";
 import ArrowRightIcon from "@/app/components/Icons/ArrowRightIcon/ArrowRightIcon";
 import DatePickerValue from "@/app/components/Calendar/calendar";
 import CustomTable from "@/app/components/Table/CustomTable/CustomTable";
+import Header from '@/app/components/Header/header';
+import Payrolicon from '@/app/components/Icons/Payrollicon/Payrolicon';
 export default function GeneratePayroll() {
 
     const SelectIndicatoroptions = [
@@ -54,7 +56,9 @@ export default function GeneratePayroll() {
     ];
 
     return (
-        <MainLayout>
+        <MainLayout label="Generate and send payroll to account." title=" Payroll" icon={<Payrolicon color="url(#paint_linear_148_8598_0)" />}>
+
+ {/* <Header label="Generate and send payroll to account." title=" Payroll" icon={<Payrolicon color="url(#paint_linear_148_8598_0)" />}/> */}
 
             <div className={styles.main}>
             <div className={styles.top}>

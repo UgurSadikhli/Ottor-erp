@@ -5,10 +5,12 @@ import MainLayout from "../layouts/main-layout";
 import styles from "./payroll.module.css";
 import Card from "../components/Card/card";
 import Payrolicon from "../components/Icons/Payrollicon/Payrolicon";
+import PayrollIconCard from "../components/Icons/PayrollIconCard/PayrollIconCard";
 import ArrowUpIcon from "../components/Icons/ArrowUpIcon/ArrowUpIcon";
 import ArrowDownIcon from "../components/Icons/ArrowDownIcon/ArrowDownIcon";
 import CustomTable from "../components/Table/CustomTable/CustomTable";
 import ColumnChart from "../components/ColumnChart/ColumnChart";
+import Header from "../components/Header/header";
 
 export default function Payroll() {
   const [currentData, setCurrentData] = useState<{
@@ -539,7 +541,8 @@ export default function Payroll() {
   };
 
   return (
-    <MainLayout>
+    <MainLayout label="Generate and send payroll to account." title=" Payroll" icon={<Payrolicon color="url(#paint_linear_148_8598_0)" />}>
+      {/* <Header label="Generate and send payroll to account." title=" Payroll" icon={<Payrolicon color="url(#paint_linear_148_8598_0)" />}/> */}
       <div className={styles.main}>
         <div className={styles.head}>
           <div className={styles.headLeft}>
@@ -548,7 +551,7 @@ export default function Payroll() {
                 number={"5,205,350.00"}
                 title="Gross salary this month"
                 description="2% more than last month"
-                icon={<Payrolicon color="#272525" />}
+                icon={<PayrollIconCard color="#272525" />}
                 arrowIcon={<ArrowUpIcon color="#10A242" />}
                 backgroundColor="#FFF8DF"
               />
@@ -556,7 +559,7 @@ export default function Payroll() {
                 number={"4,550,350.00"}
                 title="Net salary this month"
                 description="2.1% more than last month"
-                icon={<Payrolicon color="#248CD8" />}
+                icon={<PayrollIconCard color="#248CD8" />}
                 arrowIcon={<ArrowUpIcon color="#10A242" />}
                 backgroundColor="#E8F5FF"
               />
@@ -566,7 +569,7 @@ export default function Payroll() {
                 number={"550,350.00"}
                 title="Total tax this month"
                 description="2.1% less than last month"
-                icon={<Payrolicon color="#F29425" />}
+                icon={<PayrollIconCard color="#F29425" />}
                 arrowIcon={<ArrowDownIcon color="#ED3237" />}
                 backgroundColor="#FFF4E8"
               />
@@ -574,7 +577,7 @@ export default function Payroll() {
                 number={"150,350.00"}
                 title="Total loan this month"
                 description="1.5% less than last month"
-                icon={<Payrolicon color="#A601FF" />}
+                icon={<PayrollIconCard color="#A601FF" />}
                 arrowIcon={<ArrowDownIcon color="#ED3237" />}
                 backgroundColor="#F9EFFF"
               />
