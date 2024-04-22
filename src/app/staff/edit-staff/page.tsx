@@ -8,6 +8,7 @@ import uploadImg from "../../../../public/assets/otor-erp-logo.png";
 import AddPhotoIcon from "@/app/components/Icons/AddPhotoIcon/AddPhotoIcon";
 import InputField from "@/app/components/Input/input";
 import SelectIndicator from "@/app/components/SelectIndicator/SelectIndicator";
+import HeaderStaffIcon from '@/app/components/Icons/HeaderStaffIcon/HeaderStaffIcon';
 
 const SelectIndicatorOptions = {
     gender: [
@@ -40,7 +41,7 @@ const EditStaff = () => {
     };
 
     return (
-        <MainLayout>
+        <MainLayout icon={<HeaderStaffIcon />} label="View, search for and add new staff" title=" All Staff" >
             <div className={styles.main}>
                 <div className={styles.top}>
                     <CustomButton icon={<ArrowRightIcon color="black"/>} links="staff" label="Back"/>

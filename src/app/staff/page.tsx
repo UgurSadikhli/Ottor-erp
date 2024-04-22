@@ -8,6 +8,7 @@ import SelectIndicator from "../components/SelectIndicator/SelectIndicator";
 import MagnifierIcon from "../components/Icons/MagnifierIcon/MagnifierIcon";
 import Link from "next/link";
 import CustomTable from "../components/Table/CustomTable/CustomTable";
+import HeaderStaffIcon from "../components/Icons/HeaderStaffIcon/HeaderStaffIcon";
 
 
 const SelectIndicatoroptions = [
@@ -48,7 +49,7 @@ export default function Staff() {
     };
 
     return (
-        <MainLayout>
+        <MainLayout icon={<HeaderStaffIcon />} label="View, search for and add new staff" title=" All Staff" >
             <div className={styles.main}>
                 <div className={styles.top}>
                     <div className={styles.VeryleftLeft}>
