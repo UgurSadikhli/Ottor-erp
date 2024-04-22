@@ -3,9 +3,11 @@ import React, {useState} from 'react';
 import Link from 'next/link'
 import AuthLayout from '../auth-layout';
 import styles from "./sign-in.module.css"
-// import { cookies } from 'next/headers'
+import {useRouter} from "next/navigation"
 
 const SignInPage: React.FC = () => {
+
+    const router=useRouter();
 
     const [formData, setFormData] = useState({
         email: '',
@@ -23,7 +25,6 @@ const SignInPage: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
-        console.log(formData);
         e.preventDefault();
 
         try {
@@ -38,7 +39,7 @@ const SignInPage: React.FC = () => {
             if (response.ok) {
                 console.log('Login successful');
                 console.log(response);
-                // cookies().set('auth-token', response?.token);
+                router.push("/dashboard");
             } else {
                 console.error('Login failed');
             }
@@ -59,6 +60,7 @@ const SignInPage: React.FC = () => {
                         <Link className={`${styles.authHeaderButton} btn btn-outline-primary`} href="/auth/sign-up">
                             Sign Up
                         </Link>
+
                     </div>
                 </div>
 

@@ -111,7 +111,9 @@ const SignUpPage: React.FC = () => {
                 </div>
 
                 <div className={`${styles.alreadyHaveAnAccountContainer} d-flex mt-3 flex-row align-items-center justify-content-end`}>
-                    <Link href={"/auth/sign-in"} className={`${styles.alreadyHaveAnAccountText}`}>Already have an account ?</Link>
+                    <Link href="/auth/sign-in" className={`${styles.alreadyHaveAnAccountText}`}>
+                        Already have an account ?
+                    </Link>
                 </div>
 
 
