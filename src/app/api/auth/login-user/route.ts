@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import { User } from "@/models/User";
 import { cookies } from 'next/headers'
+import LogoutIcon from "@/app/components/Icons/LogoutIcon/LogoutIcon";
+import { log } from "console";
 
 const dbPath = "db.json";
 const JWT_SECRET = "13KSKOA41OAQWJ11ID";
@@ -52,6 +54,9 @@ export async function POST(req: Request) {
     });
 
     cookies().set('auth-token',token);
+    // console.log(user);
+    // cookies().set('user-data',JSON.stringify(user));
+    // localStorage.setItem('user-data',JSON.stringify( user.name));
 
     return new NextResponse(JSON.stringify({ user, token }), {
       headers: {

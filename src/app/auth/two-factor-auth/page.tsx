@@ -3,12 +3,15 @@ import React,{useState,useRef} from 'react';
 import Link from 'next/link'
 import AuthLayout from '../auth-layout';
 import styles from "./two-factor-auth.module.css"
+import {useRouter} from "next/navigation"
 
 const TwoFactorAuthPage: React.FC = () => {
 
     const [otp, setOTP] = useState<string[]>(['', '', '', '', '', '']);
     const inputRefs = useRef<HTMLInputElement[]>([]);
 
+
+    const router=useRouter();
 
     const handleChange = (index: number, event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
@@ -46,8 +49,7 @@ const TwoFactorAuthPage: React.FC = () => {
 
         console.log(`OTP : ${otpString}`);
 
-        e.preventDefault();
-
+        router.push("/dashboard");
         // try {
         //     const response = await fetch('http://localhost:3000/api/auth/login-user', {
         //         method: 'POST',

@@ -47,7 +47,7 @@ export default function Header({label,icon,title}:HeaderProps) {
           height={40}
         />
         <div className="header_perInfo">
-          <span className="userName_header">Otor John</span>
+          <span className="userName_header">Vugar Aliyev</span>
           <span className="userPosition_header">HR office</span>
         </div>
         <DropDownMenue />

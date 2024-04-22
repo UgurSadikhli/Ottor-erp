@@ -55,7 +55,9 @@ export default function DropDownMenue() {
                 Settings
             </button>
 
-            <button type="button" className="dropDownMenuButton" onClick={handleLogOut}>
+            <button type="button" className="dropDownMenuButton" onClick={() => {
+                console.log('LOGOUT BUTTON CLICKED');
+            }}>
                 <LogoutIcon color="black"/>
                 Logout
             </button>

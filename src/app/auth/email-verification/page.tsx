@@ -3,12 +3,15 @@ import React,{useState,useRef} from 'react';
 import Link from 'next/link'
 import AuthLayout from '../auth-layout';
 import styles from "./email-verification.module.css"
+import {useRouter} from "next/navigation"
 
 const EmailVerificationPage: React.FC = () => {
 
     const [otp, setOTP] = useState<string[]>(['', '', '', '', '', '']);
     const inputRefs = useRef<HTMLInputElement[]>([]);
 
+
+    const router=useRouter();
 
     const handleChange = (index: number, event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
@@ -46,7 +49,9 @@ const EmailVerificationPage: React.FC = () => {
 
         console.log(`OTP : ${otpString}`);
 
-        e.preventDefault();
+
+        router.push("/auth/sign-in");
+        
 
         // try {
         //     const response = await fetch('http://localhost:3000/api/auth/login-user', {

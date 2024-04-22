@@ -43,7 +43,7 @@ const SignUpPage: React.FC = () => {
             if (response.ok) {
                 console.log('Registration successful');
                 console.log(response);
-                router.push('/auth/sign-in');
+                router.push('/auth/email-verification');
             } else {
                 console.error('Registration failed');
             }

@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyToken } from "./app/utils/auth";
+import { log } from "console";
 
 export function middleware(req: NextRequest) {
   console.log("Middleware executed");
 
   const token = req.cookies.get("auth-token");
+  const userData = req.cookies.get("user-data");
 
+  // console.log(userData);
+  
   if (!req.nextUrl.pathname.startsWith("/auth")) {
     if (!token?.value) {
       const url = req.nextUrl.clone();

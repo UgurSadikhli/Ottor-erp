@@ -138,7 +138,7 @@ export default function PaymentVoucher() {
           </div>
 
           <div className={styles.Veryright}>
-            <Link href="#" passHref={true} legacyBehavior={true}>
+            <Link href="/payment-voucher/create-payment-voucher" passHref={true} legacyBehavior={true}>
               <button className={styles.buttons}>Create Payment Voucher</button>
             </Link>
           </div>

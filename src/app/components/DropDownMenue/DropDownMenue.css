@@ -34,6 +34,10 @@
   background-color: white;
 }
 
+.dropDownMenuButton:hover {
+  /* background-color: green; */
+}
+
 .dropDownMenuMain > .dropDownMenuMainButton:focus + .dropDownMenuBody {
   opacity: 1;
   transform: translateY(0);

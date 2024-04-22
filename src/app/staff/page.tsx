@@ -81,7 +81,7 @@ export default function Staff() {
 
                         <div className={styles.Veryright}>
                             <Link
-                                href="#"
+                                href="/staff/add-new-staff"
                                 passHref={true}
                                 legacyBehavior={true}
                             >
@@ -98,6 +98,7 @@ export default function Staff() {
                         shownPagination
                         headers={headers}
                         innerData={innerData}
+                        viewTable="/staff/edit-staff"
                     />
                 </div>
             </div>

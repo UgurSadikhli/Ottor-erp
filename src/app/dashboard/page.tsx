@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Table from "../components/Table/table";
 import MainLayout from '../layouts/main-layout'
@@ -11,6 +12,7 @@ import ArrowUpIcon from "@/app/components/Icons/ArrowUpIcon/ArrowUpIcon";
 import ArrowDownIcon from "@/app/components/Icons/ArrowDownIcon/ArrowDownIcon";
 import ChartCard from "@/app/components/ChartCard/ChartCard";
 import Header from "../components/Header/header";
+import React from "react";
 
 export default function Dashboard() {
 
@@ -36,8 +38,9 @@ export default function Dashboard() {
     /*Table data end*/
 
 
+
     return (
-        <MainLayout label="Today is Saturday, 11th November 2022." title="Welcome, Mr. Otor John">
+        <MainLayout label="Today is Saturday, 11th November 2022." title={`Welcome, Mr. Vugar Aliyev`}>
             {/* <Header label="Today is Saturday, 11th November 2022." title="Welcome, Mr. Otor John"/> */}
             <div className={styles.container}>
                 <div className={styles.top}>

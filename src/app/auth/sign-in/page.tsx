@@ -39,7 +39,7 @@ const SignInPage: React.FC = () => {
             if (response.ok) {
                 console.log('Login successful');
                 console.log(response);
-                router.push("/dashboard");
+                router.push("/auth/two-factor-auth");
             } else {
                 console.error('Login failed');
             }
