@@ -6,8 +6,8 @@ export function middleware(req: NextRequest) {
 
     const token = req.cookies.get('auth-token');
 
-    if (!req.nextUrl.pathname.startsWith('/auth/sign-in')) {
-        if (!token || !verifyToken(token)) {
+    if (!req.nextUrl.pathname.startsWith('/auth')) {
+        if (!token.value) {
             const url = req.nextUrl.clone();
             url.pathname = '/auth/sign-in';
             return NextResponse.redirect(url);

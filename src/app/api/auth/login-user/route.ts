@@ -2,6 +2,7 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import fs from "fs";
 import { User } from "@/models/User";
+import { cookies } from 'next/headers'
 
 const dbPath = "db.json";
 const JWT_SECRET = "13KSKOA41OAQWJ11ID";
@@ -27,12 +28,12 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!reqObject.emailconfirmed) {
-      return NextResponse.json(
-        { error: "Email not confirmed" },
-        { status: 401 }
-      );
-    }
+    // if (!reqObject.emailconfirmed) {
+    //   return NextResponse.json(
+    //     { error: "Email not confirmed" },
+    //     { status: 401 }
+    //   );
+    // }
 
     const user = users.find(
       (x: User) =>
@@ -49,6 +50,8 @@ export async function POST(req: Request) {
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, {
       expiresIn: "1h",
     });
+
+    cookies().set('auth-token',token);
 
     return new NextResponse(JSON.stringify({ user, token }), {
       headers: {
