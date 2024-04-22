@@ -1,12 +1,9 @@
 "use client";
-import Image from "next/image";
 import MainLayout from "../layouts/main-layout";
 import React, { useState } from "react";
-import styles from "./payment-voucher.module.css";
-import FloatingLabelInput from "../components/IconInput/input";
-import SelectIndicator from "../components/SelectIndicator/SelectIndicator";
-import MagnifierIcon from "../components/Icons/MagnifierIcon/MagnifierIcon";
 import Link from "next/link";
+import styles from "./payment-voucher.module.css";
+import SelectIndicator from "../components/SelectIndicator/SelectIndicator";
 import CustomTable from "../components/Table/CustomTable/CustomTable";
 
 const SelectIndicatoroptions = [
