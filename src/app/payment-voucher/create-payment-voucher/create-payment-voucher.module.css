@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+.main{
+    overflow-y:auto;
+}
+
+.MainContainer{
+    background-color:#fff;
+    border-radius: 15px;
+    padding: 50px 30px;
+    margin:20px;
+}
+
+
+
+.CreateButton {
+    width: 400px;
+    height: 50px;
+    background: linear-gradient(135deg, #14ADD6 0%, #384295 100%);
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-Weight: 400;
+    line-height: 24px;
+    transition: all 0.5s ease-in-out;
+}
+
+.CreateButton:hover {
+    transform: scale(105%);
+}
+
+
+
+.customTableHead th,.customTableHead tr {
+    border: none;
+}
+
+.customTableHead tr{
+    color:#515151;
+    font-size: 15px;
+    font-Weight: 800;
+    line-height: 17px;
+    font-family: "Nunito", sans-serif;
+
+}
+
+.customTableHead2{
+    border-bottom: 1px solid #dee2e6;
+    text-align:center;
+}
+
+
+.customTableBody td {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.customTableBody tr {
+    border-bottom: 1px solid #dee2e6;
+
+}
+
+.buttons {
+    width: 220px;
+    height: 50px;
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid #D0D0D0;
+    transition: all 0.5s ease-in-out;
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align:center;
+}
+
+.buttons:hover {
+    transform: scale(105%);
+}
+
+.dotted {
+    border-bottom: 2px dotted #A3A3A3;
+    flex-grow: 1;
+    margin-bottom: 3px;
+    line-height: 24px;
+}
+.labelContainer {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+}
+.labelText {
+    white-space: nowrap;
+    margin-right: 10px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: "Nunito", sans-serif;
+}

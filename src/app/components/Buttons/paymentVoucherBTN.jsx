@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 const PaymentVoucherButton = ({ isActive, onClick, color }) => (
-  <Link href="/paymentVoucher" passHref={true} legacyBehavior={true}>
+  <Link href="/payment-voucher" passHref={true} legacyBehavior={true}>
     <a className={`nav-link ${isActive ? "active" : ""}`} onClick={onClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
