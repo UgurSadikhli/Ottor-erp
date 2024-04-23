@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import "./header.css";
 import image from "../../../../public/assets/img/profilephoto.png";
