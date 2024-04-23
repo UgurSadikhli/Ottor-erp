@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     const db = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
 
     try {
-        cookies().set('auth-token','');
+        cookies().delete('auth-token');
 
         return new NextResponse(null, {
             headers: {

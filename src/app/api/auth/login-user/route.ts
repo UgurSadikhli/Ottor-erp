@@ -55,10 +55,10 @@ export async function POST(req: Request) {
 
     cookies().set('auth-token',token);
     // console.log(user);
-    // cookies().set('user-data',JSON.stringify(user));
-    // localStorage.setItem('user-data',JSON.stringify( user.name));
+    // cookies().set('user-data',user);
+    // localStorage.setItem('user-name',user.name);
 
-    return new NextResponse(JSON.stringify({ user, token }), {
+    return new NextResponse(JSON.stringify({ user, token}), {
       headers: {
         "Content-Type": "application/json",
       },

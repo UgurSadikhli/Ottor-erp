@@ -13,9 +13,19 @@ import ArrowDownIcon from "@/app/components/Icons/ArrowDownIcon/ArrowDownIcon";
 import ChartCard from "@/app/components/ChartCard/ChartCard";
 import Header from "../components/Header/header";
 import React from "react";
+import { useState,useEffect } from "react";
 
 export default function Dashboard() {
+    const [userInfo, setUserInfo] = useState<string>("Loading...");
 
+    useEffect(() => {
+      const name = localStorage.getItem('name');
+      const surname = localStorage.getItem('surname');
+      if (name && surname) {
+        setUserInfo(`${name} ${surname}`);
+      }
+    }, []);
+  
     /*Table data start*/
     const tableData = [
         ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Approved"],
@@ -35,13 +45,9 @@ export default function Dashboard() {
 
     ];
     const headers = ["S/N", "Memo Title", "Sent From","Sent To","Status"];
-    /*Table data end*/
-
-
 
     return (
-        <MainLayout label="Today is Saturday, 11th November 2022." title={`Welcome, Mr. Vugar Aliyev`}>
-            {/* <Header label="Today is Saturday, 11th November 2022." title="Welcome, Mr. Otor John"/> */}
+        <MainLayout label="Today is Saturday, 11th November 2022." title={`Welcome, Mr. ${userInfo}`}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     <Card

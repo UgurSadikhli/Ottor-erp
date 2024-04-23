@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "./header.css";
-import image from "../../../../public/assets/auth/img2.jpeg";
+import image from "../../../../public/assets/img/profilephoto.png";
 import ArrowDownFilledicon from "../Icons/ArrowDownFilledicon/ArrowDownFilledicon";
 import ProfileIcon from "../Icons/ProfileIcon/ProfileIcon";
 import SettingsIcon from "../Icons/Settingsicon/SettingsIcon";
@@ -8,7 +8,7 @@ import LogoutIcon from "../Icons/LogoutIcon/LogoutIcon";
 import DropDownMenue from "../DropDownMenue/DropDownMenue";
 import BagIcon from "../Icons/BagIcon/BagIcon";
 import MoneySackIcon from "../Icons/MoneySackIcon/MoneySackIcon";
-import { ReactElement } from "react";
+import { ReactElement,useEffect,useState } from "react";
 
 
 interface HeaderProps {
@@ -18,6 +18,19 @@ interface HeaderProps {
 }
 
 export default function Header({label,icon,title}:HeaderProps) {
+
+  const [userInfo, setUserInfo] = useState<string>("Loading...");
+
+  useEffect(() => {
+    const name = localStorage.getItem('name');
+    const surname = localStorage.getItem('surname');
+    if (name && surname) {
+      setUserInfo(`${name} ${surname}`);
+    }
+  }, []);
+
+
+
   return (
     <div className="header">
       <div className="header_left">
@@ -47,7 +60,7 @@ export default function Header({label,icon,title}:HeaderProps) {
           height={40}
         />
         <div className="header_perInfo">
-          <span className="userName_header">Vugar Aliyev</span>
+          <span className="userName_header">{userInfo}</span>
           <span className="userPosition_header">HR office</span>
         </div>
         <DropDownMenue />

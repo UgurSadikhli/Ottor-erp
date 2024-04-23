@@ -37,15 +37,22 @@ const SignInPage: React.FC = () => {
             });
 
             if (response.ok) {
+                const responseData = await response.json();
+                const { user } = responseData;
+          
+                console.log('Login successful');
                 console.log('Login successful');
                 console.log(response);
                 router.push("/auth/two-factor-auth");
+                localStorage.setItem('name', user.name);
+                localStorage.setItem('surname', user.surname);
             } else {
                 console.error('Login failed');
             }
         } catch (error) {
             console.error('Error loginning user:', error);
         }
+        
     };
 
 
@@ -90,7 +97,7 @@ const SignInPage: React.FC = () => {
                         <input type="checkbox" id="rememberMe" className="form-check-input me-2"/>
                         <label htmlFor="rememberMe" className="form-check-label">Remember Me</label>
                     </div>
-                    <Link href={"#"} className={`${styles.forgotPasswordText}`}>I forgot my password</Link>
+                    <Link href={"/auth/password-reset"} className={`${styles.forgotPasswordText}`}>I forgot my password</Link>
                 </div>
 
                 <div className="mt-3">
