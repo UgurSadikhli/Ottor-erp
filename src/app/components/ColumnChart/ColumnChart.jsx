@@ -36,13 +36,13 @@ export default function ColumnChart() {
       {
         data: [0, 30, 0, 0, 40,0, 0, 0, 0, 0,0,65],
         stack: "1",
-        label: "Tax",
+        label: "Loan",
         color: "#A601FF",
       },
       {
         data: [40, 100, 100, 100, 70,40, 50, 45, 30, 50,50,65],
         stack: "1",
-        label: "Loan",
+        label: "Tax",
         color: "#F29425",
       },
     ],
