@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Table from "../components/Table/table";
-import MainLayout from '../layouts/main-layout'
+import MainLayout from "../layouts/main-layout";
 import Card from "../components/Card/card";
 import styles from "./Dashboard.module.css";
 import StaffIcon from "@/app/components/Icons/StaffIcon/StaffIcon";
@@ -13,85 +13,153 @@ import ArrowDownIcon from "@/app/components/Icons/ArrowDownIcon/ArrowDownIcon";
 import ChartCard from "@/app/components/ChartCard/ChartCard";
 import Header from "../components/Header/header";
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+
+function getFormattedDate() {
+  const currentDate = new Date();
+
+  const weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const dayOfWeek = weekdays[currentDate.getDay()];
+  const dayOfMonth = currentDate.getDate();
+  const month = months[currentDate.getMonth()];
+  const year = currentDate.getFullYear();
+
+  function getOrdinalSuffix(day: number) {
+    if (day > 3 && day < 21) return "th";
+    switch (day % 10) {
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
+    }
+  }
+
+  const ordinalSuffix = getOrdinalSuffix(dayOfMonth);
+
+  const formattedDate = `${dayOfWeek}, ${dayOfMonth}${ordinalSuffix} ${month} ${year}`;
+
+  return formattedDate;
+}
 
 export default function Dashboard() {
-    const [userInfo, setUserInfo] = useState<string>("Loading...");
+  const [userInfo, setUserInfo] = useState<string>("Loading...");
 
-    useEffect(() => {
-      const name = localStorage.getItem('name');
-      const surname = localStorage.getItem('surname');
-      if (name && surname) {
-        setUserInfo(`${name} ${surname}`);
-      }
-    }, []);
-  
-    /*Table data start*/
-    const tableData = [
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Approved"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Pending"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Approved"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Pending"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Approved"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Pending"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
-        ["01", "Operation memo", "Otor John","Ibrahim Sadiq","Rejected"],
+  useEffect(() => {
+    const name = localStorage.getItem("name");
+    const surname = localStorage.getItem("surname");
+    if (name && surname) {
+      setUserInfo(`${name} ${surname}`);
+    }
+  }, []);
 
-    ];
-    const headers = ["S/N", "Memo Title", "Sent From","Sent To","Status"];
+  /*Table data start*/
+  const tableData = [
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Approved"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Pending"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Approved"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Pending"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Approved"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Pending"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
+    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
+  ];
+  const headers = ["S/N", "Memo Title", "Sent From", "Sent To", "Status"];
 
-    return (
-        <MainLayout label="Today is Saturday, 11th November 2022." title={`Welcome, Mr. ${userInfo}`}>
-            <div className={styles.container}>
-                <div className={styles.top}>
-                    <Card
-                        number={"250"}
-                        title="Total number of staff"
-                        description="12 more than last quarter"
-                        icon={<StaffIcon color={"#F29425"}/>}
-                        arrowIcon={<ArrowUpIcon color="#10A242"/>}
-                        backgroundColor="#FFF4E8"
-                    />
-                    <Card
-                        number={"100"}
-                        title="Total application"
-                        description="0.2% lower than last quarter"
-                        icon={<DocumentIcon color={"#248CD8"}/>}
-                        arrowIcon={<ArrowDownIcon color={"#ED3237"}/>}
-                        backgroundColor="#E8F5FF"
+  const formattedDate = getFormattedDate();
 
-                    />
-                    <Card
-                        number={"10"}
-                        title="Total projects"
-                        description="2% more than last quarter"
-                        icon={<RocketIcon color={"#A601FF"}/>}
-                        arrowIcon={<ArrowUpIcon color="#10A242"/>}
-                        backgroundColor="#F9EFFF"
-
-                    />
-                    <Card
-                        number={"10"}
-                        title="Total departments"
-                        description=""
-                        icon={<PeopleIcon color={"#10A242"}/>}
-                        backgroundColor="#ECFFF2"
-
-                    />
-                </div>
-                <div className={styles.body}>
-                    <Table tableName={"Memo"} headers={headers} tableData={tableData}/>
-                    <Table tableName={"Staff List"} headers={headers} tableData={tableData}/>
-                    <Table tableName={"Payment Voucher"} headers={headers} tableData={tableData}/>
-                    <ChartCard Totalnumber={500} rejected={50} approved={370} pending={80} title={"Staff Applications Card"} />
-                </div>
-            </div>
-        </MainLayout>
-    );
+  return (
+    <MainLayout
+      label={`Today is ${formattedDate}.`}
+      title={`Welcome, Mr. ${userInfo}`}
+    >
+      <div className={styles.container}>
+        <div className={styles.top}>
+          <Card
+            number={"250"}
+            title="Total number of staff"
+            description="12 more than last quarter"
+            icon={<StaffIcon color={"#F29425"} />}
+            arrowIcon={<ArrowUpIcon color="#10A242" />}
+            backgroundColor="#FFF4E8"
+          />
+          <Card
+            number={"100"}
+            title="Total application"
+            description="0.2% lower than last quarter"
+            icon={<DocumentIcon color={"#248CD8"} />}
+            arrowIcon={<ArrowDownIcon color={"#ED3237"} />}
+            backgroundColor="#E8F5FF"
+          />
+          <Card
+            number={"10"}
+            title="Total projects"
+            description="2% more than last quarter"
+            icon={<RocketIcon color={"#A601FF"} />}
+            arrowIcon={<ArrowUpIcon color="#10A242" />}
+            backgroundColor="#F9EFFF"
+          />
+          <Card
+            number={"10"}
+            title="Total departments"
+            description=""
+            icon={<PeopleIcon color={"#10A242"} />}
+            backgroundColor="#ECFFF2"
+          />
+        </div>
+        <div className={styles.body}>
+          <Table tableName={"Memo"} headers={headers} tableData={tableData} />
+          <Table
+            tableName={"Staff List"}
+            headers={headers}
+            tableData={tableData}
+          />
+          <Table
+            tableName={"Payment Voucher"}
+            headers={headers}
+            tableData={tableData}
+          />
+          <ChartCard
+            Totalnumber={500}
+            rejected={50}
+            approved={370}
+            pending={80}
+            title={"Staff Applications Card"}
+          />
+        </div>
+      </div>
+    </MainLayout>
+  );
 }
