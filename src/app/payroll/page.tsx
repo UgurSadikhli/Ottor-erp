@@ -540,8 +540,22 @@ export default function Payroll() {
     });
   };
 
+  const handleDelete = (id: number) => {
+    const updatedData = currentData.innerData.filter((item) => item.id !== id);
+    // Update the state with the filtered data
+    setCurrentData((prevData) => ({
+      ...prevData,
+      innerData: updatedData,
+    }));
+    console.log("Deleting item with ID:", id);
+  };
+
   return (
-    <MainLayout label="Generate and send payroll to account." title=" Payroll" icon={<Payrolicon color="url(#paint_linear_148_8598_0)" />}>
+    <MainLayout
+      label="Generate and send payroll to account."
+      title=" Payroll"
+      icon={<Payrolicon color="url(#paint_linear_148_8598_0)" />}
+    >
       {/* <Header label="Generate and send payroll to account." title=" Payroll" icon={<Payrolicon color="url(#paint_linear_148_8598_0)" />}/> */}
       <div className={styles.main}>
         <div className={styles.head}>
@@ -634,6 +648,7 @@ export default function Payroll() {
             btnLabel={currentData.btnLabel}
             btnLink={currentData.btnLink}
             viewTable={currentData.viewTable}
+            onDelete={handleDelete}
           />
         </div>
       </div>

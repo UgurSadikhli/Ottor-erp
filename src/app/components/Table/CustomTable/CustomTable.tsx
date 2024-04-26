@@ -1,8 +1,7 @@
-"use client";
+"use client"
 import React, { useState, useEffect, ReactElement } from "react";
 import styles from "./CustomTable.module.css";
 import Link from "next/link";
-import CustomButton from "../../Buttons/CustomButton/CustomButton";
 import SimpleCustomButton from "../../Buttons/SimpleCustomButton/SimpleCustomButton";
 
 interface Props {
@@ -21,6 +20,7 @@ interface Props {
   btnLink?: string;
   btnIcon?: ReactElement;
   viewTable?: string;
+  onDelete?: (id: number) => void; 
 }
 
 const CustomTable = ({
@@ -34,6 +34,7 @@ const CustomTable = ({
   btnLink,
   btnIcon,
   viewTable = "",
+  onDelete, 
 }: Props) => {
   const [numRowsToShow, setNumRowsToShow] = useState<number>(5);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -109,9 +110,6 @@ const CustomTable = ({
         )}
         {shownButton && (
           <div className={styles.buttons}>
-            {/* <Link href="/create-budget">
-              <button className={styles.button}>Create Budget</button>
-            </Link> */}
             <SimpleCustomButton
               label={btnLabel}
               links={btnLink}
@@ -130,26 +128,28 @@ const CustomTable = ({
             </tr>
           </thead>
           <tbody>
-            {innerData.slice(startIndex, endIndex).map((item, index) => (
-              <tr key={index}>
-                {Object.keys(item).map((key, index) => (
+            {innerData.slice(startIndex, endIndex).map((item, rowIndex) => (
+              <tr key={rowIndex}>
+                {Object.keys(item).map((key, colIndex) => (
                   <td
-                    key={index}
-                    style={getCellStyle(headers[index].headerName, item[key])}
+                    key={colIndex}
+                    style={getCellStyle(headers[colIndex].headerName, item[key])}
                   >
-                    {headers[index].headerName === "Action" &&
+                    {headers[colIndex].headerName === "Action" &&
                     item[key] === "View more" ? (
                       <a  className={styles.view} href={viewTable}>{item[key]}</a>
-                    ) : headers[index].headerName === "Action" &&
+                    ) : headers[colIndex].headerName === "Action" &&
                       item[key] === "Edit Delete" ? (
                       <span>
-                        <a className={styles.edit} href="#edit">
+                        <button className={styles.edit}>
                           Edit
-                        </a>
-                        {" "}
-                        <a className={styles.delete} href="#delete">
+                        </button>{"  "}
+                        <button
+                          className={styles.delete}
+                          onClick={() => onDelete && onDelete(item.id)}
+                        >
                           Delete
-                        </a>
+                        </button>
                       </span>
                     ) : (
                       item[key]

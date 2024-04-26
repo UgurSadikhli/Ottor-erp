@@ -36,8 +36,6 @@
   line-height: 30px;
 }
 
-
-
 .main {
   flex: 1;
   overflow-y: auto;
@@ -51,7 +49,6 @@
   /*scrollbar-gutter: stable both-edges;*/
   /*height: 15px;*/
 }
-
 
 .main::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, #14add6 0%, #384295 100%);
@@ -77,8 +74,6 @@
   cursor: pointer;
 }
 
-
-
 .paginationContainer {
   display: flex;
   flex-direction: row;
@@ -101,7 +96,6 @@
   color: #fff;
 }
 
-
 .showPerPageInput {
   width: 40px;
   height: 40px;
@@ -115,17 +109,20 @@
   font-weight: 600;
 }
 
-.view{
+.view {
   text-decoration: none;
   color: #14add6;
 }
 
-.edit{
-  text-decoration: none;
+.edit {
+  border: none;
+  background-color: transparent;
   color: #14add6;
 }
 
-.delete{
-  text-decoration: none;
-  color: #ED3237;
+.delete {
+  border: none;
+  background-color: transparent;
+  color: #ed3237;
 }
+
