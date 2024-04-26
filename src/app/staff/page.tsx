@@ -28,9 +28,6 @@ const headers = [
     { id: 7, headerName: "Action" },
 ];
 
-
-
-
 const innerData = [
     { id: 1, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Sent↗",Action:"View more"},
     { id: 2, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},

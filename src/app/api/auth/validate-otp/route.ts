@@ -1,73 +1,47 @@
-import { NextResponse } from "next/server";
-import { PrismaClient } from '@prisma/client';
+import { User } from "@/models/User";
 import fs from "fs";
+import { NextResponse, NextRequest } from "next/server";
+import inMemory from "../../../../cache";
 
-const prisma = new PrismaClient();
-const cacheFile = "cache.json";
-
-let inMemory: { [key: string]: string } = {};
-
-try {
-  if (fs.existsSync(cacheFile)) {
-    const data = fs.readFileSync(cacheFile, "utf-8");
-    inMemory = JSON.parse(data);
-  }
-} catch (error) {
-  console.error("Error loading OTPs from file:", error);
-}
+const dbPath = "db.json";
 
 export async function POST(req: Request) {
-  const reqObject = await req.json();
+  const reqObject: ValidateOtpDto = await req.json();
+  const db = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
 
-  try {
-    if (!reqObject.email || !reqObject.otp) {
-      return NextResponse.json({ error: "Missing data" }, { status: 400 });
-    }
-
-    const user = await prisma.user.findUnique({
-      where: {
-        email: reqObject.email,
-      },
-    });
-
-    if (!user) {
-      return NextResponse.json(
-        { error: "User with this email does not exist" },
-        { status: 400 }
-      );
-    }
-
-    const cachedOTP = inMemory[reqObject.email];
-
-    console.log(cachedOTP);
-    
-    if (!cachedOTP) {
-      return NextResponse.json(
-        { error: "OTP wasn't confirmed" },
-        { status: 400 }
-      );
-    }
-
-    if (cachedOTP !== reqObject.otp) {
-      return NextResponse.json({ error: "Wrong OTP" }, { status: 400 });
-    }
-
-    delete inMemory[reqObject.email];
-
-    const updatedUser = await prisma.user.update({
-      where: {
-        email: reqObject.email,
-      },
-      data: {
-        emailConfirmed: true,
-      },
-    });
-
-    fs.writeFileSync(cacheFile, JSON.stringify(inMemory));
-
-    return NextResponse.json(updatedUser, { status: 200 });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
+  if (!db.users.find((user: User) => user.email === reqObject.email)) {
+    return NextResponse.json(
+      { error: "User with this email does not exist" },
+      { status: 400 }
+    );
   }
+
+  const user = db.users.find((user: User) => user.email === reqObject.email);
+
+  if (!reqObject.email || !reqObject.otp) {
+    return NextResponse.json({ error: "Missing data" }, { status: 400 });
+  }
+
+  console.log(reqObject.email);
+  console.log(inMemory.retrieveItemValue(reqObject.email));
+  console.log(inMemory.hasItem(reqObject.email));
+  console.log(inMemory.getItems());
+
+  if (!inMemory.hasItem(reqObject.email)) {
+    return NextResponse.json(
+      { error: "OTP wasn't confirmed" },
+      { status: 400 }
+    );
+  }
+
+  if (inMemory.retrieveItemValue(reqObject.email) != reqObject.otp) {
+    inMemory.removeItem(reqObject.email);
+    return NextResponse.json({ error: "Wrong OTP" }, { status: 400 });
+  }
+
+  user.emailconfirmed = true;
+  // console.log(db.users.some((user: User) => user.email === reqObject.email).emailconfirmed = true);
+  fs.writeFileSync(dbPath, JSON.stringify(db));
+
+  return NextResponse.json(user, { status: 200 });
 }

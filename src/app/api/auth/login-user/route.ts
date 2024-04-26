@@ -1,16 +1,17 @@
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { NextResponse } from "next/server";
-import { PrismaClient } from '@prisma/client';
+import fs from "fs";
+import { User } from "@/models/User";
+import { cookies } from 'next/headers'
+import LogoutIcon from "@/app/components/Icons/LogoutIcon/LogoutIcon";
+import { log } from "console";
 
-const prisma = new PrismaClient();
+const dbPath = "db.json";
 const JWT_SECRET = "13KSKOA41OAQWJ11ID";
-
-interface AuthenticatedRequest extends Request {
-  userId?: number;
-}
 
 export async function POST(req: Request) {
   const reqObject = await req.json();
+  const db = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
 
   try {
     if (!reqObject) {
@@ -20,12 +21,7 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!reqObject.emailConfirmed) {
-      return NextResponse.json(
-        { error: "Email is not confirmed" },
-        { status: 401 }
-      );
-    }
+    const users = db.users;
 
     if (!reqObject.email || !reqObject.password) {
       return NextResponse.json(
@@ -34,12 +30,17 @@ export async function POST(req: Request) {
       );
     }
 
-    const user = await prisma.user.findFirst({
-      where: {
-        email: reqObject.email,
-        password: reqObject.password,
-      },
-    });
+    // if (!reqObject.emailconfirmed) {
+    //   return NextResponse.json(
+    //     { error: "Email not confirmed" },
+    //     { status: 401 }
+    //   );
+    // }
+
+    const user = users.find(
+      (x: User) =>
+        x.email == reqObject.email && x.password == reqObject.password
+    );
 
     if (!user) {
       return NextResponse.json(
@@ -52,20 +53,25 @@ export async function POST(req: Request) {
       expiresIn: "1h",
     });
 
-    return new NextResponse(JSON.stringify({ user, token }), {
+    cookies().set('auth-token',token);
+    // console.log(user);
+    // cookies().set('user-data',user);
+    // localStorage.setItem('user-name',user.name);
+
+    return new NextResponse(JSON.stringify({ user, token}), {
       headers: {
         "Content-Type": "application/json",
       },
       status: 200,
     });
   } catch (error) {
-    console.error(error);
     return NextResponse.json({ error: "An error occurred" }, { status: 500 });
   }
 }
 
-export async function authMiddleware(req: AuthenticatedRequest) {
-  const token = req.headers.get("Authorization");
+export async function authMiddleware(req: Request) {
+  const reqObject = await req.json();
+  const token = reqObject.headers.get("Authorization");
 
   if (!token) {
     return new NextResponse(
@@ -76,15 +82,7 @@ export async function authMiddleware(req: AuthenticatedRequest) {
 
   try {
     const decodedToken = jwt.verify(token, JWT_SECRET) as JwtPayload;
-    const user = await prisma.user.findUnique({
-      where: {
-        id: decodedToken.userId,
-      },
-    });
-    if (!user) {
-      throw new Error("User not found");
-    }
-    req.userId = user.id;
+    reqObject.userId = decodedToken.userId;
     return null;
   } catch (error) {
     return new NextResponse(JSON.stringify({ error: "Invalid token" }), {
