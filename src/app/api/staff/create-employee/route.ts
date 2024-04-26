@@ -12,14 +12,14 @@ export async function POST(req: Request) {
       !reqObject.name ||
       !reqObject.surname ||
       !reqObject.email ||
-      !reqObject.officialEmail ||
-      !reqObject.password ||
       !reqObject.designation ||
       !reqObject.phoneNumber ||
-      !reqObject.gender
+      !reqObject.officialEmail ||
+      !reqObject.gender ||
+      !reqObject.role
     ) {
       return NextResponse.json(
-        { error: "Missing or invalid registration data" },
+        { error: "Missing or invalid creation data" },
         { status: 400 }
       );
     }
@@ -37,18 +37,19 @@ export async function POST(req: Request) {
       );
     }
 
+    const randomPassword: string = generatePassword();
+
     const newUser = await prisma.user.create({
       data: {
         name: reqObject.name,
         surname: reqObject.surname,
         email: reqObject.email,
-        password: reqObject.password,
-        role: 'ADMIN',
         officialEmail: reqObject.officialEmail,
+        password: randomPassword,
+        role: reqObject.role,
         phoneNumber: reqObject.phoneNumber,
         designation: reqObject.designation,
-        gender: reqObject.gender,
-        profileImage: reqObject.profileImage
+        gender: reqObject.gender
       },
     });
 
@@ -57,4 +58,16 @@ export async function POST(req: Request) {
     console.error(error);
     return NextResponse.json({ error: "An error occurred" }, { status: 500 });
   }
+}
+
+function generatePassword(length: number = 8): string {
+  const characters: string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+';
+  let password: string = '';
+
+  for (let i = 0; i < length; i++) {
+      const randomIndex: number = Math.floor(Math.random() * characters.length);
+      password += characters[randomIndex];
+  }
+
+  return password;
 }
