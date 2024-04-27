@@ -12,6 +12,7 @@ import CustomButton from "@/app/components/Buttons/CustomButton/CustomButton";
 import Header from "../../components/Header/header";
 import CircularsIcon from "../../components/Icons/CircularsIcon/CircularsIcon";
 import PlusIcon from "@/app/components/Icons/PlusIcon/PlusIcon";
+import MemoIcon from "@/app/components/Icons/MemoIcon/MemoIcon";
 
 const SelectIndicatoroptions = [
     {value: "1", label: "1"},
@@ -21,8 +22,8 @@ const SelectIndicatoroptions = [
 
 export default function createMemo() {
     return (
-        <MainLayout label="Create and send memos to designated offices." title=" Create Memo"
-                    icon={<CircularsIcon color="url(#paint_linear_148_9976_0)"/>}>
+        <MainLayout
+        label="Create and send memos to designated offices." title="Create Memo" icon={<MemoIcon/>}>
             {/* <Header label="Search for  and view all circulars" title=" Circulars" icon={<CircularsIcon color="url(#paint_linear_148_9976_0)" />}/> */}
             <div className={styles.main}>
                 <div className={styles.top}>

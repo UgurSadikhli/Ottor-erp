@@ -14,6 +14,7 @@ import CustomButton from "@/app/components/Buttons/CustomButton/CustomButton";
 import Header from "@/app/components/Header/header";
 import CustomTable from "@/app/components/Table/CustomTable/CustomTable";
 import LogisticsIcon from "@/app/components/Icons/LogisticsIcon/LogisticsIcon";
+import BagHeaderIcon from "@/app/components/Icons/BagHeaderIcon/BagHeaderIcon";
 
 const SelectIndicatoroptions = [
   { value: "1", label: "1" },
@@ -50,7 +51,7 @@ const ProcurementsRequest = () => {
   return (
     <MainLayout
       label="Request for, and view all requested procurements."
-      title=" Procurement"
+      title=" Procurement" icon={<BagHeaderIcon/>}
     >
       <div className={styles.main}>
         <div className={styles.top}>

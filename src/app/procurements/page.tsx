@@ -10,6 +10,7 @@ import Table from "../components/Table/table";
 import BagIcon from "../components/Icons/BagIcon/BagIcon";
 import Header from "../components/Header/header";
 import LogisticsIcon from "../components/Icons/LogisticsIcon/LogisticsIcon";
+import BagHeaderIcon from "../components/Icons/BagHeaderIcon/BagHeaderIcon";
 
 export default function procurements() {
   const headers = [
@@ -101,7 +102,7 @@ export default function procurements() {
   return (
     <MainLayout
       label="Request for, and view all requested procurements."
-      title=" Procurement"
+      title=" Procurement" icon={<BagHeaderIcon/>}
     >
       <div className={styles.container}>
         <div className={styles.statisticsContainer}>

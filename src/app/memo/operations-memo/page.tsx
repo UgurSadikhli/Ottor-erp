@@ -15,6 +15,7 @@ import Header from "@/app/components/Header/header";
 import CustomTable from "@/app/components/Table/CustomTable/CustomTable";
 import image from "../../../../public/assets/logistics-reguest.png"
 import LogisticsIcon from "@/app/components/Icons/LogisticsIcon/LogisticsIcon";
+import MemoIcon from "@/app/components/Icons/MemoIcon/MemoIcon";
 
 const SelectIndicatoroptions = [
     { value: "1", label: "1" },
@@ -24,7 +25,8 @@ const SelectIndicatoroptions = [
 
 const operationsMemo = () => {
     return (
-        <MainLayout label="Create and send memos to designated offices." title=" Create Memo" icon={<LogisticsIcon color="url(#paint_linear_148_8598_0)"/>}>
+        <MainLayout
+        label="Create and send memos to designated offices." title="Create Memo" icon={<MemoIcon/>}>
             {/* <Header label="Make and send logistics request." title=" Logistics" icon={<LogisticsIcon color="url(#paint_linear_148_8598_0)" />}/> */}
             <div className={styles.main}>
                 <div className={styles.top}>
