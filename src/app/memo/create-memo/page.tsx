@@ -77,7 +77,7 @@ export default function createMemo() {
                                 </div>
                                 <div className={styles.customRow}>
                                     <button className={styles.plusButton}>
-                                        <PlusIcon/>
+                                        <PlusIcon color="black"/>
                                     </button>
 
                                 </div>
