@@ -7,9 +7,6 @@
   gap: 15px;
 }
 
-.top {
-  /* background-color:blue; */
-}
 
 .body {
   /* border-color: rgb(200, 255, 0); */
@@ -139,8 +136,6 @@
   flex-direction: column;
 }
 
-.rightSide {
-}
 
 .formBlock {
   display: flex;
@@ -148,8 +143,6 @@
   gap: 15px;
 }
 
-.formBottom {
-}
 
 .buttonContainer {
   display: flex;
