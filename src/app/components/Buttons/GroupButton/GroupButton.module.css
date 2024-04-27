@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.link {
+  color: #666;
+  text-decoration: none;
+  border: none;
+}
+
+.button{
+  border: none;
+
+}
+
+.text{
+  font-family: "Nunito", sans-serif;
+
+
+}

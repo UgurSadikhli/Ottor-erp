@@ -19,6 +19,7 @@ const CustomButton = ({links, label, icon}:Props) => {
         <Stack direction="row" spacing={3}>
             <Link className={styles.link} href={linkTo}>
                 <Button
+                    className={styles.text}
                     variant="text"
                     startIcon={icon}
                     color="primary"

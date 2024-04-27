@@ -1,0 +1,67 @@
+.main{
+
+    background-color: transparent;
+    padding: 0 20px 20px 20px;
+}
+
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    padding: 10px 0px 0px 0px;
+    gap: 15px;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    background-color: "#fff";
+    gap: 15px;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    justify-content: space-between;
+}
+
+.UpdateStockContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #fff;
+    padding: 20px 20px 20px 20px;
+    border-radius: 20px;
+}
+
+.title {
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+.buttons {
+    width: 250px;
+    height: 46px;
+    background: linear-gradient(135deg, #14ADD6 0%, #384295 100%);
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-Weight: 400;
+    line-height: 24px;
+    transition: all 0.5s ease-in-out;
+}
+
+.buttons:hover {
+
+    transform: scale(105%);
+}
+
+.bottom{
+    background-color: #fff;
+    border-radius: 15px;
+   height: 32rem;
+}
