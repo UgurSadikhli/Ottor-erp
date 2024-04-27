@@ -12,11 +12,7 @@ export async function POST(req: Request) {
       !reqObject.name ||
       !reqObject.surname ||
       !reqObject.email ||
-      !reqObject.officialEmail ||
-      !reqObject.password ||
-      !reqObject.designation ||
-      !reqObject.phoneNumber ||
-      !reqObject.gender
+      !reqObject.password
     ) {
       return NextResponse.json(
         { error: "Missing or invalid registration data" },
