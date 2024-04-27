@@ -21,13 +21,6 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!reqObject.emailConfirmed) {
-      return NextResponse.json(
-        { error: "Email is not confirmed" },
-        { status: 401 }
-      );
-    }
-
     if (!reqObject.email || !reqObject.password) {
       return NextResponse.json(
         { error: "Missing login data" },
@@ -46,6 +39,13 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { error: "User with this email and password not found" },
         { status: 400 }
+      );
+    }
+
+    if (!user.emailConfirmed) {
+      return NextResponse.json(
+        { error: "Email is not confirmed" },
+        { status: 401 }
       );
     }
 
