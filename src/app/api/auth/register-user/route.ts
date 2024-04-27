@@ -39,12 +39,7 @@ export async function POST(req: Request) {
         surname: reqObject.surname,
         email: reqObject.email,
         password: reqObject.password,
-        role: 'ADMIN',
-        officialEmail: reqObject.officialEmail,
-        phoneNumber: reqObject.phoneNumber,
-        designation: reqObject.designation,
-        gender: reqObject.gender,
-        profileImage: reqObject.profileImage
+        role: 'ADMIN'
       },
     });
 
