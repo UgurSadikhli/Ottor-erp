@@ -1,20 +1,17 @@
 import Image from "next/image";
-import MainLayout from "../layouts/main-layout";
-import SrockAndInventoryHeaderIcon from "../components/Icons/SrockAndInventoryHeaderIcon/SrockAndInventoryHeaderIcon";
-import styles from './stocksAndInventory.module.css'
-import Card from "../components/Card/card";
-import SrockAndInventoryIcon from "../components/Icons/SrockAndInventoryIcon/SrockAndInventoryIcon";
-import ArrowUpIcon from "../components/Icons/ArrowUpIcon/ArrowUpIcon";
-import ArrowDownIcon from "../components/Icons/ArrowDownIcon/ArrowDownIcon";
+import MainLayout from "../../layouts/main-layout";
+import SrockAndInventoryHeaderIcon from "../../components/Icons/SrockAndInventoryHeaderIcon/SrockAndInventoryHeaderIcon";
+import styles from './inventory.module.css'
+import Card from "../../components/Card/card";
+import SrockAndInventoryIcon from "../../components/Icons/SrockAndInventoryIcon/SrockAndInventoryIcon";
+import ArrowUpIcon from "../../components/Icons/ArrowUpIcon/ArrowUpIcon";
+import ArrowDownIcon from "../../components/Icons/ArrowDownIcon/ArrowDownIcon";
 import Link from "next/link";
-import CustomTable from "../components/Table/CustomTable/CustomTable";
-import GroupButton from "../components/Buttons/GroupButton/GroupButton";
+import CustomTable from "../../components/Table/CustomTable/CustomTable";
+import GroupButton from "../../components/Buttons/GroupButton/GroupButton";
 
 
-
-
-
-export default function stocksAndInventory() {
+export default function Inventory() {
 
   const headers = [
     { id: 1, headerName: "S/N" },
@@ -25,9 +22,8 @@ export default function stocksAndInventory() {
     { id: 6, headerName: "QTY Purchased" },
     { id: 7, headerName: "Unit Price" },
     { id: 8, headerName: "Total Amount" },
-    { id: 9, headerName: "In-Stock" },
-    { id: 10, headerName: "Supplier" },
-    { id: 11, headerName: "Status" },
+    { id: 9, headerName: "Supplier" },
+    { id: 10, headerName: "Status" },
   ];
 
   const innerData = [
@@ -40,7 +36,6 @@ export default function stocksAndInventory() {
       Purchased: "50pcs",
       Price: "₦100.00",
       Amount: "₦5,000.00",
-      Stock: "40pcs",
       Supplier: "Big Ben’s Store",
       Status: "In stock",
     },
@@ -53,7 +48,6 @@ export default function stocksAndInventory() {
       Purchased: "50pcs",
       Price: "₦100.00",
       Amount: "₦5,000.00",
-      Stock: "40pcs",
       Supplier: "Big Ben’s Store",
       Status: "Out of Stock",
     },
@@ -66,7 +60,6 @@ export default function stocksAndInventory() {
       Purchased: "50pcs",
       Price: "₦100.00",
       Amount: "₦5,000.00",
-      Stock: "40pcs",
       Supplier: "Big Ben’s Store",
       Status: "Low in stock",
     },
@@ -79,7 +72,6 @@ export default function stocksAndInventory() {
       Purchased: "50pcs",
       Price: "₦100.00",
       Amount: "₦5,000.00",
-      Stock: "40pcs",
       Supplier: "Big Ben’s Store",
       Status: "In stock",
     },
@@ -92,7 +84,6 @@ export default function stocksAndInventory() {
       Purchased: "50pcs",
       Price: "₦100.00",
       Amount: "₦5,000.00",
-      Stock: "40pcs",
       Supplier: "Big Ben’s Store",
       Status: "In stock",
     },
@@ -105,7 +96,6 @@ export default function stocksAndInventory() {
       Purchased: "50pcs",
       Price: "₦100.00",
       Amount: "₦5,000.00",
-      Stock: "40pcs",
       Supplier: "Big Ben’s Store",
       Status: "In stock",
     },
@@ -118,7 +108,6 @@ export default function stocksAndInventory() {
       Purchased: "50pcs",
       Price: "₦100.00",
       Amount: "₦5,000.00",
-      Stock: "40pcs",
       Supplier: "Big Ben’s Store",
       Status: "In stock",
     },
@@ -131,7 +120,6 @@ export default function stocksAndInventory() {
       Purchased: "50pcs",
       Price: "₦100.00",
       Amount: "₦5,000.00",
-      Stock: "40pcs",
       Supplier: "Big Ben’s Store",
       Status: "In stock",
     },
@@ -144,7 +132,6 @@ export default function stocksAndInventory() {
       Purchased: "50pcs",
       Price: "₦100.00",
       Amount: "₦5,000.00",
-      Stock: "40pcs",
       Supplier: "Big Ben’s Store",
       Status: "In stock",
     },
@@ -157,7 +144,6 @@ export default function stocksAndInventory() {
       Purchased: "50pcs",
       Price: "₦100.00",
       Amount: "₦5,000.00",
-      Stock: "40pcs",
       Supplier: "Big Ben’s Store",
       Status: "In stock",
     },
@@ -175,15 +161,15 @@ export default function stocksAndInventory() {
             <GroupButton
                 button1Name="Stocks"
                 button2Name="Inventory"
-                activeButton="Stocks"
-                button1Href="#"
-                button2Href="/stocksAndInventory/inventory"
+                activeButton="Inventory"
+                button1Href="/stocksAndInventory"
+                button2Href="#"
                 />
   
             </div>
             <div className={styles.card}>
             <Card
-              number={"15"}
+              number={"10"}
               title="Categories"
               description="2 more than last year"
               icon={<SrockAndInventoryIcon color={"#248CD8"}/>}
@@ -191,7 +177,7 @@ export default function stocksAndInventory() {
               backgroundColor="#E8F5FF"
             />
              <Card
-              number={"800"}
+              number={"300"}
               title="Total items"
               description="10 more than last year"
               icon={<SrockAndInventoryIcon color={"#F29425"} />}
@@ -199,7 +185,7 @@ export default function stocksAndInventory() {
               backgroundColor="#FFF4E8"
             />
              <Card
-              number={"₦5,000,000"}
+              number={"₦250,000,000"}
               title="Total item cost"
               description="2.5% less than last year"
               icon={<SrockAndInventoryIcon color={"#A601FF"} />}
@@ -207,9 +193,9 @@ export default function stocksAndInventory() {
               backgroundColor="#F9EFFF"
             />
              <Card
-              number={"200"}
-              title="Items low in stock"
-              description="20 more than last week"
+              number={"20"}
+              title="Total suppliers"
+              description="2 more than last week"
               icon={<SrockAndInventoryIcon color={"#272525"} />}
               arrowIcon={<ArrowUpIcon color="#10A242" />}
               backgroundColor="#FFF8DF"
@@ -219,11 +205,11 @@ export default function stocksAndInventory() {
             <div className={styles.body}>
                 <div className={styles.UpdateStockContainer}>
                     <div>
-                       <span className={styles.title}>Update Stock List</span>
+                       <span className={styles.title}>Update Inventory Table</span>
                     </div>
                     <div>
-                     <Link href="/stocksAndInventory/add-new-item">
-                       <button className={styles.buttons}>Update Stock</button>
+                     <Link href="/stocksAndInventory/add-new-inventory">
+                       <button className={styles.buttons}>Update Inventory</button>
                       </Link>
                    </div>
                  </div>
