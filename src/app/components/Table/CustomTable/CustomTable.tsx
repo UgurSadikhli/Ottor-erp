@@ -3,6 +3,8 @@ import React, { useState, useEffect, ReactElement } from "react";
 import styles from "./CustomTable.module.css";
 import Link from "next/link";
 import SimpleCustomButton from "../../Buttons/SimpleCustomButton/SimpleCustomButton";
+import Image from "next/image";
+import { borderRadius } from "@mui/system";
 
 interface Props {
   blockTitle?: string;
@@ -21,6 +23,7 @@ interface Props {
   btnIcon?: ReactElement;
   viewTable?: string;
   onDelete?: (id: number) => void; 
+  imageSRC?:string;
 }
 
 const CustomTable = ({
@@ -35,6 +38,7 @@ const CustomTable = ({
   btnIcon,
   viewTable = "",
   onDelete, 
+  imageSRC="",
 }: Props) => {
   const [numRowsToShow, setNumRowsToShow] = useState<number>(5);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -128,37 +132,43 @@ const CustomTable = ({
             </tr>
           </thead>
           <tbody>
-            {innerData.slice(startIndex, endIndex).map((item, rowIndex) => (
-              <tr key={rowIndex}>
-                {Object.keys(item).map((key, colIndex) => (
-                  <td
-                    key={colIndex}
-                    style={getCellStyle(headers[colIndex].headerName, item[key])}
-                  >
-                    {headers[colIndex].headerName === "Action" &&
-                    item[key] === "View more" ? (
-                      <a  className={styles.view} href={viewTable}>{item[key]}</a>
-                    ) : headers[colIndex].headerName === "Action" &&
-                      item[key] === "Edit Delete" ? (
-                      <span>
-                        <button className={styles.edit}>
-                          Edit
-                        </button>{"  "}
-                        <button
-                          className={styles.delete}
-                          onClick={() => onDelete && onDelete(item.id)}
-                        >
-                          Delete
-                        </button>
-                      </span>
-                    ) : (
-                      item[key]
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
+  {innerData.slice(startIndex, endIndex).map((item, rowIndex) => (
+    <tr key={rowIndex} >
+      {Object.keys(item).map((key, colIndex) => (
+        <td 
+          key={colIndex}
+          style={getCellStyle(headers[colIndex].headerName, item[key])}
+        >
+          {headers[colIndex].headerName === "Action" &&
+            item[key] === "View more" ? (
+              <a className={styles.view} href={viewTable}>{item[key]}</a>
+            ) : headers[colIndex].headerName === "Action" &&
+            item[key] === "Edit Delete" ? (
+              <span>
+                <button className={styles.edit}>Edit</button>{"  "}
+                <button
+                  className={styles.delete}
+                  onClick={() => onDelete && onDelete(item.id)}
+                >
+                  Delete
+                </button>
+              </span>
+            ) : headers[colIndex].headerName === "Image" ? (
+              <img
+                className={styles.Image}
+                src={item[key]}
+                alt="Image"
+                width={50} 
+                height={50}
+                />
+            ) : (
+              item[key]
+            )}
+        </td>
+      ))}
+    </tr>
+  ))}
+</tbody>
         </table>
       </main>
       {shownPagination && (
