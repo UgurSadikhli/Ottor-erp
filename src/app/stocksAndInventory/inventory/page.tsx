@@ -37,7 +37,7 @@ export default function Inventory() {
       Price: "₦100.00",
       Amount: "₦5,000.00",
       Supplier: "Big Ben’s Store",
-      Status: "In stock",
+      Status: "All functioning",
     },
     {
       id: 2,
@@ -49,7 +49,7 @@ export default function Inventory() {
       Price: "₦100.00",
       Amount: "₦5,000.00",
       Supplier: "Big Ben’s Store",
-      Status: "Out of Stock",
+      Status: "All functioning",
     },
     {
       id: 3,
@@ -61,7 +61,7 @@ export default function Inventory() {
       Price: "₦100.00",
       Amount: "₦5,000.00",
       Supplier: "Big Ben’s Store",
-      Status: "Low in stock",
+      Status: "2 functioning",
     },
     {
       id: 4,
@@ -73,7 +73,7 @@ export default function Inventory() {
       Price: "₦100.00",
       Amount: "₦5,000.00",
       Supplier: "Big Ben’s Store",
-      Status: "In stock",
+      Status: "3 functioning",
     },
     {
       id: 5,
@@ -85,7 +85,7 @@ export default function Inventory() {
       Price: "₦100.00",
       Amount: "₦5,000.00",
       Supplier: "Big Ben’s Store",
-      Status: "In stock",
+      Status: "23 functioning",
     },
     {
       id: 6,
@@ -97,7 +97,7 @@ export default function Inventory() {
       Price: "₦100.00",
       Amount: "₦5,000.00",
       Supplier: "Big Ben’s Store",
-      Status: "In stock",
+      Status: "All functioning",
     },
     {
       id: 7,
@@ -109,7 +109,7 @@ export default function Inventory() {
       Price: "₦100.00",
       Amount: "₦5,000.00",
       Supplier: "Big Ben’s Store",
-      Status: "In stock",
+      Status: "All functioning",
     },
     {
       id: 8,
@@ -121,7 +121,7 @@ export default function Inventory() {
       Price: "₦100.00",
       Amount: "₦5,000.00",
       Supplier: "Big Ben’s Store",
-      Status: "In stock",
+      Status: "All functioning",
     },
     {
       id: 9,
@@ -133,7 +133,8 @@ export default function Inventory() {
       Price: "₦100.00",
       Amount: "₦5,000.00",
       Supplier: "Big Ben’s Store",
-      Status: "In stock",
+      Status: "All functioning",
+
     },
     {
       id: 10,
@@ -145,7 +146,8 @@ export default function Inventory() {
       Price: "₦100.00",
       Amount: "₦5,000.00",
       Supplier: "Big Ben’s Store",
-      Status: "In stock",
+      Status: "All functioning",
+
     },
 
   ]

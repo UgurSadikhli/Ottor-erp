@@ -92,6 +92,20 @@ const CustomTable = ({
       return { color: "green" };
     } else if (header === "Variance (₦)" && data.startsWith("-")) {
       return { color: "red" };
+    }else if (header === "Status" && data.startsWith("In stock")) {
+      return { color: "#10A242" };
+    }else if (header === "Status" && data.startsWith("Out of Stock")) {
+      return { color: "#ED3237" };
+    }else if (header === "Status" && data.startsWith("Low in stock")) {
+      return { color: "#F29425" };
+    }else if (header === "Status" && data.startsWith("All functioning")) {
+      return { color: "#10A242" };
+    } else if (header === "Status" && /^\d+ functioning$/.test(data)) {
+      return { color: "#F29425" }; 
+    }else if (header === "Status" && data.startsWith("Inprogress")) {
+      return { color: "#F29425" };
+    }else if (header === "Status" && data.startsWith("Completed")) {
+      return { color: "#10A242" };
     }
     return {};
   };
