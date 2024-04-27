@@ -1,0 +1,196 @@
+.main{
+    background-color: transparent;
+    padding: 5px 20px 30px 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.top{
+    /* background-color:blue; */
+}
+
+.body{
+    /* border-color: rgb(200, 255, 0); */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form {
+    background-color: #fff;
+    display: flex;
+    flex-direction:column ;
+    border-radius: 20px;
+    padding: 20px 15px 20px 15px;
+    gap: 25px;
+}
+
+.formTop {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formTitle {
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+.formBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/*.formBody > div {*/
+/*    !*background-color: green;*!*/
+/*    flex-grow: 1;*/
+/*    !*height: 100px;*!*/
+/*    !*width: 100px;*!*/
+/*    margin: 10px;*/
+/*}*/
+
+.leftSide {
+    display: flex;
+    /*background-color: orange;*/
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    /*background-color: green;*/
+    flex: 1;
+}
+
+.input {
+    display:none;
+}
+
+.inputLabelContainer {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+    border-radius: 50%;
+
+    border: 2px dashed #f2f2f2;
+    /*border-style: dashed;*/
+
+}
+
+.inputLabelInner {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 160px;
+    height: 160px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+}
+
+.inputDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputDescriptionTitle {
+    font-family: Nunito, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: #777777;
+}
+
+.inputDescriptionText {
+    font-family: Nunito, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.photoFrameText {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.rightSide {
+
+}
+
+.formBlock {
+    display: flex;
+    flex-direction: row;
+    gap: 15px
+}
+
+.formBottom {
+
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    /* background-color: orange; */
+}
+
+.button {
+    width: 300px;
+    height: 40px;
+    background: linear-gradient(135deg, #14ADD6 0%, #384295 100%);
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-Weight: 400;
+    line-height: 24px;
+    transition: all 0.5s ease-in-out;
+}
+.buttons:hover {
+
+    transform: scale(105%);
+}
+.dNone {
+    display: none;
+}
+
+.indexZ {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+}
+
+.justifyBetween {
+    flex: 1;
+    justify-content: space-between;
+    /*background-color: red;*/
+}
