@@ -1,6 +1,7 @@
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client';
+import { cookies } from 'next/headers'
 
 const prisma = new PrismaClient();
 const JWT_SECRET = "13KSKOA41OAQWJ11ID";
@@ -51,6 +52,8 @@ export async function POST(req: Request) {
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, {
       expiresIn: "1h",
     });
+
+    cookies().set('auth-token',token);
 
     return new NextResponse(JSON.stringify({ user, token }), {
       headers: {
