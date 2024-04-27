@@ -13,15 +13,15 @@ datasource db {
 model User{
   id    Int     @id @default(autoincrement())
   email String  @unique
-  officialEmail String  @unique
+  officialEmail String?  @unique
   emailConfirmed Boolean @default(false)
   name  String
   surname String
   password String
-  phoneNumber String
-  gender String
-  role String
-  designation String
+  phoneNumber String?
+  gender String?
+  role String?
+  designation String?
   staffId String @default(uuid())
   profileImage  String?
 }
