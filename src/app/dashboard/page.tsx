@@ -87,14 +87,49 @@ interface StaffEmployee {
 export default function Dashboard() {
   const [userInfo, setUserInfo] = useState<string>("Loading...");
 
-  const [tableData, setTableData] = useState([
-    // ["01", "Otor John", "Moderator", "IT"],
-    // ["01", "Otor John", "Moderator", "IT"],
-    // ["01", "Otor John", "Moderator", "IT"],
-    // ["01", "Otor John", "Moderator", "IT"],
-    // ["01", "Otor John", "Moderator", "IT"],
-  ]);
-  const headers = ["S/N", "Staff Name", "Staff Role", "Designation"];
+  const [tableData, setTableData] = useState([]);
+  const headersStaff = ["S/N", "Staff Name", "Staff Role", "Designation"];
+  const headersMemo = ["S/N", "Memo Title", "Sent From", "Send To","Status"];
+  const headersPaymentVoucher = ["S/N", "Subject", "Date", "Status"];
+
+  const tableDataMemo =
+    [
+      ["01", "Team Event", "Alexander Young", "Nicole Hall", "Approved"],
+      ["02", "Work Policy", "Patrick Walker", "Kimberly Lee", "Pending"],
+      ["03", "Review Reminder", "Jonathan Lewis", "Elizabeth Clark", "Rejected"],
+      ["04", "Benefits Update", "Nicholas Robinson", "Rebecca Thompson", "Approved"],
+      ["05", "Renovation Announcement", "Ryan Martin", "Ibrahim Khan", "Pending"],
+      ["06", "Emergency Drill", "Benjamin White", "Stephanie Harris", "Rejected"],
+      ["07", "Expense Reminder", "David Smith", "Fatima Ali", "Approved"],
+      ["08", "Employee Nominations", "Michael Johnson", "Emily Wilson", "Pending"],
+      ["09", "Diversity Update", "Daniel Garcia", "Samantha Martinez", "Rejected"],
+      ["10", "Product Launch", "Matthew Davis", "Ashley Hernandez", "Rejected"],
+      ["12", "Safety Training", "Christopher Miller", "Lauren Gonzalez", "Rejected"],
+      ["13", "Compliance Reminder", "Andrew Taylor", "Olivia Moore", "Rejected"],
+      ["14", "Anniversary Celebration", "James Lopez", "Amanda Jackson", "Rejected"],
+      ["15", "Feedback Session", "Sarah Brown", "Joshua Thomas", "Rejected"]
+
+  ];
+
+  const tableDataPaymentVoucher = [
+
+      ["Salary", "2024-04-01", "Approved"],
+      ["Rent", "2024-04-05", "Pending"],
+      ["Utilities", "2024-04-10", "Rejected"],
+      ["Freelancer Payment", "2024-04-15", "Approved"],
+      ["Office Supplies", "2024-04-20", "Pending"],
+      ["Marketing Campaign", "2024-04-25", "Rejected"],
+      ["Consulting Fees", "2024-04-03", "Approved"],
+      ["Travel Expenses", "2024-04-08", "Pending"],
+      ["Software Subscriptions", "2024-04-12", "Rejected"],
+      ["Vendor Payments", "2024-04-17", "Approved"],
+      ["Training Costs", "2024-04-22", "Pending"],
+      ["Insurance Premiums", "2024-04-27", "Rejected"],
+      ["Website Maintenance", "2024-04-04", "Approved"],
+      ["Legal Services", "2024-04-09", "Pending"],
+      ["Equipment Purchase", "2024-04-14", "Rejected"]
+
+  ];
 
 
   useEffect(() => {
@@ -106,6 +141,8 @@ export default function Dashboard() {
   }, []);
 
   useEffect(() => {
+    setTableData([]);
+
     const getAllEmployees = async () => {
       try {
         const response = await fetch("http://localhost:3000/api/staff/get-all-employees", {
@@ -128,7 +165,7 @@ export default function Dashboard() {
             item.designation,
           ]);
 
-          setTableData(currentData => [...currentData, ...newData]);
+          setTableData(newData);
         }
       } catch (error) {
         console.error("Error getting staff list: ", error);
@@ -181,16 +218,16 @@ export default function Dashboard() {
           />
         </div>
         <div className={styles.body}>
-          <Table tableName={"Memo"} headers={headers} tableData={tableData} />
+          <Table tableName={"Memo"} headers={headersMemo} tableData={tableDataMemo} />
           <Table
             tableName={"Staff List"}
-            headers={headers}
+            headers={headersStaff}
             tableData={tableData}
           />
           <Table
             tableName={"Payment Voucher"}
-            headers={headers}
-            tableData={tableData}
+            headers={headersPaymentVoucher}
+            tableData={tableDataPaymentVoucher}
           />
           <ChartCard
             Totalnumber={500}

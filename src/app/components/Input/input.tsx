@@ -13,7 +13,7 @@ interface InputFieldProps {
     onChange?: (value: string) => void;
 }
 
-export default function InputField({ label, placeholder, width, height, onChange }: InputFieldProps) {
+export default function InputField({ label, placeholder, width, height, onChange,isdisabled=false }: InputFieldProps) {
     const [value, setValue] = React.useState('');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,6 +32,7 @@ export default function InputField({ label, placeholder, width, height, onChange
                 value={value}
                 onChange={handleChange}
                 sx={{ width, height }}
+                disabled={isdisabled}
             />
         </FormControl>
     );

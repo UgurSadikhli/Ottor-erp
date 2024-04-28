@@ -24,6 +24,7 @@ interface Props {
   viewTable?: string;
   onDelete?: (id: number) => void; 
   imageSRC?:string;
+  editLink?:string
 }
 
 const CustomTable = ({
@@ -39,6 +40,7 @@ const CustomTable = ({
   viewTable = "",
   onDelete, 
   imageSRC="",
+                       editLink="",
 }: Props) => {
   const [numRowsToShow, setNumRowsToShow] = useState<number>(5);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -80,6 +82,7 @@ const CustomTable = ({
 
   const startIndex = (currentPage - 1) * numRowsToShow;
   const endIndex = startIndex + numRowsToShow;
+
 
   const getCellStyle = (header: string, data: string) => {
     if (header === "Status" && data === "Approved") {
@@ -159,10 +162,13 @@ const CustomTable = ({
             ) : headers[colIndex].headerName === "Action" &&
             item[key] === "Edit Delete" ? (
               <span>
-                <button className={styles.edit}>Edit</button>{"  "}
+                <a href={editLink} className={styles.view}>
+                  <button className={styles.edit}>Edit</button>{"  "}
+                </a>
+
                 <button
                   className={styles.delete}
-                  onClick={() => onDelete && onDelete(item.id)}
+                  onClick={() => onDelete && onDelete(item[0])}
                 >
                   Delete
                 </button>

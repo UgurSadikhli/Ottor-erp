@@ -8,6 +8,8 @@ interface TableProps {
 }
 
 export default function Table({tableName, headers, tableData}: TableProps) {
+
+
     return (
         <div className="table_div_main">
             <div className="table_name">

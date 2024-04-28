@@ -1,7 +1,6 @@
-
 "use client";
 import MainLayout from "../layouts/main-layout";
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./staff.module.css";
 import FloatingLabelInput from "../components/IconInput/input";
 import SelectIndicator from "../components/SelectIndicator/SelectIndicator";
@@ -10,7 +9,6 @@ import Link from "next/link";
 import CustomTable from "../components/Table/CustomTable/CustomTable";
 import HeaderStaffIcon from "../components/Icons/HeaderStaffIcon/HeaderStaffIcon";
 
-
 const SelectIndicatoroptions = [
     { value: "allStaff", label: "All Staff" },
     { value: "adminStaff", label: "Admin Staff" },
@@ -18,37 +16,119 @@ const SelectIndicatoroptions = [
     { value: "humanResourcesStaff", label: "Human Resources Staff" },
 
 ];
-const headers = [
+const headersStaff = [
     { id: 1, headerName: "S/N" },
-    { id: 2, headerName: "Circular Title" },
-    { id: 3, headerName: "Sent From" },
-    { id: 4, headerName: "Sent To" },
-    { id: 5, headerName: "Date" },
-    { id: 6, headerName: "Circular Type" },
-    { id: 7, headerName: "Action" },
-];
-
-
-
-
-const innerData = [
-    { id: 1, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Sent↗",Action:"View more"},
-    { id: 2, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},
-    { id: 3, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Sent↗",Action:"View more"},
-    { id: 4, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Sent↗",Action:"View more"},
-    { id: 5, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Sent↗",Action:"View more"},
-    { id: 6, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},
-    { id: 7, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},
-    { id: 8, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},
-    { id: 9, Title: "HR Circular for Operations Department Staff", sentFrom: "Admin, HR", sentTo: "Operations Staffs", Date: "16/11/2022",Circular:"Received↙",Action:"View more"},
+    { id: 2, headerName: "First Name" },
+    { id: 3, headerName: "Last Name" },
+    { id: 4, headerName: "Gender" },
+    { id: 5, headerName: "Phone Number" },
+    { id: 6, headerName: "Role" },
+    { id: 7, headerName: "Designation" },
+    { id: 8, headerName: "Action" },
 
 ];
+
+
+
+
+
+
+
+interface StaffEmployee {
+    id: number;
+    email: string;
+    officialEmail?: string;
+    emailConfirmed: boolean;
+    name: string;
+    surname: string;
+    password: string;
+    phoneNumber?: string;
+    gender?: string;
+    role?: string;
+    designation?: string;
+    staffId: string;
+    profileImage?: string;
+}
 export default function Staff() {
     const [inputValue, setInputValue] = useState("");
+    const [tableData, setTableData] = useState([]);
+
+
 
     const handleInputValueChange = (value: string) => {
         setInputValue(value);
-        console.log(inputValue);
+    };
+
+    const getAllEmployees = async () => {
+        try {
+            const response = await fetch("http://localhost:3000/api/staff/get-all-employees", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const responseData = await response.json();
+            if (responseData) {
+                const newData = responseData.map((item:StaffEmployee) => [
+                    item.id,
+                    item.name,
+                    item.surname,
+                    item.gender,
+                    item.phoneNumber,
+                    item.role,
+                    item.designation,
+                    "Edit Delete"
+                ]);
+
+                setTableData(newData);
+            }
+        } catch (error) {
+            console.error("Error getting staff list: ", error);
+        }
+    };
+
+
+    useEffect(() => {
+        setTableData([]);
+
+
+        getAllEmployees();
+    }, []);
+
+
+
+    const onDeleteStaffEmployee =async (id: number) => {
+        console.log(`id: ${id}`);
+        const data={
+            "id":id
+        }
+        try {
+            const response = await fetch(
+                "http://localhost:3000/api/staff/delete-employee",
+                {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                }
+            );
+
+            if (response.ok) {
+                console.log("response delete is ok");
+                setTableData([]);
+                getAllEmployees();
+            } else {
+                console.error("Login failed");
+            }
+        } catch (error) {
+            console.error("Error loginning user:", error);
+        }
     };
 
     return (
@@ -99,8 +179,10 @@ export default function Staff() {
                         blockTitle="All Staff"
                         shownPerPage
                         shownPagination
-                        headers={headers}
-                        innerData={innerData}
+                        headers={headersStaff}
+                        onDelete={onDeleteStaffEmployee}
+                        innerData={tableData}
+                        editLink={"/staff/edit-staff"}
                         viewTable="/staff/edit-staff"
                     />
                 </div>
