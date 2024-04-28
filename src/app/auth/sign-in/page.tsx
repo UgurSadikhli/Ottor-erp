@@ -39,13 +39,26 @@ const SignInPage: React.FC = () => {
       if (response.ok) {
         const responseData = await response.json();
         const { user } = responseData;
+        const otpResponse = await fetch(
+          "http://localhost:3000/api/auth/send-otp",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email: formData.email }),
+          }
+        );
 
-        console.log("Login successful");
-        console.log("Login successful");
-        console.log(response);
-        router.push("/auth/two-factor-auth");
-        localStorage.setItem("name", user.name);
-        localStorage.setItem("surname", user.surname);
+        if (otpResponse.ok) {
+          console.log("OTP sent successfully");
+          localStorage.setItem("email", formData.email);
+          localStorage.setItem("name", user.name);
+          localStorage.setItem("surname", user.surname);
+          router.push("/auth/two-factor-auth");
+        } else {
+          console.error("Failed to send OTP");
+        }
       } else {
         console.error("Login failed");
       }
