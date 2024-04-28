@@ -16,7 +16,6 @@ const SignUpPage: React.FC = () => {
         password: ''
     });
 
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -25,10 +24,7 @@ const SignUpPage: React.FC = () => {
         }));
     };
 
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-
-        console.log(formData);
         e.preventDefault();
 
         try {
@@ -42,7 +38,22 @@ const SignUpPage: React.FC = () => {
 
             if (response.ok) {
                 console.log('Registration successful');
-                console.log(response);
+
+                const otpResponse = await fetch('http://localhost:3000/api/auth/send-otp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: formData.email })
+                });
+
+                if (otpResponse.ok) {
+                    console.log('OTP sent successfully');
+                    localStorage.setItem("email",formData.email);
+                } else {
+                    console.error('Failed to send OTP');
+                }
+
                 router.push('/auth/email-verification');
             } else {
                 console.error('Registration failed');
