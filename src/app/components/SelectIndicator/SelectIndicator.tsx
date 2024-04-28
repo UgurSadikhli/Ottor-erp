@@ -34,7 +34,6 @@ interface OptionType {
     onChange,
   }) => {
     const handleOptionClick = (value: string) => {
-        console.log(`gender: ${value}`);
       onChange(value);
     };
   

@@ -64,20 +64,48 @@ const AddNewStaff = () => {
     };
 
 
-    const handleSubmit = () => {
-
-        console.log(`Name: ${name}`);
-        console.log(`Surname: ${surname}`);
-        console.log(`email: ${email}`);
-        console.log(`designation: ${designation}`);
-        console.log(`phoneNumber: ${phoneNumber}`);
-        console.log(`officialEmail: ${officialEmail}`);
-        console.log(`gender: ${gender}`);
-        console.log(`gender: ${role}`);
 
 
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
+        const formData={
+            "name":name,
+            "surname":surname,
+            "email":email,
+            "designation":designation,
+            "phoneNumber":phoneNumber,
+            "officialEmail":officialEmail,
+            "gender":gender,
+            "role":role,
+            "profileImg":selectedFile
+        }
+
+        try {
+            const response = await fetch(
+                "http://localhost:3000/api/staff/create-employee",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                }
+            );
+
+            if (response.ok) {
+                const responseData = await response.json();
+
+                console.log(responseData);
+
+            } else {
+                console.error("Add New Staff failed");
+            }
+        } catch (error) {
+            console.error("Error Add New Staff :", error);
+        }
     };
+
 
     // const handleFileChange = (event) => {
     //     const file = event.target.files[0];
@@ -204,6 +232,7 @@ const AddNewStaff = () => {
                                         placeholder="Staff ID"
                                         width={450}
                                         height={54}
+                                        isdisabled={true}
                                     />
                                     <InputField
                                         label="Official email"
@@ -217,7 +246,7 @@ const AddNewStaff = () => {
                         </div>
                         <div className={styles.formBottom}>
                             <div className={styles.buttonContainer}>
-                                <button onClick={ handleSubmit} className={styles.button}>Add Staff</button>
+                                <button onClick={handleSubmit} className={styles.button}>Add Staff</button>
                             </div>
                         </div>
                     </div>
