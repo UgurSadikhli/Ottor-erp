@@ -29,9 +29,20 @@ const SelectIndicatorOptions = {
 }
 
 
+
+
 const AddNewStaff = () => {
 
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+    const [name,setName]=useState('');
+    const [surname,setSurname]=useState('');
+    const [email,setEmail]=useState('');
+    const [designation,setDesignation]=useState('');
+    const [phoneNumber,setPhoneNumber]=useState('');
+    const [officialEmail,setOfficialEmail]=useState('');
+    const [gender,setGender]=useState('');
+    const [role,setRole]=useState('');
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
@@ -43,11 +54,27 @@ const AddNewStaff = () => {
     };
 
 
+    const handleSubmit = () => {
+
+        console.log(`Name: ${name}`);
+        console.log(`Surname: ${surname}`);
+        console.log(`Name: ${email}`);
+        console.log(`Name: ${designation}`);
+        console.log(`Name: ${phoneNumber}`);
+        console.log(`Name: ${officialEmail}`);
+        console.log(`Gender: ${gender}`);
+        console.log(`Name: ${role}`);
+
+
+
+    };
 
     // const handleFileChange = (event) => {
     //     const file = event.target.files[0];
     //     setSelectedFile(file);
     // };
+
+
 
     return (
         <MainLayout icon={<HeaderStaffIcon />} label="View, search for and add new staff" title=" All Staff" >
@@ -98,12 +125,14 @@ const AddNewStaff = () => {
                                         placeholder="Enter first name"
                                         width={450}
                                         height={54}
+                                        onChange={setName}
                                     />
                                     <InputField
                                         label="Last name"
                                         placeholder="Enter last name"
                                         width={450}
                                         height={54}
+                                        onChange={setSurname}
                                     />
                                 </div>
                                 <div className={styles.formBlock}>
@@ -112,12 +141,14 @@ const AddNewStaff = () => {
                                         placeholder="Enter email address"
                                         width={450}
                                         height={54}
+                                        onChange={setEmail}
                                     />
                                     <InputField
                                         label="Phone number"
                                         placeholder="Enter phone number"
                                         width={450}
                                         height={54}
+                                        onChange={setPhoneNumber}
                                     />
                                 </div>
                                 <div className={styles.formBlock}>
@@ -128,6 +159,7 @@ const AddNewStaff = () => {
                                         width={450}
                                         label="Gender"
                                         showLabel={true}
+                                        onChange={setGender}
                                     />
                                     <InputField
                                         label="Phone number"
@@ -166,13 +198,14 @@ const AddNewStaff = () => {
                                         placeholder="Official email"
                                         width={450}
                                         height={54}
+                                        onChange={setOfficialEmail}
                                     />
                                 </div>
                             </div>
                         </div>
                         <div className={styles.formBottom}>
                             <div className={styles.buttonContainer}>
-                                <button className={styles.button}>Add Staff</button>
+                                <button onClick={ handleSubmit} className={styles.button}>Add Staff</button>
                             </div>
                         </div>
                     </div>
