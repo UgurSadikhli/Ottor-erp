@@ -54,6 +54,7 @@ export async function POST(req: Request) {
     });
 
     cookies().set('auth-token',token);
+    cookies().set('2fa','false');
 
     return new NextResponse(JSON.stringify({ user, token }), {
       headers: {
