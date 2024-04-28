@@ -6,6 +6,7 @@ export function middleware(req: NextRequest) {
   console.log("Middleware executed");
 
   const token = req.cookies.get("auth-token");
+  const twoFA = req.cookies.get("2fa");
   const userData = req.cookies.get("user-data");
 
   // console.log(userData);
@@ -14,6 +15,10 @@ export function middleware(req: NextRequest) {
     if (!token?.value) {
       const url = req.nextUrl.clone();
       url.pathname = "/auth/sign-in";
+      return NextResponse.redirect(url);
+    } else if(twoFA?.value==='false'){
+      const url = req.nextUrl.clone();
+      url.pathname = "/auth/two-factor-auth";
       return NextResponse.redirect(url);
     }
   }
