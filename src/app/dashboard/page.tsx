@@ -12,8 +12,7 @@ import ArrowUpIcon from "@/app/components/Icons/ArrowUpIcon/ArrowUpIcon";
 import ArrowDownIcon from "@/app/components/Icons/ArrowDownIcon/ArrowDownIcon";
 import ChartCard from "@/app/components/ChartCard/ChartCard";
 import Header from "../components/Header/header";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, {useEffect,useState} from "react";
 
 function getFormattedDate() {
   const currentDate = new Date();
@@ -68,8 +67,35 @@ function getFormattedDate() {
   return formattedDate;
 }
 
+interface StaffEmployee {
+  id: number;
+  email: string;
+  officialEmail?: string;
+  emailConfirmed: boolean;
+  name: string;
+  surname: string;
+  password: string;
+  phoneNumber?: string;
+  gender?: string;
+  role?: string;
+  designation?: string;
+  staffId: string;
+  profileImage?: string;
+}
+
+
 export default function Dashboard() {
   const [userInfo, setUserInfo] = useState<string>("Loading...");
+
+  const [tableData, setTableData] = useState([
+    // ["01", "Otor John", "Moderator", "IT"],
+    // ["01", "Otor John", "Moderator", "IT"],
+    // ["01", "Otor John", "Moderator", "IT"],
+    // ["01", "Otor John", "Moderator", "IT"],
+    // ["01", "Otor John", "Moderator", "IT"],
+  ]);
+  const headers = ["S/N", "Staff Name", "Staff Role", "Designation"];
+
 
   useEffect(() => {
     const name = localStorage.getItem("name");
@@ -79,24 +105,39 @@ export default function Dashboard() {
     }
   }, []);
 
-  /*Table data start*/
-  const tableData = [
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Approved"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Pending"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Approved"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Pending"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Approved"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Pending"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
-    ["01", "Operation memo", "Otor John", "Ibrahim Sadiq", "Rejected"],
-  ];
-  const headers = ["S/N", "Memo Title", "Sent From", "Sent To", "Status"];
+  useEffect(() => {
+    const getAllEmployees = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/staff/get-all-employees", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        if (responseData) {
+          const newData = responseData.map((item:StaffEmployee) => [
+            item.id,
+            item.name,
+            item.role,
+            item.designation,
+          ]);
+
+          setTableData(currentData => [...currentData, ...newData]);
+        }
+      } catch (error) {
+        console.error("Error getting staff list: ", error);
+      }
+    };
+
+    getAllEmployees();
+  }, []);
+
 
   const formattedDate = getFormattedDate();
 

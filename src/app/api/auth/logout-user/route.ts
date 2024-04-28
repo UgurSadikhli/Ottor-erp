@@ -4,6 +4,7 @@ import { cookies } from 'next/headers'
 export async function POST(req: Request) {
     try {
         cookies().delete('auth-token');
+        cookies().delete('2fa');
 
         return new NextResponse(null, {
             headers: {

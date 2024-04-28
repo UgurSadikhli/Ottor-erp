@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client';
 import fs from "fs";
+import {cookies} from "next/headers";
 
 const prisma = new PrismaClient();
 const cacheFile = "cache.json";
@@ -64,6 +65,8 @@ export async function POST(req: Request) {
     });
 
     fs.writeFileSync(cacheFile, JSON.stringify(inMemory));
+
+    cookies().set('2fa','true');
 
     return NextResponse.json(updatedUser, { status: 200 });
   } catch (error) {

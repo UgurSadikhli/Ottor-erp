@@ -6,7 +6,7 @@ import styles from "./two-factor-auth.module.css";
 import { useRouter } from "next/navigation";
 
 const TwoFactorAuthPage: React.FC = () => {
-  const email = localStorage.getItem("email");
+  const email = localStorage?.getItem("email");
   const [otp, setOTP] = useState<string[]>(["", "", "", "", "", ""]);
   const inputRefs = useRef<HTMLInputElement[]>([]);
   const router = useRouter();
