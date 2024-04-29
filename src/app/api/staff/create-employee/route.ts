@@ -49,7 +49,8 @@ export async function POST(req: Request) {
         role: reqObject.role,
         phoneNumber: reqObject.phoneNumber,
         designation: reqObject.designation,
-        gender: reqObject.gender
+        gender: reqObject.gender,
+        profileImage: reqObject.profileImage
       },
     });
 

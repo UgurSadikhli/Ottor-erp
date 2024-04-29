@@ -106,6 +106,20 @@ const AddNewStaff = () => {
         }
     };
 
+    const handleSubmit = () => {
+
+        console.log(`Name: ${name}`);
+        console.log(`Surname: ${surname}`);
+        console.log(`Name: ${email}`);
+        console.log(`Name: ${designation}`);
+        console.log(`Name: ${phoneNumber}`);
+        console.log(`Name: ${officialEmail}`);
+        console.log(`Gender: ${gender}`);
+        console.log(`Name: ${role}`);
+
+
+
+    };
 
     // const handleFileChange = (event) => {
     //     const file = event.target.files[0];
@@ -246,7 +260,7 @@ const AddNewStaff = () => {
                         </div>
                         <div className={styles.formBottom}>
                             <div className={styles.buttonContainer}>
-                                <button onClick={handleSubmit} className={styles.button}>Add Staff</button>
+                                <button onClick={ handleSubmit} className={styles.button}>Add Staff</button>
                             </div>
                         </div>
                     </div>
