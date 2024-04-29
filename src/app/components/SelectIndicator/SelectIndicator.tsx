@@ -5,8 +5,6 @@ import Option from '@mui/joy/Option';
 import KeyboardArrowDown from "../Icons/KeyboarArrowDown/KeyboarArrowDown";
 import FormLabel from '@mui/joy/FormLabel';
 import FormControl from '@mui/joy/FormControl';
-import MenuItem from "@mui/joy/MenuItem";
-import styles from './SelectIndicator.module.css';
 
 interface OptionType {
   value: string;

@@ -113,21 +113,21 @@ export default function Dashboard() {
 
   const tableDataPaymentVoucher = [
 
-      ["Salary", "2024-04-01", "Approved"],
-      ["Rent", "2024-04-05", "Pending"],
-      ["Utilities", "2024-04-10", "Rejected"],
-      ["Freelancer Payment", "2024-04-15", "Approved"],
-      ["Office Supplies", "2024-04-20", "Pending"],
-      ["Marketing Campaign", "2024-04-25", "Rejected"],
-      ["Consulting Fees", "2024-04-03", "Approved"],
-      ["Travel Expenses", "2024-04-08", "Pending"],
-      ["Software Subscriptions", "2024-04-12", "Rejected"],
-      ["Vendor Payments", "2024-04-17", "Approved"],
-      ["Training Costs", "2024-04-22", "Pending"],
-      ["Insurance Premiums", "2024-04-27", "Rejected"],
-      ["Website Maintenance", "2024-04-04", "Approved"],
-      ["Legal Services", "2024-04-09", "Pending"],
-      ["Equipment Purchase", "2024-04-14", "Rejected"]
+      ["01", "Salary", "2024-04-01", "Approved"],
+      ["02", "Rent", "2024-04-05", "Pending"],
+      ["03", "Utilities", "2024-04-10", "Rejected"],
+      ["04", "Freelancer Payment", "2024-04-15", "Approved"],
+      ["05", "Office Supplies", "2024-04-20", "Pending"],
+      ["06", "Marketing Campaign", "2024-04-25", "Rejected"],
+      ["07", "Consulting Fees", "2024-04-03", "Approved"],
+      ["08", "Travel Expenses", "2024-04-08", "Pending"],
+      ["09", "Software Subscriptions", "2024-04-12", "Rejected"],
+      ["10", "Vendor Payments", "2024-04-17", "Approved"],
+      ["11", "Training Costs", "2024-04-22", "Pending"],
+      ["12", "Insurance Premiums", "2024-04-27", "Rejected"],
+      ["13", "Website Maintenance", "2024-04-04", "Approved"],
+      ["14", "Legal Services", "2024-04-09", "Pending"],
+      ["15", "Equipment Purchase", "2024-04-14", "Rejected"]
 
   ];
 
