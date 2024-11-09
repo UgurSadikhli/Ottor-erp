@@ -11,7 +11,7 @@ export function middleware(req: NextRequest) {
 
   // console.log(userData);
   
-  if (!req.nextUrl.pathname.startsWith("/auth")) {
+  if (req.nextUrl.pathname.startsWith("/auth")) {
     if (!token?.value) {
       const url = req.nextUrl.clone();
       url.pathname = "/auth/sign-in";
